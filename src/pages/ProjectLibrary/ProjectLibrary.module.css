@@ -1,0 +1,63 @@
+main {
+  display: grid;
+  grid-template: 28vh auto / 6.6vw 10vw 6.6vw 1fr 9vw;
+}
+
+header {
+  grid-area: 1 / 4;
+  /* background-color: #f0efef; */
+}
+
+h1 {
+  font-family: nunito;
+  font-weight: 900;
+  color: #6c6c6c;
+  margin: 10.7vh 0 2vh;
+}
+p {
+  font-family: "Open sans", sans-serif;
+  font-weight: 700;
+  color: #767676;
+  text-align: center;
+  align-self: center;
+}
+
+.left {
+  grid-area: 2 / 2;
+  background-color: #88dbff;
+}
+
+.right {
+  grid-area: 2 / 4;
+  /* background-color: #43c0f6; */
+  padding-top: 57px;
+}
+.projectsContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  /* background-color: pink; */
+}
+
+.card {
+  /* margin-top: 57px; */
+  /* height: 50vh; */
+  width: 19.3vw;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+h2 {
+  font-family: "nunito", sans-serif;
+  font-weight: 800;
+  color: #767676;
+  text-align: center;
+  line-height: 28px;
+}
+
+.cardDescription {
+  margin-bottom: 50px;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+}
