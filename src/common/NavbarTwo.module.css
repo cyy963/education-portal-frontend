@@ -1,0 +1,11 @@
+/* Styles for navbar two */
+.flex {
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
