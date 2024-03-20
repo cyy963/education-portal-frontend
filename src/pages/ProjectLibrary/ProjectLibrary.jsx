@@ -1,5 +1,10 @@
-import React from "react";
+import { Link } from "react-router-dom";
+import ProjectCard from "./components/ProjectCard";
 
 export default function ProjectLibrary() {
-  return <div>ProjectLibrary</div>;
+  return (
+    <div>
+      <ProjectCard />
+    </div>
+  );
 }
