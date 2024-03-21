@@ -12,8 +12,8 @@ export default function TeacherDashboard() {
     <div>
       <header>TOP NAV</header>
       <main className={styles.TeacherDashboard}>
-        <Dashboard user="teacher" teacherName={teacherName} />
-        <ProgressTracker />
+        <Dashboard user="teacher" teacherName='JasminaSalvador' />
+        
       </main>
       <footer>FOOTER</footer>
     </div>

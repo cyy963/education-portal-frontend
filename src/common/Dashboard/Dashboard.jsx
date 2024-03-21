@@ -5,7 +5,13 @@ import arrowLeft from '../../assets/arrowLeft.png';
 import profile from '../../assets/profile.png';
 import settings from '../../assets/settings.png';
 import logout from '../../assets/logout.png';
+import progressTracker from '../../assets/TeacherDashboard/progressTracker.png'
+import studentProfiles from '../../assets/TeacherDashboard/studentProfiles.png'
+import helpRequests from '../../assets/TeacherDashboard/helpRequests.png'
+import projectSubmissions from '../../assets/TeacherDashboard/projectSubmissions.png'
+import projectLibrary from '../../assets/TeacherDashboard/projectLibrary.png'
 
+import TabButtons from './components/TabButtons';
 
 //renders student dashboard content 
 function renderStudentDashboardContent(studentName) {
@@ -33,24 +39,54 @@ function renderTeacherDashboardContent(teacherName) {
     const teacherImagePath = `/images/teachers/${teacherName}.png`;
 
     return (
-        <>
-            <img src={teacherImagePath} alt={teacherName} className={styles.profilePic}/>
+        <>  
+            <div className={styles.profilePicContainer}>
+              <img src={teacherImagePath} alt={teacherName} className={styles.profilePic}/>
+
+            </div>
             
             <div className={styles.tabs}>
-              <Link to='progressTracker'><button>progressTracker</button></Link>
               
-              <Link to='studentProfiles'><button>studentProfiles</button></Link>
+              <NavLink to='/teacher-dashboard/progressTracker'
+              className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
+                <div className={styles.tabComponent}>
+                  <img src={progressTracker} alt="progressTracker"/>
+                  PROGRESS TRACKER
+                </div>
+              </NavLink>
+
+              <NavLink to='/teacher-dashboard/studentProfiles'
+              className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
+                <div className={styles.tabComponent}>
+                  <img src={studentProfiles} alt="studentProfiles"/>
+                  STUDENT PROFILES
+                </div>
+              </NavLink>
+
+              <NavLink to='/teacher-dashboard/helpRequests'
+              className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
+                <div className={styles.tabComponent}>
+                  <img src={helpRequests} alt="helpRequests"/>
+                  HELP REQUESTS
+                </div>
+              </NavLink>
+
+              <NavLink to='/teacher-dashboard/projectSubmissions'
+              className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
+                <div className={styles.tabComponent}>
+                  <img src={projectSubmissions} alt="projectSubmissions"/>
+                  PROJECT SUBMISSIONS
+                </div>
+              </NavLink>
+
+              <NavLink to='/teacher-dashboard/projectLibrary'
+              className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
+                <div className={styles.tabComponent}>
+                  <img src={projectLibrary} alt="projectLibrary"/>
+                  PROJECT LIBRARY
+                </div>
+              </NavLink>
               
-              <NavLink to='helpRequests' activeClassName={styles.navLinkActive}>
-                  <button>helpRequests</button>
-              </NavLink>
-              <NavLink to='projectSubmissions' activeClassName={styles.navLinkActive}>
-                <button>projectSubmissions</button>
-              </NavLink>
-              <NavLink to='projectLibrary' activeClassName={styles.navLinkActive}>
-                <button>projectLibrary</button>
-              </NavLink>
-              <Outlet/>
             </div>
         </>
     );
@@ -76,14 +112,14 @@ export default function Dashboard({ user, studentName, teacherName }) {
         <div className={`${styles.sidebar} ${isActive ? styles.isActive : ''}`}>
         
           {/* tabs */}
-          <div>
-              {renderDashboardContent()}
-          </div>
-
+          {renderDashboardContent()}
+          
           {/* toggle button */}
-          <button className={styles.sideBarToggleButton} onClick={toggleDashboard}>
-          <img src={arrowLeft} alt="Arrow Left" />
-          </button>
+          <div className={styles.toggleBtnDiv}>
+            <button className={styles.sideBarToggleButton} onClick={toggleDashboard}>
+              <img src={arrowLeft} alt="Arrow Left" />
+            </button>
+          </div>
 
           {/* footer */}
           <div className={styles.sidebarFooter}>

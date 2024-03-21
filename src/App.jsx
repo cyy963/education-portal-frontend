@@ -29,23 +29,22 @@ function App() {
           <Route path="studentProfileViewer" element={<StudentProfileViewer />} />
         </Route>
 
-        <Route path="/student-dashboard" element={<StudentDashboard />}>
-          <Route path="learningObjectives" element={<LearningObjectives />} />
+        <Route path="/student-dashboard/*" element={<StudentDashboard />}>
           <Route path="instructions" element={<Instructions />} />
           <Route path="videoTutorial" element={<VideoTutorial />} />
           <Route path="makeProject" element={<MakeProject />} />
           <Route path="submitProject" element={<SubmitProject />} />
         </Route>
 
-        <Route path="/teacher-dashboard" element={<TeacherDashboard />}>
-          <Route path="progressTracker" element={<ProgressTracker />} />
+        <Route path="/teacher-dashboard/*" element={<TeacherDashboard />}>
+          <Route index element={<ProgressTracker />} />
           <Route path="studentProfiles" element={<StudentProfiles />} />
           <Route path="helpRequests" element={<HelpRequests />} />
           <Route path="projectSubmissions" element={<ProjectSubmissions />} />
-          <Route path="projectLibrary" element={<ProjectLibrary />} />
+          <Route path="projectLibrary" element={<ProjectLibrary />} >
             <Route path="teacherProfileViewer" element={<TeacherProfileViewer />} />
+          </Route>
         </Route>
-      
       </Routes>
     </>
   );
