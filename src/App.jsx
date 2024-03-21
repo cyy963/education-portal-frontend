@@ -2,19 +2,19 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 // Importing page components
-import HelpRequests from "./pages/TeacherDashboard/components/HelpRequests.jsx";
+import HelpRequests from "./pages/TeacherDashboard/components/HelpRequests/HelpRequests.jsx";
 import Home from "./pages/Home/Home.jsx";
-import Instructions from "./pages/StudentDashboard/components/Instructions.jsx";
-import LearningObjectives from "./pages/StudentDashboard/components/LearningObjectives.jsx";
-import MakeProject from "./pages/StudentDashboard/components/MakeProject.jsx";
-import ProgressTracker from "./pages/TeacherDashboard/components/ProgressTracker.jsx";
+import Instructions from "./pages/StudentDashboard/components/Instructions/Instructions.jsx";
+import LearningObjectives from "./pages/StudentDashboard/components/LearningObjectives/LearningObjectives.jsx";
+import MakeProject from "./pages/StudentDashboard/components/MakeProject/MakeProject.jsx";
+import ProgressTracker from "./pages/TeacherDashboard/components/ProgressTracker/ProgressTracker.jsx";
 import ProjectLibrary from "./pages/ProjectLibrary/ProjectLibrary.jsx";
-import ProjectSubmissions from "./pages/TeacherDashboard/components/ProjectSubmissions.jsx";
-import StudentProfiles from "./pages/TeacherDashboard/components/StudentProfiles.jsx";
+import ProjectSubmissions from "./pages/TeacherDashboard/components/ProjectSubmissions/ProjectSubmissions.jsx";
+import StudentProfiles from "./pages/TeacherDashboard/components/StudentProfiles/StudentProfiles.jsx";
 import StudentProfileViewer from "./pages/StudentProfileViewer/StudentProfileViewer.jsx";
-import SubmitProject from "./pages/StudentDashboard/components/SubmitProject.jsx";
+import SubmitProject from "./pages/StudentDashboard/components/SubmitProject/SubmitProject.jsx";
 import TeacherProfileViewer from "./pages/TeacherProfileViewer/TeacherProfileViewer.jsx";
-import VideoTutorial from "./pages/StudentDashboard/components/VideoTutorial.jsx";
+import VideoTutorial from "./pages/StudentDashboard/components/VideoTutorial/VideoTutorial.jsx";
 import StudentDashboard from "./pages/StudentDashboard/StudentDashboard.jsx";
 import TeacherDashboard from "./pages/TeacherDashboard/TeacherDashboard.jsx";
 
