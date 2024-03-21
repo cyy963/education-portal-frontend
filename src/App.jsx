@@ -20,25 +20,25 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/helpRequests" element={<HelpRequests />} />
+        <Route path="/help-requests" element={<HelpRequests />} />
         <Route path="/" element={<Home />} />
         <Route path="/instructions" element={<Instructions />} />
-        <Route path="/learningObjectives" element={<LearningObjectives />} />
-        <Route path="/makeProject" element={<MakeProject />} />
-        <Route path="/progressTracker" element={<ProgressTracker />} />
-        <Route path="/projectLibrary" element={<ProjectLibrary />} />
-        <Route path="/projectSubmissions" element={<ProjectSubmissions />} />
-        <Route path="/studentProfiles" element={<StudentProfiles />} />
+        <Route path="/learning-objectives" element={<LearningObjectives />} />
+        <Route path="/make-project" element={<MakeProject />} />
+        <Route path="/progress-tracker" element={<ProgressTracker />} />
+        <Route path="/project-library" element={<ProjectLibrary />} />
+        <Route path="/project-submissions" element={<ProjectSubmissions />} />
+        <Route path="/student-profiles" element={<StudentProfiles />} />
         <Route
-          path="/studentProfileViewer"
+          path="/student-profile-viewer"
           element={<StudentProfileViewer />}
         />
-        <Route path="/submitProject" element={<SubmitProject />} />
+        <Route path="/submit-project" element={<SubmitProject />} />
         <Route
-          path="/teacherProfileViewer"
+          path="/teacher-profile-viewer"
           element={<TeacherProfileViewer />}
         />
-        <Route path="/videoTutorial" element={<VideoTutorial />} />
+        <Route path="/video-tutorial" element={<VideoTutorial />} />
       </Routes>
     </>
   );

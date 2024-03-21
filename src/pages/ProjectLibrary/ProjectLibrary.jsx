@@ -15,7 +15,7 @@ export default function ProjectLibrary() {
           <h1>PROJECTS</h1>
           <p>
             Welcome to the project library. You can use the filters on the right
-            ot help you search for specific projects.
+            to help you search for specific projects.
           </p>
         </header>
 
