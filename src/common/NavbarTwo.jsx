@@ -15,7 +15,7 @@ export default function NavbarTwo(props) {
   return (
     <div className={styles.flex}>
       <div className={styles.grid}>
-        <img src={logo} alt="Logo" />
+        <img src={logo} alt="Logo" className={styles.logo} />
         {/* If student display NavbarTwoProject */}
         {props.page === "student" ? <NavbarTwoProject /> : ""}
       </div>
@@ -35,8 +35,8 @@ export default function NavbarTwo(props) {
           </div>
         )}
         <div>
-          <img src={nzFlag} alt="NZ flag" />
-          <img src={maoriFlag} alt="Maori flag" />
+          <img src={nzFlag} alt="NZ flag" className={styles.flag} />
+          <img src={maoriFlag} alt="Maori flag" className={styles.flag} />
         </div>
       </div>
     </div>
