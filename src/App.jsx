@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 
 // Importing page components
@@ -23,7 +23,10 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/student-dashboard" element={<StudentDashboard />}>
+        <Route
+          path="/student-dashboard"
+          element={<Navigate to="/student-dashboard/learning-objectives" />}
+        >
           {/* Routes that are a subset of student dashboard */}
           <Route path="instructions" element={<Instructions />} />
           <Route path="learning-objectives" element={<LearningObjectives />} />
@@ -32,7 +35,10 @@ function App() {
           <Route path="submit-project" element={<SubmitProject />} />
         </Route>
 
-        <Route path="/teacher-dashboard" element={<TeacherDashboard />}>
+        <Route
+          path="/teacher-dashboard"
+          element={<Navigate to="/teacher-dashboard/progressTracker" />}
+        >
           {/* Routes that are a subset fo teacher dash-board */}
           <Route path="help-requests" element={<HelpRequests />} />
           <Route path="progress-tracker" element={<ProgressTracker />} />
