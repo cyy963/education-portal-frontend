@@ -94,12 +94,13 @@ function renderTeacherDashboardContent(teacherName) {
 
 //main dashboard function
 export default function Dashboard({ user, studentName, teacherName }) {
+    //defines usestate for dashboard activity
     const [isActive, setIsActive] = useState(false);
-
+    //function for active state toggle
     const toggleDashboard = () => {
         setIsActive(!isActive);
     };
-
+    //function that renders dashboard content based on user
     const renderDashboardContent = () => {
         if (user === 'teacher') {
             return renderTeacherDashboardContent(teacherName);
@@ -107,7 +108,7 @@ export default function Dashboard({ user, studentName, teacherName }) {
             return renderStudentDashboardContent(studentName);
         }
     };
-
+    //renders 
     return (
         <div className={`${styles.sidebar} ${isActive ? styles.isActive : ''}`}>
         
@@ -123,9 +124,9 @@ export default function Dashboard({ user, studentName, teacherName }) {
 
           {/* footer */}
           <div className={styles.sidebarFooter}>
-              <button className={styles.footerBtns}><img src={profile} alt="profile"/></button>
-              <button className={styles.footerBtns}><img src={settings} alt="settings" /></button>
-              <button className={styles.footerBtns}><img src={logout} alt="logout" /></button>
+              <button className={styles.footerBtns}><img src={profile} alt="profile"/>Profile</button>
+              <button className={styles.footerBtns}><img src={settings} alt="settings" />Settings</button>
+              <button className={styles.footerBtns}><img src={logout} alt="logout" />Log Out</button>
           </div>
             
         </div>

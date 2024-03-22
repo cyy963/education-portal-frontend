@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 
 // Importing page components
@@ -25,19 +25,34 @@ function App() {
         
         <Route path="/" element={<Home />} />
 
+        {/* Redirect from /teacher-dashboard to /teacher-dashboard/progressTracker */}
+        <Route
+          path="/teacher-dashboard"
+          element={<Navigate to="/teacher-dashboard/progressTracker" />}
+        />
+        <Route
+          path="/student-dashboard"
+          element={<Navigate to="/student-dashboard/learning-objectives" />}
+        />
+
+
         <Route path="/projectLibrary" element={<ProjectLibrary />}>
           <Route path="studentProfileViewer" element={<StudentProfileViewer />} />
         </Route>
 
-        <Route path="/student-dashboard/*" element={<StudentDashboard />}>
-          <Route path="instructions" element={<Instructions />} />
-          <Route path="videoTutorial" element={<VideoTutorial />} />
-          <Route path="makeProject" element={<MakeProject />} />
-          <Route path="submitProject" element={<SubmitProject />} />
+        <Route
+          path="/teacher-dashboard"
+          element={<Navigate to="/teacher-dashboard/progressTracker" />}
+        >
+          {/* Routes that are a subset fo teacher dash-board */}
+          <Route path="help-requests" element={<HelpRequests />} />
+          <Route path="progress-tracker" element={<ProgressTracker />} />
+          <Route path="project-submissions" element={<ProjectSubmissions />} />
+          <Route path="student-profiles" element={<StudentProfiles />} />
         </Route>
 
-        <Route path="/teacher-dashboard/*" element={<TeacherDashboard />}>
-          <Route index element={<ProgressTracker />} />
+        <Route path="/teacher-dashboard" element={<TeacherDashboard />}>
+          <Route path="progressTracker" element={<ProgressTracker />} />
           <Route path="studentProfiles" element={<StudentProfiles />} />
           <Route path="helpRequests" element={<HelpRequests />} />
           <Route path="projectSubmissions" element={<ProjectSubmissions />} />

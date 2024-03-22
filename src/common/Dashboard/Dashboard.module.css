@@ -8,15 +8,6 @@
     flex-direction: column;
 }
 
-.sideBarToggleButton{
-    width: 4rem;
-    height: 4rem;
-    border: none;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    background-color: #B2E4FA;
-}
-
 .profilePicContainer{
     display: flex;
     justify-content: center;
@@ -52,11 +43,10 @@ text-decoration: none;
 }
 
 .tabs img{
-    height: 28%;
+    height: 45%;
     width: auto;
     max-width: 15%;
     /* outline: 3px solid red; */
-    
     vertical-align: middle;
     margin: 15px;
     
@@ -98,9 +88,27 @@ text-decoration: none;
     justify-content: flex-end;
 }
 
+.sideBarToggleButton{
+    width: 3.6rem;
+    height: 4rem;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: #B2E4FA;
+}
+
 .footerBtns{
     background: transparent;
     border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    justify-content: flex-end;
+    font-family: Open Sans, Regular;
+    font-size: 12px;
+    font-weight: 630;
 }
 
 .sidebarFooter{
@@ -110,6 +118,12 @@ text-decoration: none;
     justify-content: space-evenly;
     width: 100%;
     margin: 20px auto;
+}
+
+.sidebarFooter img{
+    width: 40%;
+    height: 33%;
+    margin: 10px;
 }
 
 .isActive{
