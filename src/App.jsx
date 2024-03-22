@@ -21,12 +21,19 @@ import TeacherDashboard from "./pages/TeacherDashboard/TeacherDashboard.jsx";
 function App() {
   return (
     <>
+      {/* Sets default root */}
+      <Route
+        path="/teacher-dashboard"
+        element={<Navigate to="/teacher-dashboard/progressTracker" />}
+      />
+      <Route
+        path="/student-dashboard"
+        element={<Navigate to="/student-dashboard/learning-objectives" />}
+      />
+
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/student-dashboard"
-          element={<Navigate to="/student-dashboard/learning-objectives" />}
-        >
+        <Route path="/student-dashboard" element={<StudentDashboard />}>
           {/* Routes that are a subset of student dashboard */}
           <Route path="instructions" element={<Instructions />} />
           <Route path="learning-objectives" element={<LearningObjectives />} />
@@ -35,10 +42,7 @@ function App() {
           <Route path="submit-project" element={<SubmitProject />} />
         </Route>
 
-        <Route
-          path="/teacher-dashboard"
-          element={<Navigate to="/teacher-dashboard/progressTracker" />}
-        >
+        <Route path="/teacher-dashboard" element={<TeacherDashboard />}>
           {/* Routes that are a subset fo teacher dash-board */}
           <Route path="help-requests" element={<HelpRequests />} />
           <Route path="progress-tracker" element={<ProgressTracker />} />
