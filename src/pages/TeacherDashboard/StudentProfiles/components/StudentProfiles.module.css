@@ -1,0 +1,36 @@
+.body{
+    height: 90%;
+    width: 90%;
+    outline: 2px solid red;
+    background-color: #FFFFFF80;
+    margin: 50px 25px 50px 0px;
+    border-radius: 22px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+   
+    /* flex-direction: column; */
+}
+
+.studentsProfileContainer{
+    outline: 2px solid rgb(0, 0, 255);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Five columns of equal width */
+    grid-template-rows: repeat(3, 100px); /* Three rows with fixed height of 100px */
+    grid-gap: 55px; /* Gap between grid items */
+    height: 100%;
+    width: 100%;
+    padding: 6.5rem;
+    align-items: center;
+    
+}
+
+.studentProfile{
+    outline: 2px solid orange;
+    background-color: white;
+    width: 8rem;
+    height: 7.5rem;
+    
+    border-radius: 10px;
+}

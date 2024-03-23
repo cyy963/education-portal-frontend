@@ -42,7 +42,6 @@ function renderTeacherDashboardContent(teacherName) {
         <>  
             <div className={styles.profilePicContainer}>
               <img src={teacherImagePath} alt={teacherName} className={styles.profilePic}/>
-
             </div>
             
             <div className={styles.tabs}>
@@ -86,7 +85,7 @@ function renderTeacherDashboardContent(teacherName) {
                   PROJECT LIBRARY
                 </div>
               </NavLink>
-              
+
             </div>
         </>
     );
@@ -110,25 +109,33 @@ export default function Dashboard({ user, studentName, teacherName }) {
     };
     //renders 
     return (
-        <div className={`${styles.sidebar} ${isActive ? styles.isActive : ''}`}>
-        
-          {/* tabs */}
-          {renderDashboardContent()}
+        <main className={styles.mainBody}>
+          <div className={`${styles.dashboard} ${isActive ? styles.isActive : ''}`}>
           
-          {/* toggle button */}
-          <div className={styles.toggleBtnDiv}>
-            <button className={styles.sideBarToggleButton} onClick={toggleDashboard}>
-              <img src={arrowLeft} alt="Arrow Left" />
-            </button>
+            {/* tabs */}
+            {renderDashboardContent()}
+
+            {/* toggle button */}
+            <div className={styles.toggleBtnDiv}>
+              <button className={styles.dashboardToggleButton} onClick={toggleDashboard}>
+                <img src={arrowLeft} alt="Arrow Left" />
+              </button>
+            </div>
+
+            {/* footer */}
+            <div className={styles.dashboardFooter}>
+                <button className={styles.footerBtns}><img src={profile} alt="profile"/>Profile</button>
+                <button className={styles.footerBtns}><img src={settings} alt="settings" />Settings</button>
+                <button className={styles.footerBtns}><img src={logout} alt="logout" />Log Out</button>
+            </div>
+              
           </div>
 
-          {/* footer */}
-          <div className={styles.sidebarFooter}>
-              <button className={styles.footerBtns}><img src={profile} alt="profile"/>Profile</button>
-              <button className={styles.footerBtns}><img src={settings} alt="settings" />Settings</button>
-              <button className={styles.footerBtns}><img src={logout} alt="logout" />Log Out</button>
+          {/* Use Outlet to render active page elements */}
+          <div className={styles.outletBody}>
+            <Outlet />
           </div>
-            
-        </div>
+
+        </main>
     );
 }

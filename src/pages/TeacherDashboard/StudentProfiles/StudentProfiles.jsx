@@ -1,14 +1,63 @@
 import { Link } from 'react-router-dom'
 import Dashboard from '../../../common/Dashboard/Dashboard.jsx'
+import styles from './components/StudentProfiles.module.css';
 
 export default function StudentProfiles(){
     return(
-        <div>
-            <div>header</div>
+        <div className={styles.body}>
             
-            
-            <Dashboard />
-            <div>footer</div>
+            <div className={styles.studentsProfileContainer}>
+
+              <div className={styles.studentProfile}>
+                AIDEN ANDREWS
+              </div>
+              <div className={styles.studentProfile}>
+                AIDEN ANDREWS
+              </div>
+              <div className={styles.studentProfile}>
+                AIDEN ANDREWS
+              </div>
+              <div className={styles.studentProfile}>
+                AIDEN ANDREWS
+              </div>
+              <div className={styles.studentProfile}>
+                AIDEN ANDREWS
+              </div>
+              <div className={styles.studentProfile}>
+                AIDEN ANDREWS
+              </div>
+              <div className={styles.studentProfile}>
+                AIDEN ANDREWS
+              </div>
+              <div className={styles.studentProfile}>
+                AIDEN ANDREWS
+              </div>
+              <div className={styles.studentProfile}>
+                AIDEN ANDREWS
+              </div>
+              <div className={styles.studentProfile}>
+                AIDEN ANDREWS
+              </div>
+              <div className={styles.studentProfile}>
+                AIDEN ANDREWS
+              </div>
+              <div className={styles.studentProfile}>
+                AIDEN ANDREWS
+              </div>
+              <div className={styles.studentProfile}>
+                AIDEN ANDREWS
+              </div>
+              <div className={styles.studentProfile}>
+                AIDEN ANDREWS
+              </div>
+              <div className={styles.studentProfile}>
+                AIDEN ANDREWS
+              </div>
+
+              
+             
+
+            </div>
         </div>
     )
 }
