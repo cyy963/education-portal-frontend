@@ -1,4 +1,5 @@
 import styles from "./NavbarTwo.module.css";
+import { Link } from "react-router-dom";
 
 //Import images from assets
 import logo from "../assets/NavBar/LevelUpWorks-blue.png";
@@ -14,23 +15,35 @@ export default function NavbarTwo(props) {
   return (
     <div className={styles.flex}>
       <div className={`${styles.grid} ${styles.flex}`}>
-        <img src={logo} alt="Logo" className={styles.logo} />
+        <Link to="/">
+          <img src={logo} alt="Logo" className={styles.logo} />
+        </Link>
         {/* If student display NavbarTwoProject */}
         {props.page === "student" ? <NavbarTwoProject /> : ""}
       </div>
+
       <div className={styles.grid}>
         {props.page === "student" ? (
           <div className={`${styles.grid} ${styles.flex}`}>
             {/* Three buttons for student */}
-            <NavbarTwoButtons type="start" />
+            <Link to="/student-dashboard/make-project">
+              <NavbarTwoButtons type="start" />
+            </Link>
             <NavbarTwoButtons type="ask-for-help" />
-            <ToLibrary type="more-projects" />
+            {/* ^^ backend function */}
+            <Link to="/project-library">
+              <ToLibrary type="more-projects" />
+            </Link>
           </div>
         ) : (
-          <div className={styles.grid}>
+          <div className={`${styles.grid} ${styles.flex}`}>
             {/* Two buttons for teacher */}
-            <NavbarTwoButtons type="help-centre" />
-            <ToLibrary type="more-projects" />
+            <Link to="/teacher-dashboard/help-requests">
+              <NavbarTwoButtons type="help-centre" />
+            </Link>
+            <Link to="/project-library">
+              <ToLibrary type="more-projects" />
+            </Link>
           </div>
         )}
         <div className={styles.flexFlag}>
