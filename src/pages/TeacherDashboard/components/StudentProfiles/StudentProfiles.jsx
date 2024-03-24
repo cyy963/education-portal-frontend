@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import Dashboard from '../../../../common/Dashboard/Dashboard.jsx'
-import styles from './components/StudentProfiles.module.css';
+import styles from './StudentProfiles.module.css';
 
 export default function StudentProfiles(){
     return(

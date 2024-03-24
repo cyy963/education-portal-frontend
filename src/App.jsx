@@ -11,9 +11,9 @@ import ProgressTracker from "./pages/TeacherDashboard/components/ProgressTracker
 import ProjectLibrary from "./pages/ProjectLibrary/ProjectLibrary.jsx";
 import ProjectSubmissions from "./pages/TeacherDashboard/components/ProjectSubmissions/ProjectSubmissions.jsx";
 import StudentProfiles from "./pages/TeacherDashboard/components/StudentProfiles/StudentProfiles.jsx";
-import StudentProfileViewer from "./pages/StudentProfileViewer/StudentProfileViewer.jsx";
+import StudentProfileViewer from "./pages/ProjectLibrary/StudentProfileViewer/StudentProfileViewer.jsx";
 import SubmitProject from "./pages/StudentDashboard/components/SubmitProject/SubmitProject.jsx";
-import TeacherProfileViewer from "./pages/TeacherProfileViewer/TeacherProfileViewer.jsx";
+import TeacherProfileViewer from "./pages/ProjectLibrary/TeacherProfileViewer/TeacherProfileViewer.jsx";
 import VideoTutorial from "./pages/StudentDashboard/components/VideoTutorial/VideoTutorial.jsx";
 import StudentDashboard from "./pages/StudentDashboard/StudentDashboard.jsx";
 import TeacherDashboard from "./pages/TeacherDashboard/TeacherDashboard.jsx";
@@ -21,18 +21,14 @@ import TeacherDashboard from "./pages/TeacherDashboard/TeacherDashboard.jsx";
 function App() {
   return (
     <>
-      {/* Sets default root */}
-      <Route
-        path="/teacher-dashboard"
-        element={<Navigate to="/teacher-dashboard/progressTracker" />}
-      />
-      <Route
-        path="/student-dashboard"
-        element={<Navigate to="/student-dashboard/learning-objectives" />}
-      />
-
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/project-library" element={<ProjectLibrary />} />
+        <Route path="/student-profile-viewer" element={<StudentProfileViewer />} />
+        <Route path="/teacher-profile-viewer" element={<TeacherProfileViewer />} />
+
+        {/* redirects to learning-objectives from student-dashboard */}
+        <Route path="/student-dashboard" element={<Navigate to="/student-dashboard/learning-objectives" />} />
         <Route path="/student-dashboard" element={<StudentDashboard />}>
           {/* Routes that are a subset of student dashboard */}
           <Route path="instructions" element={<Instructions />} />
@@ -42,23 +38,15 @@ function App() {
           <Route path="submit-project" element={<SubmitProject />} />
         </Route>
 
+        {/* redirects to progress-tracker from teacher-dashboard */}
+        <Route path="/teacher-dashboard" element={<Navigate to="/teacher-dashboard/progress-tracker" />} />
         <Route path="/teacher-dashboard" element={<TeacherDashboard />}>
-          {/* Routes that are a subset fo teacher dash-board */}
+          {/* Routes that are a subset fo teacher-dashboard */}
           <Route path="help-requests" element={<HelpRequests />} />
           <Route path="progress-tracker" element={<ProgressTracker />} />
           <Route path="project-submissions" element={<ProjectSubmissions />} />
           <Route path="student-profiles" element={<StudentProfiles />} />
         </Route>
-
-        <Route path="/project-library" element={<ProjectLibrary />} />
-        <Route
-          path="/student-profile-viewer"
-          element={<StudentProfileViewer />}
-        />
-        <Route
-          path="/teacher-profile-viewer"
-          element={<TeacherProfileViewer />}
-        />
       </Routes>
     </>
   );

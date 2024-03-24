@@ -1,5 +1,5 @@
 import Dashboard from "../../../../common/Dashboard/Dashboard";
-import styles from './components/ProgressTracker.module.css';
+import styles from './ProgressTracker.module.css';
 
 export default function ProgressTracker() {
   return (
