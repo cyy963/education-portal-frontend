@@ -21,17 +21,17 @@ import TeacherDashboard from "./pages/TeacherDashboard/TeacherDashboard.jsx";
 function App() {
   return (
     <>
-      {/* Sets default root */}
-      <Route
-        path="/teacher-dashboard"
-        element={<Navigate to="/teacher-dashboard/progressTracker" />}
-      />
-      <Route
-        path="/student-dashboard"
-        element={<Navigate to="/student-dashboard/learning-objectives" />}
-      />
-
       <Routes>
+        {/* Sets default root */}
+        <Route
+          path="/teacher-dashboard"
+          element={<Navigate to="/teacher-dashboard/progressTracker" />}
+        />
+        <Route
+          path="/student-dashboard"
+          element={<Navigate to="/student-dashboard/learning-objectives" />}
+        />
+
         <Route path="/" element={<Home />} />
         <Route path="/student-dashboard" element={<StudentDashboard />}>
           {/* Routes that are a subset of student dashboard */}

@@ -1,11 +1,64 @@
 /* Styles for navbar two */
-.flex {
+h5 {
+  font-family: nunito;
+  font-size: 1em;
+  color: #6c6c6c;
+}
+
+p {
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 0.5em;
+  color: #6c6c6c;
+}
+
+.flex,
+.flexProject,
+.flexCircle {
   display: flex;
-  background-color: white;
   justify-content: space-between;
+  align-items: flex-end;
+  height: 5vh;
 }
 
 .grid {
   display: grid;
   grid-template-columns: auto auto auto;
+}
+
+.logo {
+  height: 5vh;
+  margin-right: 4vh;
+}
+
+.flag {
+  height: 15px;
+}
+
+/* CSS within other components */
+/* NavbarTwoProject */
+.flexProject {
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-right: 2vh;
+}
+
+.flexCircle {
+  align-items: center;
+}
+
+.circle,
+.circleBig {
+  height: 1.2vh;
+  width: 1.2vh;
+  border: 3px solid #43c0f6;
+  border-radius: 100%;
+  margin: 3px;
+}
+
+.circleBig {
+  background-color: #fdf7c0;
+  height: 3vh;
+  width: 3vh;
+  text-align: center;
 }
