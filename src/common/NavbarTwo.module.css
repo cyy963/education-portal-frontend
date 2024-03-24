@@ -13,7 +13,8 @@ p {
 
 .flex,
 .flexProject,
-.flexCircle {
+.flexCircle,
+.flexFlag {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -27,11 +28,22 @@ p {
 
 .logo {
   height: 5vh;
-  margin-right: 4vh;
+  margin-right: 4vw;
+  margin-left: 2vw;
+}
+
+.logo:hover {
+  cursor: pointer;
 }
 
 .flag {
-  height: 15px;
+  height: 8px;
+  margin-right: 1vw;
+  margin-top: 1vh;
+}
+
+.flexFlag {
+  align-items: flex-start;
 }
 
 /* CSS within other components */
@@ -69,7 +81,9 @@ p {
 /* Buttons */
 .start,
 .askHelp,
-.helpCentre {
+.helpCentre,
+.moreProjects,
+.backToProjects {
   border-radius: 5px;
   width: 10vw;
   color: white;
@@ -78,13 +92,41 @@ p {
   padding: 0.2vh 0;
 }
 
-.start {
+.start:hover,
+.askHelp:hover,
+.helpCentre:hover,
+.moreProjects:hover,
+.backToProjects:hover {
+  cursor: pointer;
+}
+
+.start,
+.backToProjects {
   background-color: #f4b52d;
   border: #f4b52d solid 1px;
+}
+
+.start:hover,
+.backToProjects:hover {
+  background-color: #cd9826;
 }
 
 .askHelp,
 .helpCentre {
   background-color: #ff008c;
   border: #ff008c solid 1px;
+}
+
+.askHelp:hover,
+.helpCentre:hover {
+  background-color: #a6005b;
+}
+
+.moreProjects {
+  background-color: #43c0f6;
+  border: #43c0f6 solid 1px;
+}
+
+.moreProjects:hover {
+  background-color: #38a5d4;
 }

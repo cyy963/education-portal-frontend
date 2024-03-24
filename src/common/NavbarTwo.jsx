@@ -13,14 +13,14 @@ import ToLibrary from "./ToLibrary";
 export default function NavbarTwo(props) {
   return (
     <div className={styles.flex}>
-      <div className={styles.grid}>
+      <div className={`${styles.grid} ${styles.flex}`}>
         <img src={logo} alt="Logo" className={styles.logo} />
         {/* If student display NavbarTwoProject */}
         {props.page === "student" ? <NavbarTwoProject /> : ""}
       </div>
       <div className={styles.grid}>
         {props.page === "student" ? (
-          <div className={styles.grid}>
+          <div className={`${styles.grid} ${styles.flex}`}>
             {/* Three buttons for student */}
             <NavbarTwoButtons type="start" />
             <NavbarTwoButtons type="ask-for-help" />
@@ -33,7 +33,7 @@ export default function NavbarTwo(props) {
             <ToLibrary type="more-projects" />
           </div>
         )}
-        <div>
+        <div className={styles.flexFlag}>
           <img src={nzFlag} alt="NZ flag" className={styles.flag} />
           <img src={maoriFlag} alt="Maori flag" className={styles.flag} />
         </div>

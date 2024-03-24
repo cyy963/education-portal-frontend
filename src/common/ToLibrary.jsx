@@ -1,5 +1,19 @@
-import React from "react";
+import styles from "./NavbarTwo.module.css";
 
-export default function ToLibrary(props) {
-  return <div>{props.type}</div>;
+export default function ToLibrary({ type }) {
+  return (
+    <div>
+      {type === "more-projects" ? (
+        <button className={styles.moreProjects}>More Projects</button>
+      ) : (
+        ""
+      )}
+
+      {type === "back-to-projects" ? (
+        <button className={styles.backToProjects}>BACK TO PROJECTS</button>
+      ) : (
+        ""
+      )}
+    </div>
+  );
 }
