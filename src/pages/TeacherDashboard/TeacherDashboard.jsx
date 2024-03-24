@@ -1,6 +1,6 @@
 import React from 'react';
 import Dashboard from '../../common/Dashboard/Dashboard.jsx';
-import ProgressTracker from './ProgressTracker/ProgressTracker.jsx';
+import ProgressTracker from './components/ProgressTracker/ProgressTracker.jsx';
 import styles from './TeacherDashboard.module.css';
 import { useState } from 'react';
 
