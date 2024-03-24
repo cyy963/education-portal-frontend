@@ -18,7 +18,11 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  height: 5vh;
+  height: 7vh;
+}
+
+.flex {
+  padding-bottom: 2px;
 }
 
 .grid {
@@ -27,7 +31,7 @@ p {
 }
 
 .logo {
-  height: 5vh;
+  height: 7vh;
   margin-right: 4vw;
   margin-left: 2vw;
 }
