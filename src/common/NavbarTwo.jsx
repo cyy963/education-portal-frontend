@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./NavbarTwo.module.css";
 
 //Import images from assets

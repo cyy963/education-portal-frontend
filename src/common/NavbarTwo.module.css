@@ -1,13 +1,13 @@
 /* Styles for navbar two */
 h5 {
   font-family: nunito;
-  font-size: 1em;
+  font-size: 2.2vh;
   color: #6c6c6c;
 }
 
 p {
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 0.5em;
+  font-size: 1.2vh;
   color: #6c6c6c;
 }
 
@@ -49,16 +49,42 @@ p {
 
 .circle,
 .circleBig {
-  height: 1.2vh;
-  width: 1.2vh;
+  height: 2vh;
+  width: 2vh;
   border: 3px solid #43c0f6;
   border-radius: 100%;
   margin: 3px;
 }
 
 .circleBig {
+  font-family: nunito;
+  display: flex;
   background-color: #fdf7c0;
   height: 3vh;
   width: 3vh;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Buttons */
+.start,
+.askHelp,
+.helpCentre {
+  border-radius: 5px;
+  width: 10vw;
+  color: white;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  margin-right: 1vw;
+  padding: 0.2vh 0;
+}
+
+.start {
+  background-color: #f4b52d;
+  border: #f4b52d solid 1px;
+}
+
+.askHelp,
+.helpCentre {
+  background-color: #ff008c;
+  border: #ff008c solid 1px;
 }
