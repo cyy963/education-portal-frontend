@@ -1,6 +1,11 @@
 import styles from "./SubmitProject.module.css";
+
+// Import images
 import projectImg from "../../../../assets/StudentDashboard/makeProject-screenshot.png";
 import submitPojectImg from "../../../../assets/StudentDashboard/submitProject-Photo.png";
+
+// Import components
+import SubmitProjectButtons from "./components/SubmitProjectButtons";
 
 export default function SubmitProject() {
   return (
@@ -13,7 +18,9 @@ export default function SubmitProject() {
             After completing your project, take a screenshot of your project and
             upload it here.
           </p>
+          <SubmitProjectButtons type="photo" />
         </div>
+
         <div className={styles.flex}>
           <img
             src={submitPojectImg}
@@ -26,6 +33,8 @@ export default function SubmitProject() {
             If your teacher is in the same room as you. Click the button to let
             them know you are done.
           </p>
+
+          <SubmitProjectButtons type="call" />
         </div>
       </div>
     </div>
