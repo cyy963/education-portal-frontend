@@ -25,7 +25,7 @@ function App() {
         {/* Sets default root */}
         <Route
           path="/teacher-dashboard"
-          element={<Navigate to="/teacher-dashboard/progressTracker" />}
+          element={<Navigate to="/teacher-dashboard/progress-tracker" />}
         />
         <Route
           path="/student-dashboard"
