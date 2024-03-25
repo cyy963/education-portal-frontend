@@ -61,6 +61,7 @@ html, body{
     vertical-align: middle;
     margin: 15px;
 }
+
 .navLink{
     text-decoration: none;
     background-color:  #43c0f6;
@@ -136,6 +137,38 @@ html, body{
 .isActive{
     width: 6.5rem;
     transition: width 0.3s ease-in-out;
+}
+.isActive .tabs p {
+    display: none; /* Hide the <p> element */
+}
+.isActive .tabs img {
+    display: block; /* Show the <img> element */
+    flex: 1; /* Allow the <img> to grow and take up available space */
+    max-width: 30%; /* Remove the maximum width constraint */
+    margin: 20px auto; /* Center the <img> horizontally */
+    /* outline: 2px solid red; */
+}
+/* Adjust flex properties to take up space previously occupied by <p> */
+.isActive .tabComponent {
+    align-items: center; /* Align items to the start of the flex container */
+    height: auto; /* Let the height be determined by the content (img) */
+    justify-content: center;
+}
+/* toggle arrow img */
+.isActive .dashboardToggleButton img{
+    transform: rotate(180deg);
+}
+
+.isActive .dashboardFooter{
+    display: flex;
+    flex-direction: column;
+}
+.isActive .dashboardFooter p{
+    display: none;
+}
+.isActive .dashboardFooter img{
+    max-width: 30%;
+    margin: 20px;
 }
 
 /* outlet content */

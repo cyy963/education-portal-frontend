@@ -36,7 +36,7 @@ function renderStudentDashboardContent(studentName) {
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
                   <img src={learningObjectives} alt="learning-objectives"/>
-                  LEARNING OBJECTIVES
+                  <p>LEARNING OBJECTIVES</p>
                 </div>
               </NavLink>
 
@@ -44,7 +44,7 @@ function renderStudentDashboardContent(studentName) {
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
                   <img src={instructions} alt="instructions"/>
-                  INSTRUCTIONS
+                  <p>INSTRUCTIONS</p>
                 </div>
               </NavLink>
 
@@ -52,7 +52,7 @@ function renderStudentDashboardContent(studentName) {
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
                   <img src={video} alt="video-tutorial"/>
-                  VIDEO TUTORIAL
+                  <p>VIDEO TUTORIAL</p>
                 </div>
               </NavLink>
 
@@ -60,7 +60,7 @@ function renderStudentDashboardContent(studentName) {
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
                   <img src={makeProject} alt="make-project"/>
-                  MAKE PROJECT
+                  <p>MAKE PROJECT</p>
                 </div>
               </NavLink>
 
@@ -68,7 +68,7 @@ function renderStudentDashboardContent(studentName) {
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
                   <img src={submitProject} alt="submit-project"/>
-                  SUBMIT PROJECT
+                  <p>SUBMIT PROJECT</p>
                 </div>
               </NavLink>
             </div>
@@ -91,7 +91,7 @@ function renderTeacherDashboardContent(teacherName) {
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
                   <img src={progressTracker} alt="progress-tracker"/>
-                  PROGRESS TRACKER
+                  <p>PROGRESS TRACKER</p>
                 </div>
               </NavLink>
 
@@ -99,7 +99,7 @@ function renderTeacherDashboardContent(teacherName) {
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
                   <img src={studentProfiles} alt="student-profiles"/>
-                  STUDENT PROFILES
+                  <p>STUDENT PROFILES</p>
                 </div>
               </NavLink>
 
@@ -107,7 +107,7 @@ function renderTeacherDashboardContent(teacherName) {
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
                   <img src={helpRequests} alt="help-requests"/>
-                  HELP REQUESTS
+                  <p>HELP REQUESTS</p>
                 </div>
               </NavLink>
 
@@ -115,7 +115,7 @@ function renderTeacherDashboardContent(teacherName) {
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
                   <img src={projectSubmissions} alt="project-submissions"/>
-                  PROJECT SUBMISSIONS
+                  <p>PROJECT SUBMISSIONS</p>
                 </div>
               </NavLink>
 
@@ -123,7 +123,7 @@ function renderTeacherDashboardContent(teacherName) {
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
                   <img src={projectLibrary} alt="project-library"/>
-                  PROJECT LIBRARY
+                  <p>PROJECT LIBRARY</p>
                 </div>
               </NavLink>
             </div>
@@ -164,9 +164,9 @@ export default function Dashboard({ user, studentName, teacherName }) {
 
             {/* footer */}
             <div className={styles.dashboardFooter}>
-                <button className={styles.footerBtns}><img src={profile} alt="profile"/>Profile</button>
-                <button className={styles.footerBtns}><img src={settings} alt="settings" />Settings</button>
-                <button className={styles.footerBtns}><img src={logout} alt="logout" />Log Out</button>
+                <button className={styles.footerBtns}><img src={profile} alt="profile"/><p>Profile</p></button>
+                <button className={styles.footerBtns}><img src={settings} alt="settings" /><p>Settings</p></button>
+                <button className={styles.footerBtns}><img src={logout} alt="logout" /><p>Log Out</p></button>
             </div>
               
           </div>
