@@ -20,7 +20,7 @@ export default function StudentProfileViewer() {
   ];
 
   return (
-    <main>
+    <main className={styles.main}>
       <div className={styles.left}>
         <img
           className={styles.studentImage}
@@ -32,28 +32,28 @@ export default function StudentProfileViewer() {
       </div>
 
       <div className={styles.studentInfoCard}>
-        <header className={styles.studentName}>
-          <h1>{studentInfo[0].name}</h1>
+        <header className={styles.header}>
+          <h1 className={styles.studentName}>{studentInfo[0].name}</h1>
         </header>
         <div className={styles.labels}>
-          <h2>School</h2>
-          <h2>Teacher</h2>
-          <h2>Course</h2>
-          <h2>Date of Birth</h2>
-          <h2>Contact No</h2>
-          <h2>Email Address</h2>
+          <h2 className={styles.label}>School</h2>
+          <h2 className={styles.label}>Teacher</h2>
+          <h2 className={styles.label}>Course</h2>
+          <h2 className={styles.label}>Date of Birth</h2>
+          <h2 className={styles.label}>Contact No</h2>
+          <h2 className={styles.label}>Email Address</h2>
         </div>
-        <div className={styles.detail}>
-          <p>{studentInfo[0].school}</p>
-          <p>{studentInfo[0].teacher}</p>
-          <p>{studentInfo[0].course}</p>
-          <p>{studentInfo[0].dateOfBirth}</p>
-          <p>{studentInfo[0].contactNumber}</p>
-          <p>{studentInfo[0].emailAddress}</p>
+        <div className={styles.details}>
+          <p className={styles.detail}>{studentInfo[0].school}</p>
+          <p className={styles.detail}>{studentInfo[0].teacher}</p>
+          <p className={styles.detail}>{studentInfo[0].course}</p>
+          <p className={styles.detail}>{studentInfo[0].dateOfBirth}</p>
+          <p className={styles.detail}>{studentInfo[0].contactNumber}</p>
+          <p className={styles.detail}>{studentInfo[0].emailAddress}</p>
         </div>
       </div>
 
-      <footer>
+      <footer className={styles.backButtons}>
         <Link to="/project-library">
           <button className={styles.backButton}>BACK TO PROJECTS</button>
         </Link>
