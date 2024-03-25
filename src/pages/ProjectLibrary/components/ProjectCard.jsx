@@ -11,9 +11,11 @@ export default function ProjectCard(props) {
         width="100%"
       />
       <h2>{props.name}</h2>
-      <p className={styles.cardDescription}>
-        {props.level} | {props.activity}
-      </p>
+      <div className={styles.levelActivityDescription}>
+        <p className={styles.cardDescription}>
+          {props.level} | {props.activity}
+        </p>
+      </div>
     </div>
   );
 }

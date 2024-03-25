@@ -20,16 +20,15 @@ export default function ProjectLibrary() {
         </header>
 
         {/* side filters to be start-justified */}
-        <left className={styles.left}>
+        <div className={styles.left}>
           <SideFilters />
-        </left>
+        </div>
 
         {/* right section to include 'beginner, intermediate, advanced' filters and 'show 5, 10 or All' in one line (probably as their own component(s)) 
       right section will also have project cards and back to top button.*/}
-        {/* right section to use justify-items: space-between? */}
-        <right className={styles.right}>
+        <div className={styles.right}>
           <AllProjects />
-        </right>
+        </div>
       </main>
     </div>
   );
