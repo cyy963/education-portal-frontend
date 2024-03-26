@@ -1,0 +1,68 @@
+/* Styles for submit project page */
+h3 {
+  font-family: nunito;
+  font-size: 1.3em;
+  color: #707070;
+}
+
+.text,
+.btnText {
+  font-family: "Open sans";
+  font-size: 0.8em;
+  color: #707070;
+}
+
+.flexMain {
+  background-color: #b2e4fa;
+  display: flex;
+  height: 93vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  /* Flex */
+  display: flex;
+
+  /* Design */
+  background-color: #ffffff80;
+  width: 95%;
+  height: 90%;
+  border: #ffffff80 1px solid;
+  border-radius: 30px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+}
+
+.img {
+  width: 70%;
+}
+
+#left {
+  border-right: #c7c2c2 2px solid;
+}
+
+/* Button styles */
+.button {
+  background-color: #f91c85;
+  color: white;
+  border: #f91c85 solid 2px;
+  border-radius: 20px;
+  width: 10vw;
+  padding: 2vh 0;
+}
+
+.button:hover {
+  background-color: #cb186f;
+  cursor: pointer;
+}
+
+.btnText {
+  color: white;
+}
