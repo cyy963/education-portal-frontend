@@ -1,0 +1,19 @@
+/* Styling for scrollbar
+In the css for the div that the content add: overflow-y: scroll;
+Ensure this div has a specified height
+*/
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 25px;
+  background-color: #43c0f6;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffffbf;
+  border-radius: 25px;
+}
