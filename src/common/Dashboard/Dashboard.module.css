@@ -172,7 +172,7 @@ html, body{
 }
 
 /* outlet content */
-.outletBody{
+.outletContent{
     display: flex;
     outline: 3px solid rgb(90, 28, 247);
     outline-offset: -3px;

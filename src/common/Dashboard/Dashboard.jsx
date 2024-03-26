@@ -149,7 +149,9 @@ export default function Dashboard({ user, studentName, teacherName }) {
     };
     //renders 
     return (
+        //main body of page, dashboard + page content
         <main className={styles.mainBody}>
+          {/* dashboard */}
           <div className={`${styles.dashboard} ${isActive ? styles.isActive : ''}`}>
           
             {/* tabs */}
@@ -168,14 +170,11 @@ export default function Dashboard({ user, studentName, teacherName }) {
                 <button className={styles.footerBtns}><img src={settings} alt="settings" /><p>Settings</p></button>
                 <button className={styles.footerBtns}><img src={logout} alt="logout" /><p>Log Out</p></button>
             </div>
-              
           </div>
-
-          {/* Use Outlet to render active page elements */}
-          <div className={styles.outletBody}>
+          {/* use Outlet to render active tab elements/body */}
+          <div className={styles.outletContent}>
             <Outlet />
           </div>
-
         </main>
     );
 }

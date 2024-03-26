@@ -11,9 +11,9 @@ import ProgressTracker from "./pages/TeacherDashboard/components/ProgressTracker
 import ProjectLibrary from "./pages/ProjectLibrary/ProjectLibrary.jsx";
 import ProjectSubmissions from "./pages/TeacherDashboard/components/ProjectSubmissions/ProjectSubmissions.jsx";
 import StudentProfiles from "./pages/TeacherDashboard/components/StudentProfiles/StudentProfiles.jsx";
-import StudentProfileViewer from "./pages/ProjectLibrary/StudentProfileViewer/StudentProfileViewer.jsx";
+import StudentProfileViewer from "./pages/StudentProfileViewer/StudentProfileViewer.jsx";
 import SubmitProject from "./pages/StudentDashboard/components/SubmitProject/SubmitProject.jsx";
-import TeacherProfileViewer from "./pages/ProjectLibrary/TeacherProfileViewer/TeacherProfileViewer.jsx";
+import TeacherProfileViewer from "./pages/Home/TeacherProfileViewer/TeacherProfileViewer.jsx";
 import VideoTutorial from "./pages/StudentDashboard/components/VideoTutorial/VideoTutorial.jsx";
 import StudentDashboard from "./pages/StudentDashboard/StudentDashboard.jsx";
 import TeacherDashboard from "./pages/TeacherDashboard/TeacherDashboard.jsx";
