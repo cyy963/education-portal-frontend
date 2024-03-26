@@ -1,0 +1,136 @@
+/* Styles for navbar two */
+h5 {
+  font-family: nunito;
+  font-size: 2.2vh;
+  color: #6c6c6c;
+}
+
+p {
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1.2vh;
+  color: #6c6c6c;
+}
+
+.flex,
+.flexProject,
+.flexCircle,
+.flexFlag {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 7vh;
+}
+
+.flex {
+  padding-bottom: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.logo {
+  height: 7vh;
+  margin-right: 4vw;
+  margin-left: 2vw;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.flag {
+  height: 8px;
+  margin-right: 1vw;
+  margin-top: 1vh;
+}
+
+.flexFlag {
+  align-items: flex-start;
+}
+
+/* CSS within other components */
+/* NavbarTwoProject */
+.flexProject {
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-right: 2vh;
+}
+
+.flexCircle {
+  align-items: center;
+}
+
+.circle,
+.circleBig {
+  height: 2vh;
+  width: 2vh;
+  border: 3px solid #43c0f6;
+  border-radius: 100%;
+  margin: 3px;
+}
+
+.circleBig {
+  font-family: nunito;
+  display: flex;
+  background-color: #fdf7c0;
+  height: 3vh;
+  width: 3vh;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Buttons */
+.start,
+.askHelp,
+.helpCentre,
+.moreProjects,
+.backToProjects {
+  border-radius: 5px;
+  width: 10vw;
+  color: white;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  margin-right: 1vw;
+  padding: 0.2vh 0;
+}
+
+.start:hover,
+.askHelp:hover,
+.helpCentre:hover,
+.moreProjects:hover,
+.backToProjects:hover {
+  cursor: pointer;
+}
+
+.start,
+.backToProjects {
+  background-color: #f4b52d;
+  border: #f4b52d solid 1px;
+}
+
+.start:hover,
+.backToProjects:hover {
+  background-color: #cd9826;
+}
+
+.askHelp,
+.helpCentre {
+  background-color: #ff008c;
+  border: #ff008c solid 1px;
+}
+
+.askHelp:hover,
+.helpCentre:hover {
+  background-color: #a6005b;
+}
+
+.moreProjects {
+  background-color: #43c0f6;
+  border: #43c0f6 solid 1px;
+}
+
+.moreProjects:hover {
+  background-color: #38a5d4;
+}

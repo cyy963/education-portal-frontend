@@ -22,6 +22,16 @@ function App() {
   return (
     <>
       <Routes>
+        {/* Sets default root */}
+        <Route
+          path="/teacher-dashboard"
+          element={<Navigate to="/teacher-dashboard/progress-tracker" />}
+        />
+        <Route
+          path="/student-dashboard"
+          element={<Navigate to="/student-dashboard/learning-objectives" />}
+        />
+
         <Route path="/" element={<Home />} />
         <Route path="/project-library" element={<ProjectLibrary />} />
         <Route path="/student-profile-viewer" element={<StudentProfileViewer />} />

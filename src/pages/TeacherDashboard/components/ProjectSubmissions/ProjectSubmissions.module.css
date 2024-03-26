@@ -1,0 +1,61 @@
+/* css for project submissions */
+* {
+  color: #6c6c6c;
+}
+
+.title {
+  font-family: "nunito";
+  font-size: 1.2em;
+}
+
+h4 {
+  font-size: 0.8em;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b2e4fa;
+  height: 93vh;
+}
+
+.content {
+  background-color: #ffffff80;
+  border: #ffffff80 1px solid;
+  border-radius: 30px;
+  padding: 4vw;
+  height: 90%;
+  width: 95%;
+}
+
+.flex {
+  display: flex;
+  padding-bottom: 2vh;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  margin-left: 2vw;
+}
+
+/* Styling for project submission banners */
+.submitedProject {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 15px;
+  margin-bottom: 2vh;
+}
+
+.img {
+  height: 7vh;
+  margin-top: 1vh;
+}
+
+.dateTime {
+  margin: 5vh 5vw;
+}
