@@ -1,0 +1,77 @@
+.main {
+  display: grid;
+  grid-template: minmax(12.7vw, auto) 1vw auto 16vw / 13.2vw 8.8vw 6.2vw 1fr 12.8vw;
+  background-color: #ffffff;
+}
+
+.header {
+  grid-area: 1 / 4;
+  padding: 0;
+}
+
+.title {
+  font-family: nunito, sans-serif;
+  font-weight: 850;
+  color: #6c6c6c;
+  margin: 4.1vw 0vw 1vw;
+  font-size: 2.2vw;
+}
+.description {
+  font-family: "Open sans", sans-serif;
+  font-weight: 700;
+  color: #767676;
+  font-size: 1vw;
+}
+
+.sideFilters {
+  grid-area: 2 / 2 / span 2;
+  background-color: #88dbff;
+}
+
+.projects {
+  grid-area: 3 / 4;
+}
+.projectsContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.card {
+  width: 16.4vw;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding-top: 2vw;
+}
+
+.projectName {
+  font-family: "nunito", sans-serif;
+  font-size: 1.6vw;
+  font-weight: 800;
+  color: #767676;
+  text-align: center;
+  line-height: 2vw;
+}
+
+.cardDescription {
+  margin-bottom: 50px;
+  margin-top: 10px;
+  text-align: center;
+  align-self: center;
+  font-family: "Open sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.1vw;
+  color: #767676;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.backButtons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  grid-area: 4 / 4;
+}
