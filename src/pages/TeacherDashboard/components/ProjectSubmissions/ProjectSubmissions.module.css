@@ -41,3 +41,21 @@ h4 {
   background-color: transparent;
   margin-left: 2vw;
 }
+
+/* Styling for project submission banners */
+.submitedProject {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 15px;
+  margin-bottom: 2vh;
+}
+
+.img {
+  height: 7vh;
+  margin-top: 1vh;
+}
+
+.dateTime {
+  margin: 5vh 5vw;
+}
