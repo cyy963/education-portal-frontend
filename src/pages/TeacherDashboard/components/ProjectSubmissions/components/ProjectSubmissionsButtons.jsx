@@ -5,13 +5,13 @@ export default function ProjectSubmissionsButtons({ type }) {
   if (type === "download") {
     return (
       <button className={styles.btn}>
-        <h4>DOWNLOAD</h4>
+        <h4 className={styles.btnText}>DOWNLOAD</h4>
       </button>
     );
   } else if (type === "complete") {
     return (
       <button className={styles.btn}>
-        <h4>MARK AS COMPLETE PROJECT</h4>
+        <h4 className={styles.btnText}>MARK AS COMPLETE PROJECT</h4>
       </button>
     );
   } else {

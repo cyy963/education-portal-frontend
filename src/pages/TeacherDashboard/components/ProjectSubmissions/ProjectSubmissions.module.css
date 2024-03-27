@@ -1,5 +1,6 @@
 /* css for project submissions */
-* {
+.title,
+.btnTitle {
   color: #6c6c6c;
 }
 
@@ -8,7 +9,7 @@
   font-size: 1.2em;
 }
 
-h4 {
+.btnTitle {
   font-size: 0.8em;
 }
 

@@ -1,15 +1,19 @@
 /* Styles for submit project page */
-h3 {
+.title,
+.text,
+.btnText {
+  color: #707070;
+}
+
+.title {
   font-family: nunito;
   font-size: 1.3em;
-  color: #707070;
 }
 
 .text,
 .btnText {
   font-family: "Open sans";
   font-size: 0.8em;
-  color: #707070;
 }
 
 .flexMain {
