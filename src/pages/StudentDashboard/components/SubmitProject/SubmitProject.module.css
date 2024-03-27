@@ -16,10 +16,14 @@
   font-size: 0.8em;
 }
 
+.text {
+  margin: 0 20px;
+}
+
 .flexMain {
   background-color: #b2e4fa;
   display: flex;
-  height: 93vh;
+  height: 90vh;
   justify-content: center;
   align-items: center;
 }
@@ -32,7 +36,6 @@
   background-color: #ffffff80;
   width: 95%;
   height: 90%;
-  border: #ffffff80 1px solid;
   border-radius: 30px;
 }
 
@@ -42,10 +45,12 @@
   align-items: center;
   flex-direction: column;
   width: 50%;
+  text-align: center;
 }
 
 .img {
   width: 70%;
+  margin-top: 20px;
 }
 
 #left {

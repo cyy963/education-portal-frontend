@@ -27,6 +27,7 @@ export default function NavbarTwo(props) {
           <div className={`${styles.grid} ${styles.flex}`}>
             {/* Three buttons for student */}
             <Link to="/student-dashboard/make-project">
+              {/* Make link and type variable (when button pressed they change) */}
               <NavbarTwoButtons type="start" />
             </Link>
             <NavbarTwoButtons type="ask-for-help" />
