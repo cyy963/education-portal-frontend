@@ -1,6 +1,7 @@
 import React from 'react';
 import Dashboard from '../../common/Dashboard/Dashboard.jsx';
 import { useState } from 'react';
+import FooterTwo from '../../common/FooterTwo.jsx'
 
 export default function TeacherDashboard() {
   // Assuming you have the teacher's name stored somewhere, 
@@ -16,7 +17,7 @@ export default function TeacherDashboard() {
         <Dashboard user="student" studentName='AidenAndrews' />
 
         {/* footer */}
-        <footer>FOOTER</footer>
+        <FooterTwo />
     </>
   );
 }
