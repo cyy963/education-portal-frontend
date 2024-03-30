@@ -34,7 +34,7 @@
 .projectsContainer {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  gap: 2.4vw;
 }
 
 .card {
@@ -74,4 +74,23 @@
   justify-content: flex-end;
   align-items: center;
   grid-area: 4 / 4;
+}
+
+.backToTopButton {
+  background-color: #e5ab2c;
+  border: none;
+  font-family: "Nunito", sans-serif;
+  border-radius: 5px;
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 0.9vw;
+  padding: 5px 0px;
+  width: 9.1vw;
+  margin-right: 3.1vw;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.topFilters {
+  grid-area: 2 / 4;
 }
