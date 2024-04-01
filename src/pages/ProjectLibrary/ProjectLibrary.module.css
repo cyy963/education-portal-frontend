@@ -28,6 +28,39 @@
   background-color: #88dbff;
 }
 
+.topFilters {
+  grid-area: 2 / 4;
+}
+
+.difficultyBtn {
+  background-color: #f7f0f0;
+  border: none;
+  box-shadow: 1px 1px 2px 1px #c6c9c9;
+  padding: 0.07vw 1vw;
+  color: #3b3939;
+  font-size: 0.7vw;
+  font-weight: 700;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: -0.03vw;
+}
+
+.difficultyBtn:hover {
+  cursor: pointer;
+}
+
+.allBtn {
+  border-radius: 3px 0 0 3px;
+}
+
+.advancedBtn {
+  border-radius: 0 2px 2px 0;
+}
+
+.activeDifficultyBtn {
+  background-image: linear-gradient(#5eabfb, #1183ff);
+  color: #ffffff;
+}
+
 .projects {
   grid-area: 3 / 4;
 }
@@ -89,8 +122,4 @@
   margin-right: 3.1vw;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-}
-
-.topFilters {
-  grid-area: 2 / 4;
 }

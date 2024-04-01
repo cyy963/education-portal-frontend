@@ -164,29 +164,42 @@ export default function ProjectLibrary() {
         {/* Top filter section: to include 'beginner, intermediate, advanced' filters and 'show 5, 10 or All' in one line (probably as their own component(s)) */}
         <div className={styles.topFilters}>
           <button
+            className={`${styles.difficultyBtn} ${styles.allBtn} ${
+              selectedDifficulty === "ALL" ? styles.activeDifficultyBtn : ""
+            }`}
+            onClick={() => handleDifficulty("ALL")}
+          >
+            ALL
+          </button>
+          <button
+            className={`${styles.difficultyBtn} ${
+              selectedDifficulty === "BEGINNER"
+                ? styles.activeDifficultyBtn
+                : ""
+            }`}
             onClick={() => handleDifficulty("BEGINNER")}
-            // STYLE ACTIVE BUTTON LATER
-            // isActive={(selectedDifficulty = "BEGINNER")}
           >
             BEGINNER
           </button>
           <button
+            className={`${styles.difficultyBtn} ${
+              selectedDifficulty === "INTERMEDIATE"
+                ? styles.activeDifficultyBtn
+                : ""
+            }`}
             onClick={() => handleDifficulty("INTERMEDIATE")}
-            // isActive={(selectedDifficulty = "INTERMEDIATE")}
           >
             INTERMEDIATE
           </button>
           <button
+            className={`${styles.difficultyBtn} ${styles.advancedBtn} ${
+              selectedDifficulty === "ADVANCED"
+                ? styles.activeDifficultyBtn
+                : ""
+            }`}
             onClick={() => handleDifficulty("ADVANCED")}
-            // isActive={(selectedDifficulty = "ADVANCED")}
           >
             ADVANCED
-          </button>
-          <button
-            onClick={() => handleDifficulty("ALL")}
-            // isActive={(selectedDifficulty = "ALL")}
-          >
-            ALL
           </button>
         </div>
 
