@@ -131,8 +131,10 @@ const projects = [
 
 export default function ProjectLibrary() {
   const [selectedDifficulty, setSelectedDifficulty] = useState("ALL");
+  const [resultsLimit, setResultsLimit] = useState("All");
 
   const handleDifficulty = (difficulty) => setSelectedDifficulty(difficulty);
+  const handleResultsLimit = (limit) => setResultsLimit(limit);
 
   const filteredDifficulties =
     selectedDifficulty === "ALL"
@@ -155,70 +157,104 @@ export default function ProjectLibrary() {
             to help you search for specific projects.
           </p>
         </header>
-
         {/* Side filter section: SUBSCRIPTION (Free or Premium, only one checked at a time), ACTIVITY TYPE (Animation, Game, Chatbot, Augmented Reality, multiple can be checked at a time), YEAR LEVEL (1 - 4, 5 - 6, 7 - 8, 9 - 13, multiple can be checked at a time, SUBJECT MATTER (Computer Science, Maths, Science, Language, Art, Music, multiple can be checked at a time) )  */}
         <div className={styles.sideFilters}>
           <SideFilters />
         </div>
-
-        {/* Top filter section: to include 'beginner, intermediate, advanced' filters and 'show 5, 10 or All' in one line (probably as their own component(s)) */}
+        {/* Top filter section: to include 'show 5, 10 or All' in one line (probably as their own component(s)) */}
         <div className={styles.topFilters}>
-          <button
-            className={`${styles.difficultyBtn} ${styles.allBtn} ${
-              selectedDifficulty === "ALL" ? styles.activeDifficultyBtn : ""
-            }`}
-            onClick={() => handleDifficulty("ALL")}
-          >
-            ALL
-          </button>
-          <button
-            className={`${styles.difficultyBtn} ${
-              selectedDifficulty === "BEGINNER"
-                ? styles.activeDifficultyBtn
-                : ""
-            }`}
-            onClick={() => handleDifficulty("BEGINNER")}
-          >
-            BEGINNER
-          </button>
-          <button
-            className={`${styles.difficultyBtn} ${
-              selectedDifficulty === "INTERMEDIATE"
-                ? styles.activeDifficultyBtn
-                : ""
-            }`}
-            onClick={() => handleDifficulty("INTERMEDIATE")}
-          >
-            INTERMEDIATE
-          </button>
-          <button
-            className={`${styles.difficultyBtn} ${styles.advancedBtn} ${
-              selectedDifficulty === "ADVANCED"
-                ? styles.activeDifficultyBtn
-                : ""
-            }`}
-            onClick={() => handleDifficulty("ADVANCED")}
-          >
-            ADVANCED
-          </button>
-        </div>
+          {/* Difficulty buttons */}
+          <div className={styles.difficultyBtns}>
+            <button
+              className={`${styles.difficultyBtn} ${styles.allBtn} ${
+                selectedDifficulty === "ALL" ? styles.activeDifficultyBtn : ""
+              }`}
+              onClick={() => handleDifficulty("ALL")}
+            >
+              ALL
+            </button>
+            <button
+              className={`${styles.difficultyBtn} ${
+                selectedDifficulty === "BEGINNER"
+                  ? styles.activeDifficultyBtn
+                  : ""
+              }`}
+              onClick={() => handleDifficulty("BEGINNER")}
+            >
+              BEGINNER
+            </button>
+            <button
+              className={`${styles.difficultyBtn} ${
+                selectedDifficulty === "INTERMEDIATE"
+                  ? styles.activeDifficultyBtn
+                  : ""
+              }`}
+              onClick={() => handleDifficulty("INTERMEDIATE")}
+            >
+              INTERMEDIATE
+            </button>
+            <button
+              className={`${styles.difficultyBtn} ${styles.advancedBtn} ${
+                selectedDifficulty === "ADVANCED"
+                  ? styles.activeDifficultyBtn
+                  : ""
+              }`}
+              onClick={() => handleDifficulty("ADVANCED")}
+            >
+              ADVANCED
+            </button>
+          </div>
 
+          <div className={styles.limitResultsBtns}>
+            <p className={styles.show}>SHOW</p>
+            <button
+              className={`${styles.limitResultsBtn} ${styles.fiveResultsBtn} ${
+                resultsLimit === 5 ? styles.activeResultsLimitBtn : ""
+              }`}
+              onClick={() => handleResultsLimit(5)}
+            >
+              5
+            </button>
+            <button
+              className={`${styles.limitResultsBtn} ${
+                resultsLimit === 10 ? styles.activeResultsLimitBtn : ""
+              }`}
+              onClick={() => handleResultsLimit(10)}
+            >
+              10
+            </button>
+            <button
+              className={`${styles.limitResultsBtn} ${styles.allResultsBtn} ${
+                resultsLimit === "All" ? styles.activeResultsLimitBtn : ""
+              }`}
+              onClick={() => handleResultsLimit("All")}
+            >
+              All
+            </button>
+          </div>
+        </div>
         {/* Projects section */}
         <div className={styles.projects}>
           <div className={styles.projectsContainer}>
-            {filteredDifficulties.map((project, index) => (
-              <ProjectCard
-                key={index}
-                name={project.name}
-                difficulty={project.difficulty}
-                activity={project.activity}
-                src={project.src}
-                alt={project.alt}
-              />
-            ))}
+            {filteredDifficulties
+              .slice(
+                0,
+                resultsLimit === "All"
+                  ? filteredDifficulties.length
+                  : resultsLimit
+              )
+              .map((project, index) => (
+                <ProjectCard
+                  key={index}
+                  name={project.name}
+                  difficulty={project.difficulty}
+                  activity={project.activity}
+                  src={project.src}
+                  alt={project.alt}
+                />
+              ))}
           </div>
         </div>
-
         {/* Footer: Back to top and dashboard buttons */}
         <footer className={styles.backButtons}>
           <button onClick={scrollBackToTop} className={styles.backToTopButton}>

@@ -30,35 +30,54 @@
 
 .topFilters {
   grid-area: 2 / 4;
+  display: flex;
+  justify-content: space-between;
 }
 
-.difficultyBtn {
+.limitResultsBtns {
+  display: flex;
+}
+
+.difficultyBtn,
+.limitResultsBtn {
   background-color: #f7f0f0;
   border: none;
-  box-shadow: 1px 1px 2px 1px #c6c9c9;
+  box-shadow: 0.03vw 0.03vw 0.06vw 0.03vw #c6c9c9;
   padding: 0.07vw 1vw;
   color: #3b3939;
-  font-size: 0.7vw;
+  font-size: 0.6vw;
   font-weight: 700;
   font-family: "Open Sans", sans-serif;
-  letter-spacing: -0.03vw;
 }
 
-.difficultyBtn:hover {
+.difficultyBtn:hover,
+.limitResultsBtn:hover {
   cursor: pointer;
 }
 
-.allBtn {
+.allBtn,
+.fiveResultsBtn {
   border-radius: 3px 0 0 3px;
 }
 
-.advancedBtn {
+.advancedBtn,
+.allResultsBtn {
   border-radius: 0 2px 2px 0;
 }
 
-.activeDifficultyBtn {
+.activeDifficultyBtn,
+.activeResultsLimitBtn {
   background-image: linear-gradient(#5eabfb, #1183ff);
   color: #ffffff;
+}
+
+.show {
+  font-family: "Open sans", sans-serif;
+  font-weight: 700;
+  color: #767676;
+  font-size: 0.9vw;
+  align-self: center;
+  margin-right: 1vw;
 }
 
 .projects {
