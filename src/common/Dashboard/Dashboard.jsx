@@ -156,7 +156,8 @@ export default function Dashboard({ user, studentName, teacherName }) {
         <main className={styles.mainBody}>
 
           {/* dashboard */}
-          <div className={`${styles.dashboard} ${isActive ? styles.isActive : ''}`}> 
+          <div className={`${styles.dashboard} ${isActive ? styles.isActive : ''}`}>
+
             {/* tabs */}
             {renderDashboardContent()}
 
@@ -167,7 +168,7 @@ export default function Dashboard({ user, studentName, teacherName }) {
               </button>
             </div>
 
-            {/* footer */}
+            {/* bottom nav */}
             <div className={styles.dashboardFooter}>
                 <button className={styles.footerBtns}><img src={profile} alt="profile"/><p>Profile</p></button>
                 <button className={styles.footerBtns}><img src={settings} alt="settings" /><p>Settings</p></button>
@@ -175,7 +176,7 @@ export default function Dashboard({ user, studentName, teacherName }) {
             </div>            
           </div>
 
-          {/* uses Outlet to render active tab elements/body */}
+          {/* uses Outlet to render active tab/page content */}
           <div className={styles.outletContent}>
             <Outlet />
           </div>
