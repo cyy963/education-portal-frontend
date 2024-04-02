@@ -15,7 +15,7 @@ export default function StudentProfileViewer() {
       contactNumber: "022 524 63 99",
       emailAddress: "fletchy.r@gmail.com",
       src: "/images/students/RawiriFletcher.png",
-      alt: `photo of Rawiri Fletcher's face`,
+      alt: `Headshot of student Rawiri Fletcher`,
     },
   ];
 

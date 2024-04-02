@@ -4,7 +4,7 @@ body {
 }
 
 .mainBody {
-  /* outline: 3px solid purple; */
+  /* /* outline: 3px solid purple; */ */
   display: flex;
   width: 100%;
   height: 100%;
@@ -22,11 +22,11 @@ body {
 }
 
 /* profile pic */
-.profilePicContainer {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  /* outline: 2px blue solid; */
+.profilePicContainer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* outline: 2px blue solid; */
 }
 .profilePic {
   margin: 20px;
@@ -75,15 +75,16 @@ body {
   margin-right: 10px;
   width: 100%;
 }
-.navLinkActive {
-  background-color: #b2e4fa;
-  text-decoration: none;
-  text-decoration-color: grey;
-  font-family: "Open Sans", sans-serif;
-  color: grey;
-  font-weight: 700;
-  font-size: 0.8rem;
-  width: 100%;
+.navLinkActive{
+    background-color: #B2E4FA;
+    text-decoration: none;
+    text-decoration-color: grey;
+    font-family: "Open Sans", sans-serif;
+    color: grey;
+    font-weight: 700;
+    font-size:  0.8rem;
+    width: 100%;
+    
 }
 
 /* toggle button */
@@ -133,51 +134,52 @@ body {
 }
 
 /* toggled dashboard */
-.isActive {
-  width: 6.5rem;
-  transition: width 0.3s ease-in-out;
+.isActive{
+    width: 7rem;
+    transition: width 0.3s ease-in-out;
 }
 .isActive .tabs p {
   display: none; /* Hide the <p> element */
 }
 .isActive .tabs img {
-  display: block; /* Show the <img> element */
-  flex: 1; /* Allow the <img> to grow and take up available space */
-  max-width: 30%; /* Remove the maximum width constraint */
-  margin: 20px auto; /* Center the <img> horizontally */
-  /* outline: 2px solid red; */
+    display: block; /* Show the <img> element */
+    flex: 1; /* Allow the <img> to grow and take up available space */
+    min-width: 25%; 
+    margin: 16% auto; 
+    /* outline: 2px solid red; */
 }
-/* Adjust flex properties to take up space previously occupied by <p> */
 .isActive .tabComponent {
-  align-items: center; /* Align items to the start of the flex container */
-  height: auto; /* Let the height be determined by the content (img) */
-  justify-content: center;
+    align-items: center; 
+    height: auto; 
+    justify-content: center;
 }
 /* toggle arrow img */
 .isActive .dashboardToggleButton img {
   transform: rotate(180deg);
 }
 
-.isActive .dashboardFooter {
-  display: flex;
-  flex-direction: column;
+.isActive .dashboardFooter{
+    display: flex;
+    flex-direction: column;
+    margin: 10% 0%;
 }
 .isActive .dashboardFooter p {
   display: none;
 }
-.isActive .dashboardFooter img {
-  max-width: 30%;
-  margin: 20px;
+.isActive .dashboardFooter img{
+    max-width: 23%;
+    margin: 15%;
+    /* outline: 2px solid red; */
 }
 
 /* outlet content */
-.outletContent {
-  display: flex;
-  /* outline: 3px solid rgb(90, 28, 247); */
-  outline-offset: -3px;
-  width: 100%;
-  height: 89vh;
-  background-color: #b2e4fa;
-  justify-content: center;
-  align-items: center;
+.outletContent{
+    display: flex;
+    /* outline: 3px solid rgb(90, 28, 247); */
+    outline-offset: -3px;
+    width: 100%;
+    height: 89vh;
+    background-color: #B2E4FA;
+    justify-content: center;
+    align-items: center;
 }

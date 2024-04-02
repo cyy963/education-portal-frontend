@@ -5,6 +5,7 @@ export default function Home() {
     <div>
       <h1>home</h1>
       <Link to='/teacher-dashboard'>Go to Teacher Dashboard</Link>
+      <br/>
       <Link to='/student-dashboard'>Go to Student Dashboard</Link>
     </div>
   )
