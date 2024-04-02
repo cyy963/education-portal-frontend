@@ -36,6 +36,7 @@
 
 .limitResultsBtns {
   display: flex;
+  margin-right: 0.5vw;
 }
 
 .difficultyBtn,
@@ -86,7 +87,7 @@
 .projectsContainer {
   display: flex;
   flex-flow: row wrap;
-  gap: 2.4vw;
+  gap: 4.45vw;
 }
 
 .card {
