@@ -3,7 +3,7 @@ html, body{
 }
 
 .mainBody{
-    outline: 3px solid purple;
+    /* outline: 3px solid purple; */
     display: flex;
     width: 100%;
     height: 100%;
@@ -26,7 +26,6 @@ html, body{
     justify-content: center;
     width: 100%;
     /* outline: 2px blue solid; */
-
 }
 .profilePic{
     margin: 20px;
@@ -85,6 +84,7 @@ html, body{
     font-weight: 700;
     font-size:  0.8rem;
     width: 100%;
+    
 }
 
 /* toggle button */
@@ -135,7 +135,7 @@ html, body{
 
 /* toggled dashboard */
 .isActive{
-    width: 6.5rem;
+    width: 7rem;
     transition: width 0.3s ease-in-out;
 }
 .isActive .tabs p {
@@ -144,14 +144,13 @@ html, body{
 .isActive .tabs img {
     display: block; /* Show the <img> element */
     flex: 1; /* Allow the <img> to grow and take up available space */
-    max-width: 30%; /* Remove the maximum width constraint */
-    margin: 20px auto; /* Center the <img> horizontally */
+    min-width: 25%; 
+    margin: 16% auto; 
     /* outline: 2px solid red; */
 }
-/* Adjust flex properties to take up space previously occupied by <p> */
 .isActive .tabComponent {
-    align-items: center; /* Align items to the start of the flex container */
-    height: auto; /* Let the height be determined by the content (img) */
+    align-items: center; 
+    height: auto; 
     justify-content: center;
 }
 /* toggle arrow img */
@@ -162,19 +161,21 @@ html, body{
 .isActive .dashboardFooter{
     display: flex;
     flex-direction: column;
+    margin: 10% 0%;
 }
 .isActive .dashboardFooter p{
     display: none;
 }
 .isActive .dashboardFooter img{
-    max-width: 30%;
-    margin: 20px;
+    max-width: 23%;
+    margin: 15%;
+    /* outline: 2px solid red; */
 }
 
 /* outlet content */
 .outletContent{
     display: flex;
-    outline: 3px solid rgb(90, 28, 247);
+    /* outline: 3px solid rgb(90, 28, 247); */
     outline-offset: -3px;
     width: 100%;
     height: 89vh;
