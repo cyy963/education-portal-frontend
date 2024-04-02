@@ -1,186 +1,183 @@
-html, body{
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
-.mainBody{
-    outline: 3px solid purple;
-    display: flex;
-    width: 100%;
-    height: 100%;
+.mainBody {
+  /* outline: 3px solid purple; */
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
 /* dashboard div */
-.dashboard{
-    background-color: #43C0F6;
-    height: 89vh;
-    width: 16rem;
-    transition: width 0.3s ease-in-out;
-    display: flex;
-    position: relative;
-    flex-direction: column;
+.dashboard {
+  background-color: #43c0f6;
+  height: 89vh;
+  width: 16rem;
+  transition: width 0.3s ease-in-out;
+  display: flex;
+  position: relative;
+  flex-direction: column;
 }
 
 /* profile pic */
-.profilePicContainer{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    /* outline: 2px blue solid; */
-
+.profilePicContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* outline: 2px blue solid; */
 }
-.profilePic{
-    margin: 20px;
-    width: 5rem;
-    height: auto;
+.profilePic {
+  margin: 20px;
+  width: 5rem;
+  height: auto;
 }
 
 /* tabs */
-.tabs{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    width: 100%;
-    text-decoration: none;
-    /* outline: red 3px solid; */
+.tabs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 100%;
+  text-decoration: none;
+  /* outline: red 3px solid; */
 }
-.tabComponent{
-    display: flex;
-    justify-content:flex-start;
-    /* outline: 3px solid purple; */
-    align-items: center;
-    width: 100%;
-    height: 6.8vh;
-    
+.tabComponent {
+  display: flex;
+  justify-content: flex-start;
+  /* outline: 3px solid purple; */
+  align-items: center;
+  width: 100%;
+  height: 6.8vh;
 }
-.tabs img{
-    height: 45%;
-    width: auto;
-    max-width: 15%;
-    /* outline: 3px solid red; */
-    vertical-align: middle;
-    margin: 15px;
+.tabs img {
+  height: 45%;
+  width: auto;
+  max-width: 15%;
+  /* outline: 3px solid red; */
+  vertical-align: middle;
+  margin: 15px;
 }
 
-.navLink{
-    text-decoration: none;
-    background-color:  #43c0f6;
-    color: white;
-    font-weight: 700;
-    font-size:  0.8rem;
-    font-family: Open Sans, Bold;
-    border: none;
-    /* outline: 2px blue solid; */
-    cursor: pointer;
-    vertical-align: middle;
-    margin-right: 10px;
-    width: 100%;
+.navLink {
+  text-decoration: none;
+  background-color: #43c0f6;
+  color: white;
+  font-weight: 700;
+  font-size: 0.8rem;
+  font-family: Open Sans, Bold;
+  border: none;
+  /* outline: 2px blue solid; */
+  cursor: pointer;
+  vertical-align: middle;
+  margin-right: 10px;
+  width: 100%;
 }
-.navLinkActive{
-    background-color: #B2E4FA;
-    text-decoration: none;
-    text-decoration-color: grey;
-    font-family: "Open Sans", sans-serif;
-    color: grey;
-    font-weight: 700;
-    font-size:  0.8rem;
-    width: 100%;
+.navLinkActive {
+  background-color: #b2e4fa;
+  text-decoration: none;
+  text-decoration-color: grey;
+  font-family: "Open Sans", sans-serif;
+  color: grey;
+  font-weight: 700;
+  font-size: 0.8rem;
+  width: 100%;
 }
 
 /* toggle button */
-.toggleBtnDiv{
-    display: flex;
-    height: auto;
-    width: 100%;
-    margin-top: 20px;
-    align-items: center;
-    justify-content: flex-end;
+.toggleBtnDiv {
+  display: flex;
+  height: auto;
+  width: 100%;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: flex-end;
 }
-.dashboardToggleButton{
-    width: 3.6rem;
-    height: 4rem;
-    border: none;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    background-color: #B2E4FA;
+.dashboardToggleButton {
+  width: 3.6rem;
+  height: 4rem;
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: #b2e4fa;
 }
 
 /* dashboard footer */
-.dashboardFooter{
-    bottom: 0px;
-    position: absolute;
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    margin: 20px auto;
+.dashboardFooter {
+  bottom: 0px;
+  position: absolute;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 20px auto;
 }
-.footerBtns{
-    background: transparent;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    color: white;
-    justify-content: flex-end;
-    font-family: Open Sans, Regular;
-    font-size: 12px;
-    font-weight: 630;
+.footerBtns {
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  justify-content: flex-end;
+  font-family: Open Sans, Regular;
+  font-size: 12px;
+  font-weight: 630;
 }
-.dashboardFooter img{
-    width: 40%;
-    height: 33%;
-    margin: 10px;
+.dashboardFooter img {
+  width: 40%;
+  height: 33%;
+  margin: 10px;
 }
 
 /* toggled dashboard */
-.isActive{
-    width: 6.5rem;
-    transition: width 0.3s ease-in-out;
+.isActive {
+  width: 6.5rem;
+  transition: width 0.3s ease-in-out;
 }
 .isActive .tabs p {
-    display: none; /* Hide the <p> element */
+  display: none; /* Hide the <p> element */
 }
 .isActive .tabs img {
-    display: block; /* Show the <img> element */
-    flex: 1; /* Allow the <img> to grow and take up available space */
-    max-width: 30%; /* Remove the maximum width constraint */
-    margin: 20px auto; /* Center the <img> horizontally */
-    /* outline: 2px solid red; */
+  display: block; /* Show the <img> element */
+  flex: 1; /* Allow the <img> to grow and take up available space */
+  max-width: 30%; /* Remove the maximum width constraint */
+  margin: 20px auto; /* Center the <img> horizontally */
+  /* outline: 2px solid red; */
 }
 /* Adjust flex properties to take up space previously occupied by <p> */
 .isActive .tabComponent {
-    align-items: center; /* Align items to the start of the flex container */
-    height: auto; /* Let the height be determined by the content (img) */
-    justify-content: center;
+  align-items: center; /* Align items to the start of the flex container */
+  height: auto; /* Let the height be determined by the content (img) */
+  justify-content: center;
 }
 /* toggle arrow img */
-.isActive .dashboardToggleButton img{
-    transform: rotate(180deg);
+.isActive .dashboardToggleButton img {
+  transform: rotate(180deg);
 }
 
-.isActive .dashboardFooter{
-    display: flex;
-    flex-direction: column;
+.isActive .dashboardFooter {
+  display: flex;
+  flex-direction: column;
 }
-.isActive .dashboardFooter p{
-    display: none;
+.isActive .dashboardFooter p {
+  display: none;
 }
-.isActive .dashboardFooter img{
-    max-width: 30%;
-    margin: 20px;
+.isActive .dashboardFooter img {
+  max-width: 30%;
+  margin: 20px;
 }
 
 /* outlet content */
-.outletContent{
-    display: flex;
-    outline: 3px solid rgb(90, 28, 247);
-    outline-offset: -3px;
-    width: 100%;
-    height: 89vh;
-    background-color: #B2E4FA;
-    justify-content: center;
-    align-items: center;
+.outletContent {
+  display: flex;
+  /* outline: 3px solid rgb(90, 28, 247); */
+  outline-offset: -3px;
+  width: 100%;
+  height: 89vh;
+  background-color: #b2e4fa;
+  justify-content: center;
+  align-items: center;
 }
-
-
