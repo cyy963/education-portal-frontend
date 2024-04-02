@@ -1,0 +1,64 @@
+/* page styling */
+* {
+    color: #6c6c6c;
+    font-family: "nunito";
+  }
+  
+  .body {
+    background-color: #b2e4fa;
+    padding: 15px 5px 0px 5px;
+    height: 90vh;
+    width: 100%;
+  }
+
+  /* content styling */
+  .main {
+    background-color: #ffffff80;
+    border: #ffffff80 1px solid;
+    border-radius: 30px;
+    padding: 4vw;
+    height: 90%;
+    width: 95%;
+  }
+
+  /* text and font styling for each text class */
+  .title {
+    display: flex;
+  }
+
+  .dateTime {
+    text-align: end;
+    padding: 10px;
+  }
+
+  .nameHelp {
+    text-align: left;
+    font-size: 15px;
+    font-weight: 850;
+  }
+
+  .otherText {
+    text-align: end;
+  }
+
+  /* display styling */
+  .flex {
+    display: flex;
+    padding-bottom: 2vh;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 2vw;
+  }
+
+  .studentHelp {
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 15px;
+    margin-bottom: 2vh;
+  }
+
+.forScroll {
+  /* Styles for the container with scrollbar */
+  max-height: 450px; /* Adjust as needed */
+  overflow-y: auto; /* Ensure scrollbar appears when content exceeds container height */
+}
