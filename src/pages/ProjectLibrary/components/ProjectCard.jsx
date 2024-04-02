@@ -19,7 +19,7 @@ export default function ProjectCard(props) {
         <h2 className={styles.projectName}>{props.name}</h2>
         <div className={styles.levelActivityDescription}>
           <p className={styles.cardDescription}>
-            {props.level} | {props.activity}
+            {props.difficulty} | {props.activity}
           </p>
         </div>
       </Link>
