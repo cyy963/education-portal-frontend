@@ -1,62 +1,89 @@
-import { Link } from 'react-router-dom'
-import Dashboard from '../../../../common/Dashboard/Dashboard.jsx'
 import styles from './StudentProfiles.module.css';
 
 export default function StudentProfiles(){
+  const studentImagePath = `/images/students/${'AidenAndrews'}.png`;
+
     return(
         <div className={styles.body}>
             
             <div className={styles.studentsProfileContainer}>
 
               <div className={styles.studentProfile}>
-                AIDEN ANDREWS
+                {/* profile pic */}          
+                <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
+                <p className={styles.studentName}>AIDEN ANDREWS</p>                
               </div>
               <div className={styles.studentProfile}>
-                AIDEN ANDREWS
+                {/* profile pic */}          
+                <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
+                <p className={styles.studentName}>AIDEN ANDREWS</p>                
               </div>
               <div className={styles.studentProfile}>
-                AIDEN ANDREWS
+                {/* profile pic */}          
+                <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
+                <p className={styles.studentName}>AIDEN ANDREWS</p>                
               </div>
               <div className={styles.studentProfile}>
-                AIDEN ANDREWS
+                {/* profile pic */}          
+                <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
+                <p className={styles.studentName}>AIDEN ANDREWS</p>                
               </div>
               <div className={styles.studentProfile}>
-                AIDEN ANDREWS
+                {/* profile pic */}          
+                <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
+                <p className={styles.studentName}>AIDEN ANDREWS</p>                
               </div>
               <div className={styles.studentProfile}>
-                AIDEN ANDREWS
+                {/* profile pic */}          
+                <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
+                <p className={styles.studentName}>AIDEN ANDREWS</p>                
               </div>
               <div className={styles.studentProfile}>
-                AIDEN ANDREWS
+                {/* profile pic */}          
+                <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
+                <p className={styles.studentName}>AIDEN ANDREWS</p>                
               </div>
               <div className={styles.studentProfile}>
-                AIDEN ANDREWS
+                {/* profile pic */}          
+                <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
+                <p className={styles.studentName}>AIDEN ANDREWS</p>                
               </div>
               <div className={styles.studentProfile}>
-                AIDEN ANDREWS
+                {/* profile pic */}          
+                <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
+                <p className={styles.studentName}>AIDEN ANDREWS</p>                
               </div>
               <div className={styles.studentProfile}>
-                AIDEN ANDREWS
+                {/* profile pic */}          
+                <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
+                <p className={styles.studentName}>AIDEN ANDREWS</p>                
               </div>
               <div className={styles.studentProfile}>
-                AIDEN ANDREWS
+                {/* profile pic */}          
+                <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
+                <p className={styles.studentName}>AIDEN ANDREWS</p>                
               </div>
               <div className={styles.studentProfile}>
-                AIDEN ANDREWS
+                {/* profile pic */}          
+                <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
+                <p className={styles.studentName}>AIDEN ANDREWS</p>                
               </div>
               <div className={styles.studentProfile}>
-                AIDEN ANDREWS
+                {/* profile pic */}          
+                <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
+                <p className={styles.studentName}>AIDEN ANDREWS</p>                
               </div>
               <div className={styles.studentProfile}>
-                AIDEN ANDREWS
+                {/* profile pic */}          
+                <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
+                <p className={styles.studentName}>AIDEN ANDREWS</p>                
               </div>
               <div className={styles.studentProfile}>
-                AIDEN ANDREWS
-              </div>
-
+                {/* profile pic */}          
+                <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
+                <p className={styles.studentName}>AIDEN ANDREWS</p>                
+              </div> 
               
-             
-
             </div>
         </div>
     )

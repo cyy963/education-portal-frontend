@@ -1,10 +1,14 @@
 /* css for project submissions */
+<<<<<<< HEAD
 .title,
 .btnTitle,
 .textSubmit,
 .titleName {
+=======
+/* * {
+>>>>>>> main
   color: #6c6c6c;
-}
+} */
 
 .title,
 .textSubmits {
