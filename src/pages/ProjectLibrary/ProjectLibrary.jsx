@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import SideFilters from "./components/SideFilters";
 import styles from "./ProjectLibrary.module.css";
+
+// Imports:
+// import SideFilters from "./components/SideFilters";
 // import AllProjects from "./components/AllProjects";
 import BackToDashboardButton from "../../common/BackToDashboardButton/BackToDashboardButton";
 import ProjectCard from "./components/ProjectCard";
@@ -14,6 +16,9 @@ const projects = [
     activity: "Animation",
     src: "/images/projects/Project01.png",
     alt: "A cartoon orange cat saying 'Hi, how are you?'",
+    subscription: "free",
+    year: "1 - 4",
+    subject: "Computer Science",
   },
   {
     id: 2,
@@ -22,6 +27,9 @@ const projects = [
     activity: "Game",
     src: "/images/projects/Project02.png",
     alt: "Cartoon child with birthday cake at park",
+    subscription: "premium",
+    year: "5 - 6",
+    subject: "Maths",
   },
   {
     id: 3,
@@ -30,6 +38,9 @@ const projects = [
     activity: "Animation",
     src: "/images/projects/Project03.png",
     alt: "An cartoon orange cat walking through a farm",
+    subscription: "free",
+    year: "7 - 8",
+    subject: "Science",
   },
   {
     id: 4,
@@ -38,6 +49,9 @@ const projects = [
     activity: "Game",
     src: "/images/projects/Project04.png",
     alt: "A cartoon of a lady in a purple dress on stage with instruments",
+    subscription: "premium",
+    year: "9 - 13",
+    subject: "Language",
   },
   {
     id: 5,
@@ -46,6 +60,9 @@ const projects = [
     activity: "Game",
     src: "/images/projects/Project05.png",
     alt: "A cartoon of a brown bear and a monkey in a jungle",
+    subscription: "free",
+    year: "1 - 4",
+    subject: "Art",
   },
   {
     id: 6,
@@ -54,6 +71,9 @@ const projects = [
     activity: "Augmented Reality",
     src: "/images/projects/Project06.png",
     alt: "A cartoon of a yellow flame and an orange cat saying 'Fun!'",
+    subscription: "premium",
+    year: "5 - 6",
+    subject: "Music",
   },
   {
     id: 7,
@@ -62,6 +82,9 @@ const projects = [
     activity: "Animation",
     src: "/images/projects/Project07.png",
     alt: "Cartoons of an orange cat saying 'Make Scratch', a laptop, a pencil, cereal, a pie, a chicken and a girl in a green t-shirt, floating around each other",
+    subscription: "free",
+    year: "7 - 8",
+    subject: "Computer Science",
   },
   {
     id: 8,
@@ -70,6 +93,9 @@ const projects = [
     activity: "Animation",
     src: "/images/projects/Project08.png",
     alt: "A cartoon of a green forest with grass, lily pads, a mountain and a red crab",
+    subscription: "free",
+    year: "9 - 13",
+    subject: "Maths",
   },
   {
     id: 9,
@@ -78,6 +104,9 @@ const projects = [
     activity: "Game",
     src: "/images/projects/Project09.png",
     alt: "Cartoons of a bear hat, glasses, green bow tie, a hat, a pig's nose, eyes,nose and mouths",
+    subscription: "premium",
+    year: "1 - 4",
+    subject: "Science",
   },
   {
     id: 10,
@@ -86,6 +115,9 @@ const projects = [
     activity: "Animation",
     src: "/images/projects/Project10.png",
     alt: "A cartoon of a child saying, 'It tickles! outside of a red building with a smiling flame",
+    subscription: "premium",
+    year: "5 - 6",
+    subject: "Language",
   },
   {
     id: 11,
@@ -94,6 +126,9 @@ const projects = [
     activity: "Chatbot",
     src: "/images/projects/Project11.png",
     alt: "A carton of a penguin in a desert, a cactus nearby",
+    subscription: "free",
+    year: "7 - 8",
+    subject: "Art",
   },
   {
     id: 12,
@@ -102,6 +137,9 @@ const projects = [
     activity: "Animation",
     src: "/images/projects/Project12.png",
     alt: "A cartoon of a child in front of a wharenui saying 'I want to see the time before Maui fished up North Island'",
+    subscription: "premium",
+    year: "7 - 8",
+    subject: "Music",
   },
   {
     id: 13,
@@ -110,6 +148,9 @@ const projects = [
     activity: "Chatbot",
     src: "/images/projects/Project13.png",
     alt: "A cartoon of a person in a purple dress at a party, multi-coloured balloons everywhere and HAPPY BIRTHDAY letters among the balloons",
+    subscription: "free",
+    year: "1 - 4",
+    subject: "Computer Science",
   },
   {
     id: 14,
@@ -118,6 +159,9 @@ const projects = [
     activity: "Animation",
     src: "/images/projects/Project14.png",
     alt: "A cartoon of a lion and a mouse in a grassy part of the jungle",
+    subscription: "premium",
+    year: "5 - 6",
+    subject: "Computer Science",
   },
   {
     id: 15,
@@ -126,6 +170,9 @@ const projects = [
     activity: "Augmented Reality",
     src: "/images/projects/Project15.png",
     alt: "A cartoon of a lion in a forest at night",
+    subscription: "free",
+    year: "5 - 6",
+    subject: "Maths",
   },
 ];
 
@@ -157,11 +204,139 @@ export default function ProjectLibrary() {
             to help you search for specific projects.
           </p>
         </header>
-        {/* Side filter section: SUBSCRIPTION (Free or Premium, only one checked at a time), ACTIVITY TYPE (Animation, Game, Chatbot, Augmented Reality, multiple can be checked at a time), YEAR LEVEL (1 - 4, 5 - 6, 7 - 8, 9 - 13, multiple can be checked at a time, SUBJECT MATTER (Computer Science, Maths, Science, Language, Art, Music, multiple can be checked at a time) )  */}
+
+        {/* Side filter section*/}
         <div className={styles.sideFilters}>
-          <SideFilters />
+          {/* Subscription filters */}
+          <div className={styles.sideFilter}>
+            <p className={styles.filterTitle}>SUBSCRIPTION</p>
+            <hr className={styles.lineBreak} />
+            <input type="checkbox" id="all" className={styles.checkbox} />
+            <label for="all" className={styles.checkboxLabel}>
+              All subsciptions
+            </label>
+            <br />
+            <input type="checkbox" id="free" className={styles.checkbox} />
+            <label for="free" className={styles.checkboxLabel}>
+              Free
+            </label>
+            <br />
+            <input type="checkbox" id="premium" className={styles.checkbox} />
+            <label for="premium" className={styles.checkboxLabel}>
+              Premium
+            </label>
+          </div>
+
+          {/* Activity Type filters */}
+          <div className={styles.sideFilter}>
+            <p className={styles.filterTitle}>ACTIVITY TYPE</p>
+            <hr className={styles.lineBreak} />
+            <input type="checkbox" id="all" className={styles.checkbox} />
+            <label for="all" className={styles.checkboxLabel}>
+              All activity types
+            </label>
+            <br />
+            <input type="checkbox" id="animation" className={styles.checkbox} />
+            <label for="animation" className={styles.checkboxLabel}>
+              Animation
+            </label>
+            <br />
+            <input type="checkbox" id="game" className={styles.checkbox} />
+            <label for="game" className={styles.checkboxLabel}>
+              Game
+            </label>
+            <br />
+            <input type="checkbox" id="chatbot" className={styles.checkbox} />
+            <label for="chatbot" className={styles.checkboxLabel}>
+              Chatbot
+            </label>
+            <br />
+            <input
+              type="checkbox"
+              id="augmentedReality"
+              className={styles.checkbox}
+            />
+            <label for="augmentedReality" className={styles.checkboxLabel}>
+              Augmented Reality
+            </label>
+          </div>
+
+          {/* Year Level filters */}
+          <div className={styles.sideFilter}>
+            <p className={styles.filterTitle}>YEAR LEVEL</p>
+            <hr className={styles.lineBreak} />
+            <input type="checkbox" id="all" className={styles.checkbox} />
+            <label for="all" className={styles.checkboxLabel}>
+              All year levels
+            </label>
+            <br />
+            <input type="checkbox" id="1 - 4" className={styles.checkbox} />
+            <label for="1 - 4" className={styles.checkboxLabel}>
+              1 - 4
+            </label>
+            <br />
+            <input type="checkbox" id="5 - 6" className={styles.checkbox} />
+            <label for="5 - 6" className={styles.checkboxLabel}>
+              5 - 6
+            </label>
+            <br />
+            <input type="checkbox" id="7 - 8" className={styles.checkbox} />
+            <label for="7 - 8" className={styles.checkboxLabel}>
+              7 - 8
+            </label>
+            <br />
+            <input type="checkbox" id="9 - 13" className={styles.checkbox} />
+            <label for="9 - 13" className={styles.checkboxLabel}>
+              9 - 13
+            </label>
+          </div>
+
+          {/* Subject Matter filters */}
+          <div className={styles.sideFilter}>
+            <p className={styles.filterTitle}>SUBJECT MATTER</p>
+            <hr className={styles.lineBreak} />
+            <input type="checkbox" id="all" className={styles.checkbox} />
+            <label for="all" className={styles.checkboxLabel}>
+              All subjects
+            </label>
+            <br />
+            <input
+              type="checkbox"
+              id="computerScience"
+              className={styles.checkbox}
+            />
+            <label for="computerScience" className={styles.checkboxLabel}>
+              Computer Science
+            </label>
+            <br />
+            <input type="checkbox" id="maths" className={styles.checkbox} />
+            <label for="maths" className={styles.checkboxLabel}>
+              Maths
+            </label>
+            <br />
+            <input type="checkbox" id="science" className={styles.checkbox} />
+            <label for="science" className={styles.checkboxLabel}>
+              Science
+            </label>
+            <br />
+            <input type="checkbox" id="language" className={styles.checkbox} />
+            <label for="language" className={styles.checkboxLabel}>
+              Language
+            </label>
+            <br />
+            <input type="checkbox" id="art" className={styles.checkbox} />
+            <label for="art" className={styles.checkboxLabel}>
+              Art
+            </label>
+            <br />
+            <input type="checkbox" id="music" className={styles.checkbox} />
+            <label for="music" className={styles.checkboxLabel}>
+              Music
+            </label>
+          </div>
         </div>
-        {/* Top filter section: to include 'show 5, 10 or All' in one line (probably as their own component(s)) */}
+
+        {/* Top filter section */}
         <div className={styles.topFilters}>
           {/* Difficulty buttons */}
           <div className={styles.difficultyBtns}>
@@ -205,6 +380,7 @@ export default function ProjectLibrary() {
             </button>
           </div>
 
+          {/* Buttons to limit number of results */}
           <div className={styles.limitResultsBtns}>
             <p className={styles.show}>SHOW</p>
             <button
@@ -233,7 +409,8 @@ export default function ProjectLibrary() {
             </button>
           </div>
         </div>
-        {/* Projects section */}
+
+        {/* Rendering the projects */}
         <div className={styles.projects}>
           <div className={styles.projectsContainer}>
             {filteredDifficulties
@@ -255,6 +432,7 @@ export default function ProjectLibrary() {
               ))}
           </div>
         </div>
+
         {/* Footer: Back to top and dashboard buttons */}
         <footer className={styles.backButtons}>
           <button onClick={scrollBackToTop} className={styles.backToTopButton}>
