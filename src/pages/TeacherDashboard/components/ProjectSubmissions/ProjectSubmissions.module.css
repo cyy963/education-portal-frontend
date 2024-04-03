@@ -1,14 +1,10 @@
 /* css for project submissions */
-<<<<<<< HEAD
 .title,
 .btnTitle,
 .textSubmit,
 .titleName {
-=======
-/* * {
->>>>>>> main
   color: #6c6c6c;
-} */
+}
 
 .title,
 .textSubmits {
@@ -18,15 +14,6 @@
 
 .btnTitle {
   font-size: 0.8em;
-}
-
-.main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #b2e4fa;
-  height: 90vh;
-  width: 100%;
 }
 
 .content {
@@ -82,44 +69,39 @@
   align-items: center;
 }
 
-/* .checkbox {
-  visibility: hidden;
+.checkbox {
+  margin-top: 6vh;
 }
 
-.trueCheckbox {
-  position: relative;
-  display: block;
-  cursor: pointer;
-  margin-top: 4vh;
-}
-
-.trueCheckbox::before {
-  content: "";
-  position: relative;
-  display: block;
-  height: 1em;
-  width: 1em;
-  background-color: #50cdbe;
+.checkbox > input[type="checkbox"] {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 0.15em;
+  margin-right: 0.5em;
   border-radius: 3px;
+  background-color: white;
+  box-shadow: 0 2px #c7c7c7 inset;
+  outline: none;
+  cursor: pointer;
 }
 
-.trueCheckbox:hover::before {
-  background-color: #1ae6e6;
-}
-
-.trueCheckbox::after {
-  content: "";
+.checkbox > input:checked {
+  background-color: #43c0f6;
   position: relative;
-  width: 0.5em;
-  height: 0.5em;
-  opacity: 0;
-  border: solid #333;
-  border-width: 0 3px 3px 0;
 }
 
-.checkbox:checked + .trueCheckbox::after {
-  opacity: 1;
-} */
+.checkbox > input:checked::before {
+  content: "";
+  font-size: 1.5em;
+  color: #fff;
+  position: absolute;
+  right: 1px;
+  top: -5px;
+}
 
 .profileImg {
   height: 7vh;

@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import projectImg from "../../../../assets/StudentDashboard/makeProject-screenshot.png";
 import projectImg from "../../../../../assets/StudentDashboard/makeProject-screenshot.png";
 
 // Import css
 import styles from "../ProjectSubmissions.module.css";
+
+// Import component
+import Checkbox from "./Checkbox";
 
 export default function SubmittedProjects() {
   const testProject = [
@@ -41,21 +44,15 @@ export default function SubmittedProjects() {
   ];
 
   const [projects, setProjects] = useState([...testProject]);
+  const [checked, setChecked] = useState([false, false, false, false, false]);
 
   return (
     <div>
       {projects.map((item, index) => {
         return (
           <div className={styles.submitedProject} key={index}>
-            <div>
-              <input
-                type="checkbox"
-                className={styles.checkbox}
-                id={`${item.name}Project`}
-                checked="checked"
-              />
-              <span className={styles.trueCheckbox}></span>
-            </div>
+            <Checkbox checked={checked} setChecked={setChecked} index={index} />
+
             <div className={styles.checkboxDiv}>
               <div className={styles.projectFlex}>
                 {item.profilePic && (
