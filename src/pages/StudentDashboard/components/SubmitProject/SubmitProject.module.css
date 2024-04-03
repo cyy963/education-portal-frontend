@@ -20,14 +20,6 @@
   margin: 0 20px;
 }
 
-.flexMain {
-  background-color: #b2e4fa;
-  display: flex;
-  height: 90vh;
-  justify-content: center;
-  align-items: center;
-}
-
 .content {
   /* Flex */
   display: flex;
