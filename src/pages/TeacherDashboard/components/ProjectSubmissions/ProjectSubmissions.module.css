@@ -39,9 +39,12 @@
 }
 
 .btn {
+  color: #6c6c6c;
   border: none;
   background-color: transparent;
   margin-left: 2vw;
+  font-size: 0.7em;
+  cursor: pointer;
 }
 
 /* Styling for project submission banners */
