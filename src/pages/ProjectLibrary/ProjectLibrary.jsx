@@ -194,7 +194,7 @@ export default function ProjectLibrary() {
 
   return (
     <div>
-      {/* Section for main content, including title, side filters, top filters, project cards and bottom buttons */}
+      {/* Main section: title, side filters, top filters, project cards and bottom buttons */}
       <main className={styles.main}>
         {/* Header: Title and description of page */}
         <header className={styles.header}>
@@ -205,134 +205,192 @@ export default function ProjectLibrary() {
           </p>
         </header>
 
+        {/* PLAN FOR SIDE FILTERS: Set filter field as its own component and set each checkbox and label as a nested component. May also be done for top filters */}
         {/* Side filter section*/}
         <div className={styles.sideFilters}>
           {/* Subscription filters */}
           <div className={styles.sideFilter}>
             <p className={styles.filterTitle}>SUBSCRIPTION</p>
             <hr className={styles.lineBreak} />
-            <input type="checkbox" id="all" className={styles.checkbox} />
-            <label for="all" className={styles.checkboxLabel}>
-              All subsciptions
-            </label>
-            <br />
-            <input type="checkbox" id="free" className={styles.checkbox} />
-            <label for="free" className={styles.checkboxLabel}>
-              Free
-            </label>
-            <br />
-            <input type="checkbox" id="premium" className={styles.checkbox} />
-            <label for="premium" className={styles.checkboxLabel}>
-              Premium
-            </label>
+            <div className={styles.checkboxAndLabel}>
+              <input
+                type="checkbox"
+                id="allSubscriptions"
+                className={styles.checkbox}
+              />
+              <label
+                htmlFor="allSubscriptions"
+                className={styles.checkboxLabel}
+              >
+                All subsciptions
+              </label>
+            </div>
+            <div className={styles.checkboxAndLabel}>
+              <input type="checkbox" id="free" className={styles.checkbox} />
+              <label htmlFor="free" className={styles.checkboxLabel}>
+                Free
+              </label>
+            </div>
+            <div className={styles.checkboxAndLabel}>
+              <input type="checkbox" id="premium" className={styles.checkbox} />
+              <label htmlFor="premium" className={styles.checkboxLabel}>
+                Premium
+              </label>
+            </div>
           </div>
 
           {/* Activity Type filters */}
           <div className={styles.sideFilter}>
             <p className={styles.filterTitle}>ACTIVITY TYPE</p>
             <hr className={styles.lineBreak} />
-            <input type="checkbox" id="all" className={styles.checkbox} />
-            <label for="all" className={styles.checkboxLabel}>
-              All activity types
-            </label>
-            <br />
-            <input type="checkbox" id="animation" className={styles.checkbox} />
-            <label for="animation" className={styles.checkboxLabel}>
-              Animation
-            </label>
-            <br />
-            <input type="checkbox" id="game" className={styles.checkbox} />
-            <label for="game" className={styles.checkboxLabel}>
-              Game
-            </label>
-            <br />
-            <input type="checkbox" id="chatbot" className={styles.checkbox} />
-            <label for="chatbot" className={styles.checkboxLabel}>
-              Chatbot
-            </label>
-            <br />
-            <input
-              type="checkbox"
-              id="augmentedReality"
-              className={styles.checkbox}
-            />
-            <label for="augmentedReality" className={styles.checkboxLabel}>
-              Augmented Reality
-            </label>
+            <div className={styles.checkboxAndLabel}>
+              <input
+                type="checkbox"
+                id="allActivityTypes"
+                className={styles.checkbox}
+              />
+              <label
+                htmlFor="allActivityTypes"
+                className={styles.checkboxLabel}
+              >
+                All activity types
+              </label>
+            </div>
+            <div className={styles.checkboxAndLabel}>
+              <input
+                type="checkbox"
+                id="animation"
+                className={styles.checkbox}
+              />
+              <label htmlFor="animation" className={styles.checkboxLabel}>
+                Animation
+              </label>
+            </div>
+            <div className={styles.checkboxAndLabel}>
+              <input type="checkbox" id="game" className={styles.checkbox} />
+              <label htmlFor="game" className={styles.checkboxLabel}>
+                Game
+              </label>
+            </div>
+            <div className={styles.checkboxAndLabel}>
+              <input type="checkbox" id="chatbot" className={styles.checkbox} />
+              <label htmlFor="chatbot" className={styles.checkboxLabel}>
+                Chatbot
+              </label>
+            </div>
+            <div className={styles.checkboxAndLabel}>
+              <input
+                type="checkbox"
+                id="augmentedReality"
+                className={styles.checkbox}
+              />
+              <label
+                htmlFor="augmentedReality"
+                className={styles.checkboxLabel}
+              >
+                Augmented Reality
+              </label>
+            </div>
           </div>
 
           {/* Year Level filters */}
           <div className={styles.sideFilter}>
             <p className={styles.filterTitle}>YEAR LEVEL</p>
             <hr className={styles.lineBreak} />
-            <input type="checkbox" id="all" className={styles.checkbox} />
-            <label for="all" className={styles.checkboxLabel}>
-              All year levels
-            </label>
-            <br />
-            <input type="checkbox" id="1 - 4" className={styles.checkbox} />
-            <label for="1 - 4" className={styles.checkboxLabel}>
-              1 - 4
-            </label>
-            <br />
-            <input type="checkbox" id="5 - 6" className={styles.checkbox} />
-            <label for="5 - 6" className={styles.checkboxLabel}>
-              5 - 6
-            </label>
-            <br />
-            <input type="checkbox" id="7 - 8" className={styles.checkbox} />
-            <label for="7 - 8" className={styles.checkboxLabel}>
-              7 - 8
-            </label>
-            <br />
-            <input type="checkbox" id="9 - 13" className={styles.checkbox} />
-            <label for="9 - 13" className={styles.checkboxLabel}>
-              9 - 13
-            </label>
+            <div className={styles.checkboxAndLabel}>
+              <input
+                type="checkbox"
+                id="allYearLevels"
+                className={styles.checkbox}
+              />
+              <label htmlFor="allYearLevels" className={styles.checkboxLabel}>
+                All year levels
+              </label>
+            </div>
+            <div className={styles.checkboxAndLabel}>
+              <input type="checkbox" id="1 - 4" className={styles.checkbox} />
+              <label htmlFor="1 - 4" className={styles.checkboxLabel}>
+                1 - 4
+              </label>
+            </div>
+            <div className={styles.checkboxAndLabel}>
+              <input type="checkbox" id="5 - 6" className={styles.checkbox} />
+              <label htmlFor="5 - 6" className={styles.checkboxLabel}>
+                5 - 6
+              </label>
+            </div>
+            <div className={styles.checkboxAndLabel}>
+              <input type="checkbox" id="7 - 8" className={styles.checkbox} />
+              <label htmlFor="7 - 8" className={styles.checkboxLabel}>
+                7 - 8
+              </label>
+            </div>
+            <div className={styles.checkboxAndLabel}>
+              <input type="checkbox" id="9 - 13" className={styles.checkbox} />
+              <label htmlFor="9 - 13" className={styles.checkboxLabel}>
+                9 - 13
+              </label>
+            </div>
           </div>
 
           {/* Subject Matter filters */}
           <div className={styles.sideFilter}>
             <p className={styles.filterTitle}>SUBJECT MATTER</p>
             <hr className={styles.lineBreak} />
-            <input type="checkbox" id="all" className={styles.checkbox} />
-            <label for="all" className={styles.checkboxLabel}>
-              All subjects
-            </label>
-            <br />
-            <input
-              type="checkbox"
-              id="computerScience"
-              className={styles.checkbox}
-            />
-            <label for="computerScience" className={styles.checkboxLabel}>
-              Computer Science
-            </label>
-            <br />
-            <input type="checkbox" id="maths" className={styles.checkbox} />
-            <label for="maths" className={styles.checkboxLabel}>
-              Maths
-            </label>
-            <br />
-            <input type="checkbox" id="science" className={styles.checkbox} />
-            <label for="science" className={styles.checkboxLabel}>
-              Science
-            </label>
-            <br />
-            <input type="checkbox" id="language" className={styles.checkbox} />
-            <label for="language" className={styles.checkboxLabel}>
-              Language
-            </label>
-            <br />
-            <input type="checkbox" id="art" className={styles.checkbox} />
-            <label for="art" className={styles.checkboxLabel}>
-              Art
-            </label>
-            <br />
-            <input type="checkbox" id="music" className={styles.checkbox} />
-            <label for="music" className={styles.checkboxLabel}>
-              Music
-            </label>
+            <div className={styles.checkboxAndLabel}>
+              <input
+                type="checkbox"
+                id="allSubjects"
+                className={styles.checkbox}
+              />
+              <label htmlFor="allSubjects" className={styles.checkboxLabel}>
+                All subjects
+              </label>
+            </div>
+            <div className={styles.checkboxAndLabel}>
+              <input
+                type="checkbox"
+                id="computerScience"
+                className={styles.checkbox}
+              />
+              <label htmlFor="computerScience" className={styles.checkboxLabel}>
+                Computer Science
+              </label>
+            </div>
+            <div className={styles.checkboxAndLabel}>
+              <input type="checkbox" id="maths" className={styles.checkbox} />
+              <label htmlFor="maths" className={styles.checkboxLabel}>
+                Maths
+              </label>
+            </div>
+            <div className={styles.checkboxAndLabel}>
+              <input type="checkbox" id="science" className={styles.checkbox} />
+              <label htmlFor="science" className={styles.checkboxLabel}>
+                Science
+              </label>
+            </div>
+            <div className={styles.checkboxAndLabel}>
+              <input
+                type="checkbox"
+                id="language"
+                className={styles.checkbox}
+              />
+              <label htmlFor="language" className={styles.checkboxLabel}>
+                Language
+              </label>
+            </div>
+            <div className={styles.checkboxAndLabel}>
+              <input type="checkbox" id="art" className={styles.checkbox} />
+              <label htmlFor="art" className={styles.checkboxLabel}>
+                Art
+              </label>
+            </div>
+            <div className={styles.checkboxAndLabel}>
+              <input type="checkbox" id="music" className={styles.checkbox} />
+              <label htmlFor="music" className={styles.checkboxLabel}>
+                Music
+              </label>
+            </div>
           </div>
         </div>
 
