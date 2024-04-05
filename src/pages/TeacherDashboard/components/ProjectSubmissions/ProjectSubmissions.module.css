@@ -1,24 +1,19 @@
 /* css for project submissions */
-/* * {
+.title,
+.btnTitle,
+.textSubmit,
+.titleName {
   color: #6c6c6c;
-} */
+}
 
-.title {
+.title,
+.textSubmits {
   font-family: "nunito";
   font-size: 1.2em;
 }
 
-h4 {
+.btnTitle {
   font-size: 0.8em;
-}
-
-.main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #b2e4fa;
-  height: 93vh;
-  width: 100%;
 }
 
 .content {
@@ -50,20 +45,97 @@ h4 {
 }
 
 /* Styling for project submission banners */
+.checkboxDiv,
+.projectFlex,
+.imageFlex,
 .submitedProject {
   display: flex;
   justify-content: space-between;
+}
+
+.submitedProject {
+  align-items: flex-start;
+}
+
+.checkboxDiv {
   background-color: white;
+  width: 94%;
   border-radius: 15px;
   margin-bottom: 2vh;
   margin-right: 2vw;
 }
 
-.img {
+.projectFlex {
+  align-items: center;
+}
+
+.checkbox {
+  margin-top: 6vh;
+}
+
+.checkbox > input[type="checkbox"] {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 0.15em;
+  margin-right: 0.5em;
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: 0 2px #c7c7c7 inset;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox > input:checked {
+  background-color: #43c0f6;
+  position: relative;
+}
+
+.checkbox > input:checked::before {
+  content: "";
+  font-size: 1.5em;
+  color: #fff;
+  position: absolute;
+  right: 1px;
+  top: -5px;
+}
+
+.profileImg {
   height: 7vh;
-  margin-top: 1vh;
+  margin: 0 4vw;
+}
+
+.imageFlex {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 30vh;
+}
+
+.projectImg {
+  height: 15vh;
+}
+
+.enlargeBtn,
+.date,
+.time {
+  color: #6c6c6c;
+}
+
+.enlargeBtn {
+  border: none;
+  background-color: transparent;
+  color: #6c6c6c;
 }
 
 .dateTime {
   margin: 5vh 5vw;
+}
+
+.titleName {
+  font-size: 1em;
+  font-family: "Open sans", sans-serif;
 }
