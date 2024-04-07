@@ -50,14 +50,12 @@
 }
 
 .checkbox {
-  -webkit-appearance: none;
-  position: relative;
+  appearance: none;
   position: relative;
   width: 0.8vw;
   height: 0.82vw;
   border-radius: 0.2vw;
   background: linear-gradient(to bottom, #e6e6e6 0%, #ffffff 35%);
-  /* background: black; */
   border: 0.1vw solid #cecdcd;
   cursor: pointer;
 }
@@ -93,7 +91,6 @@
   color: #767676;
   font-size: 0.75vw;
   margin-left: 0.8vw;
-  align-self: center;
   cursor: pointer;
 }
 

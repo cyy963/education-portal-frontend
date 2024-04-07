@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./ProjectLibrary.module.css";
 
 // Imports:
-// import SideFilters from "./components/SideFilters";
-// import AllProjects from "./components/AllProjects";
 import BackToDashboardButton from "../../common/BackToDashboardButton/BackToDashboardButton";
 import ProjectCard from "./components/ProjectCard";
+import CheckboxForms from "./components/CheckboxForms";
+import CheckboxAndLabel from "./components/CheckboxAndLabel";
 
 const projects = [
   {
@@ -16,7 +16,7 @@ const projects = [
     activity: "Animation",
     src: "/images/projects/Project01.png",
     alt: "A cartoon orange cat saying 'Hi, how are you?'",
-    subscription: "free",
+    subscription: "Free",
     year: "1 - 4",
     subject: "Computer Science",
   },
@@ -27,7 +27,7 @@ const projects = [
     activity: "Game",
     src: "/images/projects/Project02.png",
     alt: "Cartoon child with birthday cake at park",
-    subscription: "premium",
+    subscription: "Premium",
     year: "5 - 6",
     subject: "Maths",
   },
@@ -38,7 +38,7 @@ const projects = [
     activity: "Animation",
     src: "/images/projects/Project03.png",
     alt: "An cartoon orange cat walking through a farm",
-    subscription: "free",
+    subscription: "Free",
     year: "7 - 8",
     subject: "Science",
   },
@@ -49,7 +49,7 @@ const projects = [
     activity: "Game",
     src: "/images/projects/Project04.png",
     alt: "A cartoon of a lady in a purple dress on stage with instruments",
-    subscription: "premium",
+    subscription: "Premium",
     year: "9 - 13",
     subject: "Language",
   },
@@ -60,7 +60,7 @@ const projects = [
     activity: "Game",
     src: "/images/projects/Project05.png",
     alt: "A cartoon of a brown bear and a monkey in a jungle",
-    subscription: "free",
+    subscription: "Free",
     year: "1 - 4",
     subject: "Art",
   },
@@ -71,7 +71,7 @@ const projects = [
     activity: "Augmented Reality",
     src: "/images/projects/Project06.png",
     alt: "A cartoon of a yellow flame and an orange cat saying 'Fun!'",
-    subscription: "premium",
+    subscription: "Premium",
     year: "5 - 6",
     subject: "Music",
   },
@@ -82,7 +82,7 @@ const projects = [
     activity: "Animation",
     src: "/images/projects/Project07.png",
     alt: "Cartoons of an orange cat saying 'Make Scratch', a laptop, a pencil, cereal, a pie, a chicken and a girl in a green t-shirt, floating around each other",
-    subscription: "free",
+    subscription: "Free",
     year: "7 - 8",
     subject: "Computer Science",
   },
@@ -93,7 +93,7 @@ const projects = [
     activity: "Animation",
     src: "/images/projects/Project08.png",
     alt: "A cartoon of a green forest with grass, lily pads, a mountain and a red crab",
-    subscription: "free",
+    subscription: "Free",
     year: "9 - 13",
     subject: "Maths",
   },
@@ -104,7 +104,7 @@ const projects = [
     activity: "Game",
     src: "/images/projects/Project09.png",
     alt: "Cartoons of a bear hat, glasses, green bow tie, a hat, a pig's nose, eyes,nose and mouths",
-    subscription: "premium",
+    subscription: "Premium",
     year: "1 - 4",
     subject: "Science",
   },
@@ -115,7 +115,7 @@ const projects = [
     activity: "Animation",
     src: "/images/projects/Project10.png",
     alt: "A cartoon of a child saying, 'It tickles! outside of a red building with a smiling flame",
-    subscription: "premium",
+    subscription: "Premium",
     year: "5 - 6",
     subject: "Language",
   },
@@ -126,7 +126,7 @@ const projects = [
     activity: "Chatbot",
     src: "/images/projects/Project11.png",
     alt: "A carton of a penguin in a desert, a cactus nearby",
-    subscription: "free",
+    subscription: "Free",
     year: "7 - 8",
     subject: "Art",
   },
@@ -137,7 +137,7 @@ const projects = [
     activity: "Animation",
     src: "/images/projects/Project12.png",
     alt: "A cartoon of a child in front of a wharenui saying 'I want to see the time before Maui fished up North Island'",
-    subscription: "premium",
+    subscription: "Premium",
     year: "7 - 8",
     subject: "Music",
   },
@@ -148,7 +148,7 @@ const projects = [
     activity: "Chatbot",
     src: "/images/projects/Project13.png",
     alt: "A cartoon of a person in a purple dress at a party, multi-coloured balloons everywhere and HAPPY BIRTHDAY letters among the balloons",
-    subscription: "free",
+    subscription: "Free",
     year: "1 - 4",
     subject: "Computer Science",
   },
@@ -159,7 +159,7 @@ const projects = [
     activity: "Animation",
     src: "/images/projects/Project14.png",
     alt: "A cartoon of a lion and a mouse in a grassy part of the jungle",
-    subscription: "premium",
+    subscription: "Premium",
     year: "5 - 6",
     subject: "Computer Science",
   },
@@ -170,7 +170,7 @@ const projects = [
     activity: "Augmented Reality",
     src: "/images/projects/Project15.png",
     alt: "A cartoon of a lion in a forest at night",
-    subscription: "free",
+    subscription: "Free",
     year: "5 - 6",
     subject: "Maths",
   },
@@ -179,14 +179,211 @@ const projects = [
 export default function ProjectLibrary() {
   const [selectedDifficulty, setSelectedDifficulty] = useState("ALL");
   const [resultsLimit, setResultsLimit] = useState("All");
-
+  const [checked, setChecked] = useState([]);
+  const [filteredSubscriptions, setFilteredSubscriptions] = useState([
+    ...projects,
+  ]);
+  const [filteredActivities, setFilteredActivities] = useState([...projects]);
+  const [filteredYearLevel, setFilteredYearLevel] = useState([...projects]);
+  const [filteredSubjectMatter, setFilteredSubjectMatter] = useState([
+    ...projects,
+  ]);
+  const [filteredResults, setFilteredResults] = useState([...projects]);
+  const [filteredResults2, setFilteredResults2] = useState([...projects]);
+  const [filteredResults3, setFilteredResults3] = useState([...projects]);
+  const [filteredResults4, setFilteredResults4] = useState([...projects]);
   const handleDifficulty = (difficulty) => setSelectedDifficulty(difficulty);
   const handleResultsLimit = (limit) => setResultsLimit(limit);
+
+  const checkboxes = [
+    {
+      name: "SUBSCRIPTION",
+      options: [
+        { label: "Free", id: 1, checked: { checked } },
+        { label: "Premium", id: 2, checked: { checked } },
+      ],
+      function: function handleSubscription(e) {
+        if (e.target.checked) {
+          const subscriptionArray = [...filteredSubscriptions];
+          projects.map((project) => {
+            if (project.subscription === e.target.id) {
+              subscriptionArray.push(project);
+            }
+          });
+          setFilteredSubscriptions(subscriptionArray);
+        } else {
+          const subscriptionArray = filteredSubscriptions.filter(
+            (project) => project.subscription !== e.target.id
+          );
+          setFilteredSubscriptions(subscriptionArray);
+        }
+      },
+    },
+    {
+      name: "ACTIVITY TYPE",
+      options: [
+        { label: "Animation", checked: { checked } },
+        { label: "Game", checked: { checked } },
+        { label: "Chatbot", checked: { checked } },
+        { label: "Augmented Reality", checked: { checked } },
+      ],
+      function: function handleActivities(e) {
+        if (e.target.checked) {
+          const activitiesArray = [...filteredActivities];
+          projects.map((project) => {
+            if (project.activity === e.target.id) {
+              activitiesArray.push(project);
+            }
+          });
+          setFilteredActivities(activitiesArray);
+        } else {
+          const activitiesArray = filteredActivities.filter(
+            (project) => project.activity !== e.target.id
+          );
+          setFilteredActivities(activitiesArray);
+        }
+      },
+    },
+    {
+      name: "YEAR LEVEL",
+      options: [
+        { label: "1 - 4", checked: { checked } },
+        { label: "5 - 6", checked: { checked } },
+        { label: "7 - 8", checked: { checked } },
+        { label: "9 - 13", checked: { checked } },
+      ],
+      function: function handleYearLevel(e) {
+        if (e.target.checked) {
+          const yearLevelArray = [...filteredYearLevel];
+          projects.map((project) => {
+            if (project.year === e.target.id) {
+              yearLevelArray.push(project);
+            }
+          });
+          setFilteredYearLevel(yearLevelArray);
+        } else {
+          const yearLevelArray = filteredYearLevel.filter(
+            (project) => project.year !== e.target.id
+          );
+          setFilteredYearLevel(yearLevelArray);
+        }
+      },
+    },
+    {
+      name: "SUBJECT MATTER",
+      options: [
+        { label: "Computer Science", checked: { checked } },
+        { label: "Maths", checked: { checked } },
+        { label: "Science", checked: { checked } },
+        { label: "Language", checked: { checked } },
+        { label: "Art", checked: { checked } },
+        { label: "Music", checked: { checked } },
+      ],
+      function: function handleSubjectMatter(e) {
+        if (e.target.checked) {
+          const subjectArray = [...filteredSubjectMatter];
+          projects.map((project) => {
+            if (project.subject === e.target.id) {
+              subjectArray.push(project);
+            }
+          });
+          setFilteredSubjectMatter(subjectArray);
+        } else {
+          const subjectArray = filteredSubjectMatter.filter(
+            (project) => project.subject !== e.target.id
+          );
+          setFilteredSubjectMatter(subjectArray);
+        }
+      },
+    },
+  ];
 
   const filteredDifficulties =
     selectedDifficulty === "ALL"
       ? projects
       : projects.filter((project) => selectedDifficulty === project.difficulty);
+
+  useEffect(() => {
+    const difficultySubscription = [];
+    if (filteredDifficulties.length > 0 && filteredSubscriptions.length > 0) {
+      filteredDifficulties.map((difficultiesProject) => {
+        filteredSubscriptions.map((subscriptionProject) => {
+          if (subscriptionProject.name === difficultiesProject.name) {
+            difficultySubscription.push(difficultiesProject);
+            setFilteredResults(difficultySubscription);
+          }
+        });
+      });
+    } else {
+      setFilteredResults(difficultySubscription);
+    }
+  }, [selectedDifficulty, filteredSubscriptions]);
+
+  useEffect(() => {
+    const addActivityArray = [];
+
+    if (
+      filteredDifficulties.length > 0 &&
+      filteredSubscriptions.length > 0 &&
+      filteredActivities.length > 0
+    ) {
+      filteredResults.map((resultsProject) => {
+        filteredActivities.map((activityProject) => {
+          if (activityProject.name === resultsProject.name) {
+            addActivityArray.push(resultsProject);
+            setFilteredResults2(addActivityArray);
+          }
+        });
+      });
+    } else {
+      setFilteredResults2(addActivityArray);
+    }
+  }, [filteredResults, filteredActivities]);
+
+  useEffect(() => {
+    const addYearArray = [];
+    if (
+      filteredDifficulties.length > 0 &&
+      filteredSubscriptions.length > 0 &&
+      filteredActivities.length > 0 &&
+      filteredYearLevel.length > 0
+    ) {
+      filteredResults2.map((resultsProject) => {
+        filteredYearLevel.map((yearProject) => {
+          if (yearProject.name === resultsProject.name) {
+            addYearArray.push(resultsProject);
+            setFilteredResults3(addYearArray);
+          }
+        });
+      });
+    } else {
+      setFilteredResults3(addYearArray);
+    }
+  }, [filteredResults2, filteredYearLevel]);
+
+  useEffect(() => {
+    const addSubjectArray = [];
+    if (
+      filteredDifficulties.length > 0 &&
+      filteredSubscriptions.length > 0 &&
+      filteredActivities.length > 0 &&
+      filteredYearLevel.length > 0 &&
+      filteredSubjectMatter.length > 0
+    ) {
+      filteredResults3.map((resultsProject) => {
+        filteredSubjectMatter.map((subjectProject) => {
+          if (subjectProject.name === resultsProject.name) {
+            addSubjectArray.push(resultsProject);
+            setFilteredResults4(addSubjectArray);
+          }
+        });
+      });
+    } else {
+      setFilteredResults4(addSubjectArray);
+    }
+  }, [filteredResults3, filteredSubjectMatter]);
+
+  console.log("after", filteredResults4);
 
   function scrollBackToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -208,190 +405,19 @@ export default function ProjectLibrary() {
         {/* PLAN FOR SIDE FILTERS: Set filter field as its own component and set each checkbox and label as a nested component. May also be done for top filters */}
         {/* Side filter section*/}
         <div className={styles.sideFilters}>
-          {/* Subscription filters */}
-          <div className={styles.sideFilter}>
-            <p className={styles.filterTitle}>SUBSCRIPTION</p>
-            <hr className={styles.lineBreak} />
-            <div className={styles.checkboxAndLabel}>
-              <input
-                type="checkbox"
-                id="allSubscriptions"
-                className={styles.checkbox}
-              />
-              <label
-                htmlFor="allSubscriptions"
-                className={styles.checkboxLabel}
-              >
-                All subsciptions
-              </label>
-            </div>
-            <div className={styles.checkboxAndLabel}>
-              <input type="checkbox" id="free" className={styles.checkbox} />
-              <label htmlFor="free" className={styles.checkboxLabel}>
-                Free
-              </label>
-            </div>
-            <div className={styles.checkboxAndLabel}>
-              <input type="checkbox" id="premium" className={styles.checkbox} />
-              <label htmlFor="premium" className={styles.checkboxLabel}>
-                Premium
-              </label>
-            </div>
-          </div>
-
-          {/* Activity Type filters */}
-          <div className={styles.sideFilter}>
-            <p className={styles.filterTitle}>ACTIVITY TYPE</p>
-            <hr className={styles.lineBreak} />
-            <div className={styles.checkboxAndLabel}>
-              <input
-                type="checkbox"
-                id="allActivityTypes"
-                className={styles.checkbox}
-              />
-              <label
-                htmlFor="allActivityTypes"
-                className={styles.checkboxLabel}
-              >
-                All activity types
-              </label>
-            </div>
-            <div className={styles.checkboxAndLabel}>
-              <input
-                type="checkbox"
-                id="animation"
-                className={styles.checkbox}
-              />
-              <label htmlFor="animation" className={styles.checkboxLabel}>
-                Animation
-              </label>
-            </div>
-            <div className={styles.checkboxAndLabel}>
-              <input type="checkbox" id="game" className={styles.checkbox} />
-              <label htmlFor="game" className={styles.checkboxLabel}>
-                Game
-              </label>
-            </div>
-            <div className={styles.checkboxAndLabel}>
-              <input type="checkbox" id="chatbot" className={styles.checkbox} />
-              <label htmlFor="chatbot" className={styles.checkboxLabel}>
-                Chatbot
-              </label>
-            </div>
-            <div className={styles.checkboxAndLabel}>
-              <input
-                type="checkbox"
-                id="augmentedReality"
-                className={styles.checkbox}
-              />
-              <label
-                htmlFor="augmentedReality"
-                className={styles.checkboxLabel}
-              >
-                Augmented Reality
-              </label>
-            </div>
-          </div>
-
-          {/* Year Level filters */}
-          <div className={styles.sideFilter}>
-            <p className={styles.filterTitle}>YEAR LEVEL</p>
-            <hr className={styles.lineBreak} />
-            <div className={styles.checkboxAndLabel}>
-              <input
-                type="checkbox"
-                id="allYearLevels"
-                className={styles.checkbox}
-              />
-              <label htmlFor="allYearLevels" className={styles.checkboxLabel}>
-                All year levels
-              </label>
-            </div>
-            <div className={styles.checkboxAndLabel}>
-              <input type="checkbox" id="1 - 4" className={styles.checkbox} />
-              <label htmlFor="1 - 4" className={styles.checkboxLabel}>
-                1 - 4
-              </label>
-            </div>
-            <div className={styles.checkboxAndLabel}>
-              <input type="checkbox" id="5 - 6" className={styles.checkbox} />
-              <label htmlFor="5 - 6" className={styles.checkboxLabel}>
-                5 - 6
-              </label>
-            </div>
-            <div className={styles.checkboxAndLabel}>
-              <input type="checkbox" id="7 - 8" className={styles.checkbox} />
-              <label htmlFor="7 - 8" className={styles.checkboxLabel}>
-                7 - 8
-              </label>
-            </div>
-            <div className={styles.checkboxAndLabel}>
-              <input type="checkbox" id="9 - 13" className={styles.checkbox} />
-              <label htmlFor="9 - 13" className={styles.checkboxLabel}>
-                9 - 13
-              </label>
-            </div>
-          </div>
-
-          {/* Subject Matter filters */}
-          <div className={styles.sideFilter}>
-            <p className={styles.filterTitle}>SUBJECT MATTER</p>
-            <hr className={styles.lineBreak} />
-            <div className={styles.checkboxAndLabel}>
-              <input
-                type="checkbox"
-                id="allSubjects"
-                className={styles.checkbox}
-              />
-              <label htmlFor="allSubjects" className={styles.checkboxLabel}>
-                All subjects
-              </label>
-            </div>
-            <div className={styles.checkboxAndLabel}>
-              <input
-                type="checkbox"
-                id="computerScience"
-                className={styles.checkbox}
-              />
-              <label htmlFor="computerScience" className={styles.checkboxLabel}>
-                Computer Science
-              </label>
-            </div>
-            <div className={styles.checkboxAndLabel}>
-              <input type="checkbox" id="maths" className={styles.checkbox} />
-              <label htmlFor="maths" className={styles.checkboxLabel}>
-                Maths
-              </label>
-            </div>
-            <div className={styles.checkboxAndLabel}>
-              <input type="checkbox" id="science" className={styles.checkbox} />
-              <label htmlFor="science" className={styles.checkboxLabel}>
-                Science
-              </label>
-            </div>
-            <div className={styles.checkboxAndLabel}>
-              <input
-                type="checkbox"
-                id="language"
-                className={styles.checkbox}
-              />
-              <label htmlFor="language" className={styles.checkboxLabel}>
-                Language
-              </label>
-            </div>
-            <div className={styles.checkboxAndLabel}>
-              <input type="checkbox" id="art" className={styles.checkbox} />
-              <label htmlFor="art" className={styles.checkboxLabel}>
-                Art
-              </label>
-            </div>
-            <div className={styles.checkboxAndLabel}>
-              <input type="checkbox" id="music" className={styles.checkbox} />
-              <label htmlFor="music" className={styles.checkboxLabel}>
-                Music
-              </label>
-            </div>
-          </div>
+          {checkboxes.map((form, index) => (
+            <CheckboxForms CheckboxForms key={index} filterTitle={form.name}>
+              {form.options.map((label, index) => (
+                <CheckboxAndLabel
+                  id={label.label}
+                  key={index}
+                  function={form.function}
+                  defaultChecked={true}
+                  label={label.label}
+                />
+              ))}
+            </CheckboxForms>
+          ))}
         </div>
 
         {/* Top filter section */}
@@ -471,12 +497,10 @@ export default function ProjectLibrary() {
         {/* Rendering the projects */}
         <div className={styles.projects}>
           <div className={styles.projectsContainer}>
-            {filteredDifficulties
+            {filteredResults4
               .slice(
                 0,
-                resultsLimit === "All"
-                  ? filteredDifficulties.length
-                  : resultsLimit
+                resultsLimit === "All" ? filteredResults4.length : resultsLimit
               )
               .map((project, index) => (
                 <ProjectCard
