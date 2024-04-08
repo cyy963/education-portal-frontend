@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styles from "./ProjectLibrary.module.css";
 
@@ -7,6 +6,7 @@ import BackToDashboardButton from "../../common/BackToDashboardButton/BackToDash
 import ProjectCard from "./components/ProjectCard";
 import CheckboxForms from "./components/CheckboxForms";
 import CheckboxAndLabel from "./components/CheckboxAndLabel";
+import NavBarOne from "../../common/NavBar1/NavBarOne";
 
 const projects = [
   {
@@ -298,6 +298,25 @@ export default function ProjectLibrary() {
     },
   ];
 
+  const userData = [
+    {
+      id: 1,
+      firstName: "Rawiri",
+      lastName: "Fletcher",
+      userType: "Student",
+      photo: "/images/students/RawiriFletcher.png",
+    },
+    {
+      id: 2,
+      firstName: "Jasmina",
+      lastName: "Salvador",
+      userType: "Teacher",
+      photo: "/images/teachers/JasminaSalvador.png",
+    },
+  ];
+
+  const user = userData[0];
+
   const filteredDifficulties =
     selectedDifficulty === "ALL"
       ? projects
@@ -383,14 +402,18 @@ export default function ProjectLibrary() {
     }
   }, [filteredResults3, filteredSubjectMatter]);
 
-  console.log("after", filteredResults4);
-
   function scrollBackToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   return (
     <div>
+      <NavBarOne
+        text="PROJECTS"
+        userImage={user.photo}
+        alt={`Profile photo of ${user.firstName} ${user.lastName}`}
+        userName={`${user.firstName.toUpperCase()} ${user.lastName.toUpperCase()}`}
+      />
       {/* Main section: title, side filters, top filters, project cards and bottom buttons */}
       <main className={styles.main}>
         {/* Header: Title and description of page */}
@@ -402,7 +425,6 @@ export default function ProjectLibrary() {
           </p>
         </header>
 
-        {/* PLAN FOR SIDE FILTERS: Set filter field as its own component and set each checkbox and label as a nested component. May also be done for top filters */}
         {/* Side filter section*/}
         <div className={styles.sideFilters}>
           {checkboxes.map((form, index) => (

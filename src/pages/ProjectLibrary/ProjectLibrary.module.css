@@ -53,7 +53,7 @@
   appearance: none;
   position: relative;
   width: 0.8vw;
-  height: 0.82vw;
+  height: 0.8vw;
   border-radius: 0.2vw;
   background: linear-gradient(to bottom, #e6e6e6 0%, #ffffff 35%);
   border: 0.1vw solid #cecdcd;
@@ -69,7 +69,7 @@
 .checkbox::before {
   content: "";
   position: absolute;
-  top: 53%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 85%;
@@ -98,7 +98,7 @@
   grid-area: 2 / 4;
   display: flex;
   justify-content: space-between;
-  height: 1.2vw;
+  height: 1.3vw;
 }
 
 .limitResultsBtns,
@@ -111,7 +111,7 @@
   background-color: #f7f0f0;
   border: none;
   box-shadow: 0.03vw 0.03vw 0.06vw 0.03vw #c6c9c9;
-  padding: 0.07vw 1vw 0.07vw 1vw;
+  padding: 0.07vw 1vw 0.1vw;
   color: #3b3939;
   font-size: 0.8vw;
   font-weight: 700;
@@ -192,10 +192,12 @@
 .backButtons {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 8vw;
   grid-area: 4 / 4;
 }
 
+/* EDIT PLACEMENT OF BUTTON TO MATCH BACK TO DASHBOARD ON PAGE */
 .backToTopButton {
   background-color: #e5ab2c;
   border: none;
