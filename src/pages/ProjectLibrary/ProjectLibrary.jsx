@@ -330,7 +330,7 @@ export default function ProjectLibrary() {
     },
   ];
 
-  const user = userData[1];
+  const user = userData[0];
 
   const filteredDifficulties =
     selectedDifficulty === "ALL"
