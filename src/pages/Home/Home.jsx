@@ -9,6 +9,8 @@ export default function Home() {
       <Link to="/student-dashboard">Go to Student Dashboard</Link>
       <br />
       <Link to="/project-library">Go to Project Library</Link>
+      <br />
+      <Link to="/student-profile-viewer">Go to Student Profile Viewer</Link>
     </div>
   );
 }

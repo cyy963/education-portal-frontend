@@ -305,6 +305,9 @@ export default function ProjectLibrary() {
       lastName: "Fletcher",
       userType: "Student",
       photo: "/images/students/RawiriFletcher.png",
+      function: function togglePopUp() {
+        console.log("User pop-up triggered");
+      },
     },
     {
       id: 2,
@@ -312,10 +315,22 @@ export default function ProjectLibrary() {
       lastName: "Salvador",
       userType: "Teacher",
       photo: "/images/teachers/JasminaSalvador.png",
+      function: function togglePopUp() {
+        console.log("User pop-up triggered");
+      },
+    },
+    {
+      id: 3,
+      firstName: "REGISTER | LOGIN",
+      lastName: "",
+      photo: "/src/assets/NavBar/Avatar-white.png",
+      function: function toggleLogin() {
+        console.log("Register/login triggered");
+      },
     },
   ];
 
-  const user = userData[0];
+  const user = userData[1];
 
   const filteredDifficulties =
     selectedDifficulty === "ALL"
@@ -413,6 +428,7 @@ export default function ProjectLibrary() {
         userImage={user.photo}
         alt={`Profile photo of ${user.firstName} ${user.lastName}`}
         userName={`${user.firstName.toUpperCase()} ${user.lastName.toUpperCase()}`}
+        function={user.function}
       />
       {/* Main section: title, side filters, top filters, project cards and bottom buttons */}
       <main className={styles.main}>

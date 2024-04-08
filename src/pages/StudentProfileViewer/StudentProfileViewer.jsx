@@ -27,13 +27,9 @@ export default function StudentProfileViewer() {
       lastName: "Fletcher",
       userType: "Student",
       photo: "/images/students/RawiriFletcher.png",
-    },
-    {
-      id: 2,
-      firstName: "Jasmina",
-      lastName: "Salvador",
-      userType: "Teacher",
-      photo: "/images/teachers/JasminaSalvador.png",
+      function: function togglePopUp() {
+        console.log("User pop-up triggered");
+      },
     },
   ];
 
@@ -47,6 +43,7 @@ export default function StudentProfileViewer() {
         userImage={user.photo}
         alt={`Profile photo of ${user.firstName} ${user.lastName}`}
         userName={`${user.firstName.toUpperCase()} ${user.lastName.toUpperCase()}`}
+        function={user.function}
       />
       <main className={styles.main}>
         <div className={styles.left}>

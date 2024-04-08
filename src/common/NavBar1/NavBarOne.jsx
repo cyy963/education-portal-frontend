@@ -5,10 +5,6 @@ import MaoriFlag from "/src/assets/NavBar/MaoriFlag.png";
 import NavBarLink from "./components/NavBarLink";
 
 export default function NavBarOne(props) {
-  const togglePopUp = () => {
-    console.log("pop up opened");
-  };
-
   return (
     <div className={styles.navBarOne}>
       <div className={styles.logoDiv}>
@@ -27,7 +23,7 @@ export default function NavBarOne(props) {
       <input
         type="checkbox"
         id="userBtn"
-        onChange={togglePopUp()}
+        onChange={props.function}
         className={styles.userBtn}
       />
       <label htmlFor="userBtn" className={styles.user}>
