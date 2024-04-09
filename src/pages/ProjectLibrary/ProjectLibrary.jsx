@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
 import styles from "./ProjectLibrary.module.css";
+import topFilterStyles from "./components/TopFilters.module.css";
+import sideFilterStyles from "./components/SideFilters/SideFilters.module.css";
 
 // Imports:
 import BackToDashboardButton from "../../common/BackToDashboardButton/BackToDashboardButton";
 import ProjectCard from "./components/ProjectCard";
-import CheckboxForms from "./components/CheckboxForms";
-import CheckboxAndLabel from "./components/CheckboxAndLabel";
+import CheckboxForms from "./components/SideFilters/CheckboxForms";
+import CheckboxAndLabel from "./components/SideFilters/CheckboxAndLabel";
 import NavBarOne from "../../common/NavBar1/NavBarOne";
+import TopFilters from "./components/TopFilters";
+import FooterTwo from "../../common/FooterTwo";
 
 const projects = [
   {
@@ -178,8 +182,7 @@ const projects = [
 
 export default function ProjectLibrary() {
   const [selectedDifficulty, setSelectedDifficulty] = useState("ALL");
-  const [resultsLimit, setResultsLimit] = useState("All");
-  const [checked, setChecked] = useState([]);
+  const [resultsLimit, setResultsLimit] = useState("ALL");
   const [filteredSubscriptions, setFilteredSubscriptions] = useState([
     ...projects,
   ]);
@@ -192,16 +195,16 @@ export default function ProjectLibrary() {
   const [filteredResults2, setFilteredResults2] = useState([...projects]);
   const [filteredResults3, setFilteredResults3] = useState([...projects]);
   const [filteredResults4, setFilteredResults4] = useState([...projects]);
-  const handleDifficulty = (difficulty) => setSelectedDifficulty(difficulty);
-  const handleResultsLimit = (limit) => setResultsLimit(limit);
+  const togglePopUp = () => {
+    console.log("User pop-up triggered");
+  };
+  const handleDifficulty = (e) => setSelectedDifficulty(e.target.id);
+  const handleResultsLimit = (e) => setResultsLimit(e.target.id);
 
   const checkboxes = [
     {
       name: "SUBSCRIPTION",
-      options: [
-        { label: "Free", id: 1, checked: { checked } },
-        { label: "Premium", id: 2, checked: { checked } },
-      ],
+      options: ["Free", "Premium"],
       function: function handleSubscription(e) {
         if (e.target.checked) {
           const subscriptionArray = [...filteredSubscriptions];
@@ -221,12 +224,7 @@ export default function ProjectLibrary() {
     },
     {
       name: "ACTIVITY TYPE",
-      options: [
-        { label: "Animation", checked: { checked } },
-        { label: "Game", checked: { checked } },
-        { label: "Chatbot", checked: { checked } },
-        { label: "Augmented Reality", checked: { checked } },
-      ],
+      options: ["Animation", "Game", "Chatbot", "Augmented Reality"],
       function: function handleActivities(e) {
         if (e.target.checked) {
           const activitiesArray = [...filteredActivities];
@@ -246,12 +244,7 @@ export default function ProjectLibrary() {
     },
     {
       name: "YEAR LEVEL",
-      options: [
-        { label: "1 - 4", checked: { checked } },
-        { label: "5 - 6", checked: { checked } },
-        { label: "7 - 8", checked: { checked } },
-        { label: "9 - 13", checked: { checked } },
-      ],
+      options: ["1 - 4", "5 - 6", "7 - 8", "9 - 13"],
       function: function handleYearLevel(e) {
         if (e.target.checked) {
           const yearLevelArray = [...filteredYearLevel];
@@ -272,12 +265,12 @@ export default function ProjectLibrary() {
     {
       name: "SUBJECT MATTER",
       options: [
-        { label: "Computer Science", checked: { checked } },
-        { label: "Maths", checked: { checked } },
-        { label: "Science", checked: { checked } },
-        { label: "Language", checked: { checked } },
-        { label: "Art", checked: { checked } },
-        { label: "Music", checked: { checked } },
+        "Computer Science",
+        "Maths",
+        "Science",
+        "Language",
+        "Art",
+        "Music",
       ],
       function: function handleSubjectMatter(e) {
         if (e.target.checked) {
@@ -298,6 +291,19 @@ export default function ProjectLibrary() {
     },
   ];
 
+  const difficultyButtons = [
+    { label: "ALL", className: topFilterStyles.leftBtn },
+    { label: "BEGINNER", className: "" },
+    { label: "INTERMEDIATE", className: "" },
+    { label: "ADVANCED", className: topFilterStyles.rightBtn },
+  ];
+
+  const limitResultsButtons = [
+    { label: 5, className: topFilterStyles.leftBtn },
+    { label: 10, className: "" },
+    { label: "ALL", className: topFilterStyles.rightBtn },
+  ];
+
   const userData = [
     {
       id: 1,
@@ -305,9 +311,6 @@ export default function ProjectLibrary() {
       lastName: "Fletcher",
       userType: "Student",
       photo: "/images/students/RawiriFletcher.png",
-      function: function togglePopUp() {
-        console.log("User pop-up triggered");
-      },
     },
     {
       id: 2,
@@ -315,9 +318,6 @@ export default function ProjectLibrary() {
       lastName: "Salvador",
       userType: "Teacher",
       photo: "/images/teachers/JasminaSalvador.png",
-      function: function togglePopUp() {
-        console.log("User pop-up triggered");
-      },
     },
     {
       id: 3,
@@ -356,11 +356,7 @@ export default function ProjectLibrary() {
   useEffect(() => {
     const addActivityArray = [];
 
-    if (
-      filteredDifficulties.length > 0 &&
-      filteredSubscriptions.length > 0 &&
-      filteredActivities.length > 0
-    ) {
+    if (filteredResults.length > 0 && filteredActivities.length > 0) {
       filteredResults.map((resultsProject) => {
         filteredActivities.map((activityProject) => {
           if (activityProject.name === resultsProject.name) {
@@ -376,12 +372,7 @@ export default function ProjectLibrary() {
 
   useEffect(() => {
     const addYearArray = [];
-    if (
-      filteredDifficulties.length > 0 &&
-      filteredSubscriptions.length > 0 &&
-      filteredActivities.length > 0 &&
-      filteredYearLevel.length > 0
-    ) {
+    if (filteredResults2.length > 0 && filteredYearLevel.length > 0) {
       filteredResults2.map((resultsProject) => {
         filteredYearLevel.map((yearProject) => {
           if (yearProject.name === resultsProject.name) {
@@ -397,13 +388,7 @@ export default function ProjectLibrary() {
 
   useEffect(() => {
     const addSubjectArray = [];
-    if (
-      filteredDifficulties.length > 0 &&
-      filteredSubscriptions.length > 0 &&
-      filteredActivities.length > 0 &&
-      filteredYearLevel.length > 0 &&
-      filteredSubjectMatter.length > 0
-    ) {
+    if (filteredResults3.length > 0 && filteredSubjectMatter.length > 0) {
       filteredResults3.map((resultsProject) => {
         filteredSubjectMatter.map((subjectProject) => {
           if (subjectProject.name === resultsProject.name) {
@@ -428,7 +413,7 @@ export default function ProjectLibrary() {
         userImage={user.photo}
         alt={`Profile photo of ${user.firstName} ${user.lastName}`}
         userName={`${user.firstName.toUpperCase()} ${user.lastName.toUpperCase()}`}
-        function={user.function}
+        function={togglePopUp}
       />
       {/* Main section: title, side filters, top filters, project cards and bottom buttons */}
       <main className={styles.main}>
@@ -442,16 +427,15 @@ export default function ProjectLibrary() {
         </header>
 
         {/* Side filter section*/}
-        <div className={styles.sideFilters}>
+        <div className={sideFilterStyles.sideFilters}>
           {checkboxes.map((form, index) => (
             <CheckboxForms CheckboxForms key={index} filterTitle={form.name}>
-              {form.options.map((label, index) => (
+              {form.options.map((option, index) => (
                 <CheckboxAndLabel
-                  id={label.label}
+                  id={option}
                   key={index}
                   function={form.function}
-                  defaultChecked={true}
-                  label={label.label}
+                  label={option}
                 />
               ))}
             </CheckboxForms>
@@ -459,76 +443,40 @@ export default function ProjectLibrary() {
         </div>
 
         {/* Top filter section */}
-        <div className={styles.topFilters}>
+        <div className={topFilterStyles.topFilters}>
           {/* Difficulty buttons */}
-          <div className={styles.difficultyBtns}>
-            <button
-              className={`${styles.difficultyBtn} ${styles.allBtn} ${
-                selectedDifficulty === "ALL" ? styles.activeDifficultyBtn : ""
-              }`}
-              onClick={() => handleDifficulty("ALL")}
-            >
-              ALL
-            </button>
-            <button
-              className={`${styles.difficultyBtn} ${
-                selectedDifficulty === "BEGINNER"
-                  ? styles.activeDifficultyBtn
-                  : ""
-              }`}
-              onClick={() => handleDifficulty("BEGINNER")}
-            >
-              BEGINNER
-            </button>
-            <button
-              className={`${styles.difficultyBtn} ${
-                selectedDifficulty === "INTERMEDIATE"
-                  ? styles.activeDifficultyBtn
-                  : ""
-              }`}
-              onClick={() => handleDifficulty("INTERMEDIATE")}
-            >
-              INTERMEDIATE
-            </button>
-            <button
-              className={`${styles.difficultyBtn} ${styles.advancedBtn} ${
-                selectedDifficulty === "ADVANCED"
-                  ? styles.activeDifficultyBtn
-                  : ""
-              }`}
-              onClick={() => handleDifficulty("ADVANCED")}
-            >
-              ADVANCED
-            </button>
+          <div className={topFilterStyles.btnDiv}>
+            {difficultyButtons.map((button, index) => (
+              <TopFilters
+                className={`${topFilterStyles.btn} ${button.className} ${
+                  selectedDifficulty === button.label
+                    ? topFilterStyles.activeBtn
+                    : ""
+                }`}
+                key={index}
+                function={handleDifficulty}
+                label={button.label}
+                id={button.label}
+              />
+            ))}
           </div>
 
           {/* Buttons to limit number of results */}
-          <div className={styles.limitResultsBtns}>
-            <p className={styles.show}>SHOW</p>
-            <button
-              className={`${styles.limitResultsBtn} ${styles.fiveResultsBtn} ${
-                resultsLimit === 5 ? styles.activeResultsLimitBtn : ""
-              }`}
-              onClick={() => handleResultsLimit(5)}
-            >
-              5
-            </button>
-            <button
-              className={`${styles.limitResultsBtn} ${
-                resultsLimit === 10 ? styles.activeResultsLimitBtn : ""
-              }`}
-              onClick={() => handleResultsLimit(10)}
-            >
-              10
-            </button>
-            <button
-              className={`${styles.limitResultsBtn} ${styles.allResultsBtn} ${
-                resultsLimit === "All" ? styles.activeResultsLimitBtn : ""
-              }`}
-              onClick={() => handleResultsLimit("All")}
-            >
-              All
-            </button>
+          <div className={topFilterStyles.btnDiv}>
+            <p className={topFilterStyles.show}>SHOW</p>
+            {limitResultsButtons.map((button, index) => (
+              <TopFilters
+                className={`${topFilterStyles.btn} ${button.className} ${
+                  resultsLimit === String(button.label)
+                    ? topFilterStyles.activeBtn
+                    : ""
+                }`}
+                key={index}
+                function={handleResultsLimit}
+                label={button.label}
+                id={button.label}
+              />
+            ))}
           </div>
         </div>
 
@@ -538,7 +486,7 @@ export default function ProjectLibrary() {
             {filteredResults4
               .slice(
                 0,
-                resultsLimit === "All" ? filteredResults4.length : resultsLimit
+                resultsLimit === "ALL" ? filteredResults4.length : resultsLimit
               )
               .map((project, index) => (
                 <ProjectCard

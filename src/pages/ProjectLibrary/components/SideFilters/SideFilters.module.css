@@ -1,0 +1,73 @@
+.sideFilters {
+  grid-area: 2 / 2 / span 2;
+}
+
+.sideFilter {
+  padding-bottom: 2.6vw;
+}
+
+.filterTitle {
+  display: flex;
+  align-self: flex-start;
+  font-family: "Open sans", sans-serif;
+  font-weight: 700;
+  color: #767676;
+  font-size: 0.9vw;
+  margin-bottom: 0.3vw;
+}
+
+.lineBreak {
+  margin-bottom: 0.5vw;
+}
+
+.checkboxAndLabel {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.3vw;
+}
+
+.checkbox {
+  appearance: none;
+  position: relative;
+  width: 0.8vw;
+  height: 0.8vw;
+  border-radius: 0.2vw;
+  background: linear-gradient(to bottom, #e6e6e6 0%, #ffffff 35%);
+  border: 0.1vw solid #cecdcd;
+  cursor: pointer;
+}
+
+.checkbox:checked {
+  background-image: linear-gradient(#5eabfb, #1183ff);
+  border: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.checkbox::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  height: 85%;
+  pointer-events: none;
+  background-image: url("src/assets/ProjectLibrary/check.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+.checkbox:checked::before {
+  display: block;
+}
+
+.checkboxLabel {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  color: #767676;
+  font-size: 0.75vw;
+  margin-left: 0.8vw;
+  cursor: pointer;
+}
+/*  */
