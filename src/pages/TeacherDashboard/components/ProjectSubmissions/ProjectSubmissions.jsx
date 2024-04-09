@@ -11,6 +11,7 @@ export default function ProjectSubmissions() {
   // Test projects to ensure things work (will replace with fetch eventually)
   const testProject = [
     {
+      studentId: 0,
       name: "Aiden",
       profilePic: "/images/students/AidenAndrews.png",
       projectPic: { projectImg },
@@ -18,24 +19,28 @@ export default function ProjectSubmissions() {
       time: "10:43 AM",
     },
     {
+      studentId: 1,
       name: "Rawiri",
       profilePic: "/images/students/RawiriFletcher.png",
       date: "TUE 28 April 2020",
       time: "10:27 AM",
     },
     {
+      studentId: 2,
       name: "Neveah",
       profilePic: "/images/students/NeveahMachenry.png",
       date: "TUE 28 April 2020",
       time: "9:58 AM",
     },
     {
+      studentId: 3,
       name: "Alice",
       profilePic: "/images/students/AliceKindellan.png",
       date: "TUE 28 April 2020",
       time: "9:50 AM",
     },
     {
+      studentId: 4,
       name: "Courtney",
       profilePic: "/images/students/CourtneyBristol.png",
       date: "TUE 28 April 2020",
@@ -44,7 +49,14 @@ export default function ProjectSubmissions() {
   ];
 
   const [projects, setProjects] = useState([...testProject]);
-  const [checked, setChecked] = useState([false, false, false, false, false]);
+  // const [checked, setChecked] = useState([false, false, false, false, false]);
+  const [checked, setChecked] = useState([
+    { studentId: projects[0].studentId, checked: false },
+    { studentId: projects[1].studentId, checked: false },
+    { studentId: projects[2].studentId, checked: false },
+    { studentId: projects[3].studentId, checked: false },
+    { studentId: projects[4].studentId, checked: false },
+  ]);
 
   return (
     <div className={styles.content}>

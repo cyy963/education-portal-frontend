@@ -15,18 +15,13 @@ export default function ProjectSubmissionsButtons({
   useEffect(() => {
     let testChangeIndex = [];
     for (let i = 0; i < checked.length; i++) {
-      if (!checked[i]) {
+      if (!checked[i].checked) {
         testChangeIndex.push(i);
       }
     }
 
     setChangeIndex(testChangeIndex);
   }, [checked]);
-
-  function handleCheck() {
-    const changeChecked = projects.map((item) => false);
-    setChecked(changeChecked);
-  }
 
   const handleDownload = () => {
     // updateChangeIndex();
@@ -38,7 +33,7 @@ export default function ProjectSubmissionsButtons({
     console.log("Mark complete");
     console.log(changeIndex);
 
-    // Delete objects from project
+    //Delete objects from project
     let updatedProjects;
 
     updatedProjects = changeIndex.map((item) => {
@@ -47,8 +42,12 @@ export default function ProjectSubmissionsButtons({
 
     setProjects(updatedProjects);
 
-    // reset checked
-    handleCheck();
+    const updatedChecked = changeIndex.map((item) => {
+      return { studentId: item, checked: false };
+    });
+
+    setChecked(updatedChecked);
+    console.log(checked);
   };
 
   if (type === "download") {

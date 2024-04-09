@@ -11,9 +11,14 @@ export default function SubmittedProjects({ projects, checked, setChecked }) {
   return (
     <div>
       {projects.map((item, index) => {
+        console.log("I run"); //PROBLEM
         return (
           <div className={styles.submitedProject} key={index}>
-            <Checkbox checked={checked} setChecked={setChecked} index={index} />
+            <Checkbox
+              checked={checked}
+              setChecked={setChecked}
+              studentId={projects[index].studentId}
+            />
 
             <div className={styles.checkboxDiv}>
               <div className={styles.projectFlex}>
