@@ -37,7 +37,7 @@
   background-color: #ffffff;
   grid-area: 2 / 4 / span 2;
   display: grid;
-  grid-template: 10.3vw minmax(28vw, auto) / 55% 45%;
+  grid-template: 10.3vw minmax(28vw, auto) / 48% 1fr;
   border: #e2dfdf solid 1.9px;
   border-radius: 25px;
 }
