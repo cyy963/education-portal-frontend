@@ -1,18 +1,22 @@
 /* Styles for navbar two */
-h5 {
-  font-family: nunito;
-  font-size: 2.2vh;
+.title,
+.paragraph {
   color: #6c6c6c;
 }
 
-/* p {
+.title {
+  font-family: nunito;
+  font-size: 2vh;
+}
+
+.paragraph {
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 1.2vh;
-  color: #6c6c6c;
-} */
+}
 
 .flex,
 .flexProject,
+.flexProjectMain,
 .flexCircle,
 .flexFlag {
   display: flex;
@@ -23,6 +27,9 @@ h5 {
 
 .flex {
   padding-bottom: 2px;
+  position: relative;
+  z-index: 99;
+  background-color: white;
 }
 
 .grid {
@@ -54,7 +61,7 @@ h5 {
 /* NavbarTwoProject */
 .flexProject {
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-start;
   margin-right: 2vh;
 }

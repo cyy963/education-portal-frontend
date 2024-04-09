@@ -7,19 +7,17 @@ import SubmittedProjects from "./components/SubmittedProjects";
 
 export default function ProjectSubmissions() {
   return (
-    <div className={styles.main}>
-      <div className={styles.content}>
-        {/* container for scrollbar content */}
-        <div className={styles.forScroll}>
-          <div className={styles.flex}>
-            <h3 className={styles.title}>PROJECT SUBMISSIONS</h3>
-            <div>
-              <ProjectSubmissionsButtons type="download" />
-              <ProjectSubmissionsButtons type="complete" />
-            </div>
+    <div className={styles.content}>
+      {/* container for scrollbar content */}
+      <div className={styles.forScroll}>
+        <div className={styles.flex}>
+          <h3 className={styles.title}>PROJECT SUBMISSIONS</h3>
+          <div>
+            <ProjectSubmissionsButtons type="download" />
+            <ProjectSubmissionsButtons type="complete" />
           </div>
-          <SubmittedProjects />
         </div>
+        <SubmittedProjects />
       </div>
     </div>
   );

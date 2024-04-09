@@ -1,23 +1,23 @@
 /* Styles for submit project page */
-h3 {
+.title,
+.text,
+.btnText {
+  color: #707070;
+}
+
+.title {
   font-family: nunito;
   font-size: 1.3em;
-  color: #707070;
 }
 
 .text,
 .btnText {
   font-family: "Open sans";
   font-size: 0.8em;
-  color: #707070;
 }
 
-.flexMain {
-  background-color: #b2e4fa;
-  display: flex;
-  height: 93vh;
-  justify-content: center;
-  align-items: center;
+.text {
+  margin: 0 20px;
 }
 
 .content {
@@ -28,7 +28,6 @@ h3 {
   background-color: #ffffff80;
   width: 95%;
   height: 90%;
-  border: #ffffff80 1px solid;
   border-radius: 30px;
 }
 
@@ -38,10 +37,12 @@ h3 {
   align-items: center;
   flex-direction: column;
   width: 50%;
+  text-align: center;
 }
 
 .img {
   width: 70%;
+  margin-top: 20px;
 }
 
 #left {

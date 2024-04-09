@@ -1,6 +1,6 @@
 .main {
   display: grid;
-  grid-template: 7.3vw 30vw auto 8.5vw /17.8vw 18.8vw 3.6vw 43vw 1fr;
+  grid-template: 7.3vw 30vw auto minmax(8.5vw, 1fr) / 17.8vw 18.8vw 3.6vw 43vw 1fr;
   background-color: #eeeeee;
 }
 
@@ -89,8 +89,8 @@
 .backButtons {
   grid-area: 4 / 4;
   display: flex;
-  align-items: center;
   justify-content: flex-end;
+  padding: 3.8vw 0;
 }
 
 .backButton {
