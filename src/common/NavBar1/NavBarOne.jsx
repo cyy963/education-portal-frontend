@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./NavBarOne.module.css";
 import logo from "/src/assets/NavBar/LevelUpWorks-white.png";
 import NZFlag from "/src/assets/NavBar/NZFlag.png";
@@ -7,9 +8,9 @@ import NavBarLink from "./components/NavBarLink";
 export default function NavBarOne(props) {
   return (
     <div className={styles.navBarOne}>
-      <div className={styles.logoDiv}>
+      <Link className={styles.logoDiv} to="/">
         <img className={styles.logo} src={logo} alt="Level Up Works Logo" />
-      </div>
+      </Link>
       <div className={styles.navLinks}>
         <NavBarLink link="/" text="HOME" />
         <NavBarLink link={props.link} text={props.text} />
