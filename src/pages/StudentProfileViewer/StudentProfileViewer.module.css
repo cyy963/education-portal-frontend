@@ -74,7 +74,9 @@
 
 .details {
   grid-area: 2/2;
-  justify-items: start;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
 }
 
 .detail {
