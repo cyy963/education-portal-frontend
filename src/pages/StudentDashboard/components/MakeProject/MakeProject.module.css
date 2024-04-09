@@ -1,0 +1,17 @@
+.overlayBox { /*fixed name to match jsx file - which prevented box rendering. So so so much time wasted */
+    /* position: relative; */
+    background-color: #FFFFFF80; 
+    /* padding: 20px; */
+    margin: 4% 5% 4% 2%; 
+    border-radius: 20px; /* Rounded corners */
+    height: 90%;
+    width: 95%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.imageStyle {
+    width: 90%; 
+    height: auto; /* Maintains aspect ratio */
+  }
