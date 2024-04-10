@@ -1,15 +1,12 @@
 /* page styling */
-* {
-    color: #6c6c6c;
-    font-family: "nunito";
-  }
-  
-  .body {
-    background-color: #b2e4fa;
-    padding: 15px 5px 0px 5px;
-    height: 90vh;
-    width: 100%;
-  }
+.body{
+    height: 90%;
+    width: 95%;
+    /* outline: 2px solid red; */
+    background-color: #FFFFFF80;
+    margin: 4% 5% 4% 2%;
+    border-radius: 20px;
+}
 
   /* content styling */
   .main {
@@ -24,21 +21,29 @@
   /* text and font styling for each text class */
   .title {
     display: flex;
+    color: #6c6c6c;
+    font-family: "nunito";
   }
 
   .dateTime {
     text-align: end;
     padding: 10px;
+    color: #6c6c6c;
+    font-family: "nunito";
   }
 
   .nameHelp {
     text-align: left;
     font-size: 15px;
     font-weight: 850;
+    color: #6c6c6c;
+    font-family: "nunito";
   }
 
   .otherText {
     text-align: end;
+    color: #6c6c6c;
+    font-family: "nunito";
   }
 
   /* display styling */
