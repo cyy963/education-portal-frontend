@@ -17,6 +17,9 @@
 }
 
 .lineBreak {
+  background-color: #767676;
+  border: none;
+  height: 0.05vw;
   margin-bottom: 0.5vw;
 }
 
@@ -32,7 +35,7 @@
   width: 0.8vw;
   height: 0.8vw;
   border-radius: 0.2vw;
-  background: linear-gradient(to bottom, #e6e6e6 0%, #ffffff 35%);
+  background: linear-gradient(to bottom, #dfdfdf 0%, #ffffff 35%);
   border: 0.1vw solid #cecdcd;
   cursor: pointer;
 }
@@ -70,4 +73,3 @@
   margin-left: 0.8vw;
   cursor: pointer;
 }
-/*  */

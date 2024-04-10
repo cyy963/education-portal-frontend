@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./ProjectLibrary.module.css";
 import topFilterStyles from "./components/TopFilters.module.css";
 import sideFilterStyles from "./components/SideFilters/SideFilters.module.css";
+import popUpMenuStyles from "./../../common/NavBar1/components/PopUpMenu.module.css";
 
 // Imports:
 import BackToDashboardButton from "../../common/BackToDashboardButton/BackToDashboardButton";
@@ -11,6 +12,7 @@ import CheckboxAndLabel from "./components/SideFilters/CheckboxAndLabel";
 import NavBarOne from "../../common/NavBar1/NavBarOne";
 import TopFilters from "./components/TopFilters";
 import FooterTwo from "../../common/FooterTwo";
+import PopUpMenu from "../../common/NavBar1/components/PopUpMenu";
 
 const projects = [
   {
@@ -181,6 +183,7 @@ const projects = [
 ];
 
 export default function ProjectLibrary() {
+  const [popUp, setPopUp] = useState(false);
   const [selectedDifficulty, setSelectedDifficulty] = useState("ALL");
   const [resultsLimit, setResultsLimit] = useState("ALL");
   const [filteredSubscriptions, setFilteredSubscriptions] = useState([
@@ -195,11 +198,17 @@ export default function ProjectLibrary() {
   const [filteredResults2, setFilteredResults2] = useState([...projects]);
   const [filteredResults3, setFilteredResults3] = useState([...projects]);
   const [filteredResults4, setFilteredResults4] = useState([...projects]);
-  const togglePopUp = () => {
-    console.log("User pop-up triggered");
+  const togglePopUp = (e) => {
+    if (e.target.checked) {
+      setPopUp(false);
+    } else {
+      setPopUp(true);
+    }
   };
   const handleDifficulty = (e) => setSelectedDifficulty(e.target.id);
   const handleResultsLimit = (e) => setResultsLimit(e.target.id);
+  const removePopUp = () => setPopUp(false);
+  console.log("clicked");
 
   const checkboxes = [
     {
@@ -319,15 +328,6 @@ export default function ProjectLibrary() {
       userType: "Teacher",
       photo: "/images/teachers/JasminaSalvador.png",
     },
-    {
-      id: 3,
-      firstName: "REGISTER | LOGIN",
-      lastName: "",
-      photo: "/src/assets/NavBar/Avatar-white.png",
-      function: function toggleLogin() {
-        console.log("Register/login triggered");
-      },
-    },
   ];
 
   const user = userData[0];
@@ -407,14 +407,27 @@ export default function ProjectLibrary() {
   }
 
   return (
-    <div>
-      <NavBarOne
-        text="PROJECTS"
-        userImage={user.photo}
-        alt={`Profile photo of ${user.firstName} ${user.lastName}`}
-        userName={`${user.firstName.toUpperCase()} ${user.lastName.toUpperCase()}`}
-        function={togglePopUp}
+    <div onClick={removePopUp}>
+      <div className={styles.navBarSpace}>
+        <NavBarOne
+          text="PROJECTS"
+          userImage={user.photo}
+          alt={`Profile photo of ${user.firstName} ${user.lastName}`}
+          userName={`${user.firstName.toUpperCase()} ${user.lastName.toUpperCase()}`}
+          function={togglePopUp}
+        />
+      </div>
+      <PopUpMenu
+        profileLink="/student-profile-viewer"
+        onClick={togglePopUp}
+        arrowClassName={`${popUpMenuStyles.arrow} ${
+          popUp ? popUpMenuStyles.show : ""
+        }`}
+        menuClassName={`${popUpMenuStyles.popUpMenu} ${
+          popUp ? popUpMenuStyles.show : ""
+        }`}
       />
+
       {/* Main section: title, side filters, top filters, project cards and bottom buttons */}
       <main className={styles.main}>
         {/* Header: Title and description of page */}
