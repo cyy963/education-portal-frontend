@@ -11,7 +11,6 @@ export default function SubmittedProjects({ projects, checked, setChecked }) {
   return (
     <div>
       {projects.map((item, index) => {
-        console.log("I run"); //PROBLEM
         return (
           <div className={styles.submitedProject} key={index}>
             <Checkbox

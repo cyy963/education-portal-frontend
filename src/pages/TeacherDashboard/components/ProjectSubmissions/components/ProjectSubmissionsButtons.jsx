@@ -24,34 +24,25 @@ export default function ProjectSubmissionsButtons({
   }, [checked]);
 
   const handleDownload = () => {
-    // updateChangeIndex();
     console.log("Download");
   };
 
   const handleMarkComplete = () => {
-    // updateChangeIndex();
-    console.log("Mark complete");
-    console.log(changeIndex);
-
     //Delete objects from project
     let updatedProjects;
 
     updatedProjects = changeIndex.map((item) => {
-      console.log(projects[item]);
       const currentDate = new Date().toDateString();
-      console.log(currentDate);
       return projects[item];
     });
 
     setProjects(updatedProjects);
 
     const updatedChecked = changeIndex.map((item) => {
-      console.log(item);
       return { studentId: item, checked: false };
     });
 
     setChecked(updatedChecked);
-    console.log(updatedChecked, updatedProjects);
   };
 
   if (type === "download") {

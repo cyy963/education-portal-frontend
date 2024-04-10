@@ -10,8 +10,11 @@ export default function Checkbox({ checked, setChecked, studentId }) {
     const holdCheckList = checked.filter((item) => {
       return item.studentId === studentId;
     });
-
-    const holdCheck = holdCheckList[0].checked;
+    // Once the holdCheckList has the object then it will take checked key-value pair
+    let holdCheck;
+    holdCheckList[0]
+      ? (holdCheck = holdCheckList[0].checked)
+      : (holdCheck = false);
     setIsChecked(holdCheck);
   }, [checked]);
 

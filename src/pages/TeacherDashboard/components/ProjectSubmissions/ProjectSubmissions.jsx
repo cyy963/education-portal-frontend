@@ -54,14 +54,16 @@ export default function ProjectSubmissions() {
   ];
 
   const [projects, setProjects] = useState([...testProject]);
-  // const [checked, setChecked] = useState([false, false, false, false, false]);
-  const [checked, setChecked] = useState([
-    { studentId: projects[0].studentId, checked: false },
-    { studentId: projects[1].studentId, checked: false },
-    { studentId: projects[2].studentId, checked: false },
-    { studentId: projects[3].studentId, checked: false },
-    { studentId: projects[4].studentId, checked: false },
-  ]);
+  const [checked, setChecked] = useState([]);
+
+  let checking;
+
+  useEffect(() => {
+    checking = projects.map((item) => {
+      return { studentId: item.studentId, checked: false };
+    });
+    setChecked(checking);
+  }, [projects]);
 
   return (
     <div className={styles.content}>
