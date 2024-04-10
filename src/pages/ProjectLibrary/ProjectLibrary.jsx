@@ -11,7 +11,6 @@ import CheckboxForms from "./components/SideFilters/CheckboxForms";
 import CheckboxAndLabel from "./components/SideFilters/CheckboxAndLabel";
 import NavBarOne from "../../common/NavBar1/NavBarOne";
 import TopFilters from "./components/TopFilters";
-import FooterTwo from "../../common/FooterTwo";
 import PopUpMenu from "../../common/NavBar1/components/PopUpMenu";
 
 const projects = [
@@ -198,17 +197,10 @@ export default function ProjectLibrary() {
   const [filteredResults2, setFilteredResults2] = useState([...projects]);
   const [filteredResults3, setFilteredResults3] = useState([...projects]);
   const [filteredResults4, setFilteredResults4] = useState([...projects]);
-  const togglePopUp = (e) => {
-    if (e.target.checked) {
-      setPopUp(false);
-    } else {
-      setPopUp(true);
-    }
-  };
+  const togglePopUp = () => setPopUp(!popUp);
   const handleDifficulty = (e) => setSelectedDifficulty(e.target.id);
   const handleResultsLimit = (e) => setResultsLimit(e.target.id);
   const removePopUp = () => setPopUp(false);
-  console.log("clicked");
 
   const checkboxes = [
     {
@@ -414,7 +406,7 @@ export default function ProjectLibrary() {
           userImage={user.photo}
           alt={`Profile photo of ${user.firstName} ${user.lastName}`}
           userName={`${user.firstName.toUpperCase()} ${user.lastName.toUpperCase()}`}
-          function={togglePopUp}
+          onChange={togglePopUp}
         />
       </div>
       <PopUpMenu

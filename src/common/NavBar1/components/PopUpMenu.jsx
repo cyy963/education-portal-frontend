@@ -5,7 +5,7 @@ export default function PopUpMenu(props) {
   return (
     <div>
       <div className={props.arrowClassName}></div>
-      <div className={props.menuClassName} onClick={props.onClick}>
+      <div className={props.menuClassName}>
         <Link to={props.profileLink} className={styles.link}>
           My Profile
         </Link>

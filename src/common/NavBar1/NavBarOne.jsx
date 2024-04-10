@@ -24,7 +24,7 @@ export default function NavBarOne(props) {
       <input
         type="checkbox"
         id="userBtn"
-        onChange={props.function}
+        onChange={props.onChange}
         className={styles.userBtn}
       />
       <label htmlFor="userBtn" className={styles.user}>

@@ -1,12 +1,22 @@
+.navBarSpace {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  box-shadow: 0 3px 6px rgba(100, 99, 99, 0.2);
+  height: 3.3vw;
+  background-color: transparent;
+}
+
 .main {
   display: grid;
-  grid-template: 7.3vw 30vw auto minmax(8.5vw, 1fr) / 17.8vw 18.8vw 3.6vw 43vw 1fr;
+  grid-template: 3.3vw 7.3vw 30vw auto minmax(8.5vw, 1fr) / 17.8vw 18.8vw 3.6vw 43vw 1fr;
   background-color: #eeeeee;
 }
 
 .left {
   background-color: #ffffff;
-  grid-area: 2 / 2;
+  grid-area: 3 / 2;
   border: #e2dfdf solid 1.5px;
   border-radius: 25px;
   display: flex;
@@ -35,7 +45,7 @@
 
 .studentInfoCard {
   background-color: #ffffff;
-  grid-area: 2 / 4 / span 2;
+  grid-area: 3 / 4 / span 2;
   display: grid;
   grid-template: 10.3vw minmax(28vw, auto) / 48% 1fr;
   border: #e2dfdf solid 1.9px;
@@ -58,7 +68,7 @@
 
 .labels {
   font-family: "nunito", sans-serif;
-  grid-area: 2/1;
+  grid-area: 2;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -88,8 +98,8 @@
   overflow-x: auto;
 }
 
-.backButtons {
-  grid-area: 4 / 4;
+.buttonSpace {
+  grid-area: 5 / 4;
   display: flex;
   justify-content: flex-end;
   padding: 3.8vw 0;
