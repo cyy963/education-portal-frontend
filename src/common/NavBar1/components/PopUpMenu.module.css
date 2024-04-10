@@ -10,7 +10,8 @@
   flex-flow: column;
   padding-top: 1vw;
   padding-left: 0.4vw;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 1.5px 2px 2px rgba(0, 0, 0, 0.1),
+    -1.5px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Popup arrow */
