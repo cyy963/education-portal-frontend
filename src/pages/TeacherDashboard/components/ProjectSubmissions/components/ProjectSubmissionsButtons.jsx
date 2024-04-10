@@ -37,17 +37,21 @@ export default function ProjectSubmissionsButtons({
     let updatedProjects;
 
     updatedProjects = changeIndex.map((item) => {
+      console.log(projects[item]);
+      const currentDate = new Date().toDateString();
+      console.log(currentDate);
       return projects[item];
     });
 
     setProjects(updatedProjects);
 
     const updatedChecked = changeIndex.map((item) => {
+      console.log(item);
       return { studentId: item, checked: false };
     });
 
     setChecked(updatedChecked);
-    console.log(checked);
+    console.log(updatedChecked, updatedProjects);
   };
 
   if (type === "download") {

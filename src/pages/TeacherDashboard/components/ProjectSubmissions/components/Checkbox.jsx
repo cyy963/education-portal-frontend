@@ -7,7 +7,12 @@ export default function Checkbox({ checked, setChecked, studentId }) {
 
   // Use effect to handle isChecked
   useEffect(() => {
-    setIsChecked(checked[studentId].checked);
+    const holdCheckList = checked.filter((item) => {
+      return item.studentId === studentId;
+    });
+
+    const holdCheck = holdCheckList[0].checked;
+    setIsChecked(holdCheck);
   }, [checked]);
 
   return (

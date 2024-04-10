@@ -17,6 +17,7 @@ export default function ProjectSubmissions() {
       projectPic: { projectImg },
       date: "TUE 28 April 2020",
       time: "10:43 AM",
+      dateComplete: null,
     },
     {
       studentId: 1,
@@ -24,6 +25,7 @@ export default function ProjectSubmissions() {
       profilePic: "/images/students/RawiriFletcher.png",
       date: "TUE 28 April 2020",
       time: "10:27 AM",
+      dateComplete: null,
     },
     {
       studentId: 2,
@@ -31,6 +33,7 @@ export default function ProjectSubmissions() {
       profilePic: "/images/students/NeveahMachenry.png",
       date: "TUE 28 April 2020",
       time: "9:58 AM",
+      dateComplete: null,
     },
     {
       studentId: 3,
@@ -38,6 +41,7 @@ export default function ProjectSubmissions() {
       profilePic: "/images/students/AliceKindellan.png",
       date: "TUE 28 April 2020",
       time: "9:50 AM",
+      dateComplete: null,
     },
     {
       studentId: 4,
@@ -45,6 +49,7 @@ export default function ProjectSubmissions() {
       profilePic: "/images/students/CourtneyBristol.png",
       date: "TUE 28 April 2020",
       time: "9:46 AM",
+      dateComplete: null,
     },
   ];
 
