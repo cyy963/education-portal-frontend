@@ -1,5 +1,5 @@
 .topFilters {
-  grid-area: 2 / 4;
+  grid-area: 1 / 3;
   display: flex;
   justify-content: space-between;
   height: 1.3vw;
