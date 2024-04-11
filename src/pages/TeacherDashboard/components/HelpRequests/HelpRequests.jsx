@@ -1,5 +1,5 @@
 import React from "react";
-import Checklist from "./checklist/CheckList";
+import Checkbox from "./components/CheckBox";
 import scrollStyle from "../../../../common/Scrollbar.module.css"
 
 import styles from "./HelpRequests.module.css";
@@ -20,7 +20,6 @@ function HelpRequests() {
               
             </div>
             <div>
-              {/* <Checklist/ */}
               <StudentHelp/>
             </div>
           </div>
