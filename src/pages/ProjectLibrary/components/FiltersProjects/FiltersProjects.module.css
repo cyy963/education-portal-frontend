@@ -1,0 +1,46 @@
+.filtersAndProjects {
+  grid-area: 2 / 2 / 3 / span 2;
+  display: grid;
+  grid: 3.1vw auto / 9.5vw 5.5vw 57.5vw;
+}
+.projects {
+  grid-area: 2 / 3;
+}
+.projectsContainer {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 3vw 4.45vw;
+  margin: 0 -0.5vw;
+}
+
+.card {
+  width: 16.4vw;
+  height: 16.5vw;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.projectName {
+  font-family: "nunito", sans-serif;
+  font-size: 1.6vw;
+  font-weight: 800;
+  color: #767676;
+  text-align: center;
+  line-height: 1.8vw;
+}
+
+.cardDescription {
+  margin-top: 0.5vw;
+  text-align: center;
+  align-self: center;
+  font-family: "Open sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.1vw;
+  color: #767676;
+}
+
+.link {
+  text-decoration: none;
+  width: 100%;
+}

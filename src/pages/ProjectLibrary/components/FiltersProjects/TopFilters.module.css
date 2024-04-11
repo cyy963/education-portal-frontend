@@ -1,0 +1,48 @@
+.topFilters {
+  grid-area: 1 / 3;
+  display: flex;
+  justify-content: space-between;
+  height: 1.3vw;
+}
+
+.btnDiv {
+  display: flex;
+}
+
+.btn {
+  background-color: #f7f0f0;
+  border: none;
+  box-shadow: 0.03vw 0.03vw 0.06vw 0.03vw #c6c9c9;
+  padding: 0.07vw 1vw 0.1vw;
+  color: #3b3939;
+  font-size: 0.8vw;
+  font-weight: 700;
+  font-family: "Open Sans", sans-serif;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.leftBtn {
+  border-radius: 3px 0 0 3px;
+}
+
+.rightBtn {
+  border-radius: 0 2px 2px 0;
+  margin-right: 0.5vw;
+}
+
+.activeBtn {
+  background-image: linear-gradient(#5eabfb, #1183ff);
+  color: #ffffff;
+}
+
+.show {
+  font-family: "Open sans", sans-serif;
+  font-weight: 700;
+  color: #767676;
+  font-size: 0.9vw;
+  align-self: center;
+  margin-right: 1vw;
+}

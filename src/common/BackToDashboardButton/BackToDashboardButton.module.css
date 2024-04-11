@@ -2,13 +2,13 @@
   background-color: #f91c85;
   border: none;
   font-family: "Nunito", sans-serif;
-  border-radius: 5px;
+  border-radius: 0.35vw;
   color: #ffffff;
   font-weight: 900;
   font-size: 0.9vw;
   display: flex;
   justify-content: center;
-  padding: 5px 0px;
+  padding: 0.35vw 0;
   width: 12vw;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;

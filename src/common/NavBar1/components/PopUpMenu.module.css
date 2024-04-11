@@ -1,0 +1,42 @@
+.popUpMenu {
+  visibility: hidden;
+  background-color: #fdf7d3;
+  position: fixed;
+  left: 78.05vw;
+  top: 3.8vw;
+  width: 7.2vw;
+  height: 7.5vw;
+  display: flex;
+  flex-flow: column;
+  padding-top: 1vw;
+  padding-left: 0.4vw;
+  box-shadow: 1.5px 2px 2px rgba(0, 0, 0, 0.1),
+    -1.5px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Popup arrow */
+.arrow {
+  visibility: hidden;
+  position: fixed;
+  left: 78.05vw;
+  top: 2.9vw;
+  width: 0;
+  height: 0;
+  border-left: 0.4vw solid transparent;
+  border-right: 0.4vw solid transparent;
+  border-bottom: 1vw solid #fdf7d3;
+}
+
+/* Toggle this class - hide and show the popup */
+.show {
+  visibility: visible;
+}
+
+.link {
+  font-family: "Open sans", sans-serif;
+  color: #6c6c6c;
+  font-weight: 650;
+  text-decoration: none;
+  font-size: 1vw;
+  line-height: 1.95vw;
+}
