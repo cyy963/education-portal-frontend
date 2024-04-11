@@ -1,0 +1,68 @@
+.main {
+    display: grid;
+    grid-template: 7.3vw 30vw auto minmax(8.5vw, 1fr) / 17.8vw 18.8vw 3.6vw 43vw 1fr;
+    background-color: #eeeeee;
+  }
+
+  .left {
+    background-color: #ffffff;
+    grid-area: 2 / 2;
+    border: #e2dfdf solid 1.5px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .right {
+    font-family: "nunito", sans-serif;
+    grid-area: 2/1;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-left: 5vw;
+    list-style: none;
+  }
+
+  .labels {
+    line-height: 4vw;
+    color: #a5a5a5;
+    font-weight: 650;
+    font-size: 1.7vw;
+  }
+
+  /* button styling */
+  .btn {
+    border: #43c0f6 solid 1.5px;
+    font-family: "Nunito", sans-serif;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #43c0f6;
+    font-weight: 900;
+    font-size: 0.9vw;
+    margin-bottom: 1.7vw;
+    padding: 3px 0px;
+    width: 9.1vw;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .backButtons {
+    grid-area: 4 / 4;
+    display: flex;
+    justify-content: flex-end;
+    padding: 3.8vw 0;
+  }
+  
+  .backButton {
+    background-color: #f91c85;
+    border: none;
+    font-family: "Nunito", sans-serif;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 0.9vw;
+    padding: 5px 0px;
+    width: 12vw;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }

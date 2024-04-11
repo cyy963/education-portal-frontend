@@ -91,7 +91,7 @@ body {
   display: flex;
   height: auto;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 10px;
   align-items: center;
   justify-content: flex-end;
 }
@@ -160,14 +160,14 @@ body {
 .isActive .dashboardFooter {
   display: flex;
   flex-direction: column;
-  margin: 10% 0%;
+  margin: 6% 0%;
 }
 .isActive .dashboardFooter p {
   display: none;
 }
 .isActive .dashboardFooter img {
   max-width: 23%;
-  margin: 15%;
+  margin: 8%;
   /* outline: 2px solid red; */
 }
 
