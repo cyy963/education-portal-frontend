@@ -6,7 +6,7 @@ import popUpMenuStyles from "./../../common/NavBar1/components/PopUpMenu.module.
 import NavBarOne from "../../common/NavBar1/NavBarOne";
 import PopUpMenu from "../../common/NavBar1/components/PopUpMenu";
 import Header from "./components/Header";
-import FiltersProjects from "./components/FiltersProjects";
+import FiltersProjects from "./components/FiltersProjects/FiltersProjects";
 import BackToDashboardButton from "../../common/BackToDashboardButton/BackToDashboardButton";
 
 export default function ProjectLibrary() {

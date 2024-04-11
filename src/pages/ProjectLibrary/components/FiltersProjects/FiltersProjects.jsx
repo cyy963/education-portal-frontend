@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import styles from "./FiltersProjects.module.css";
-import topFilterStyles from "../components/TopFilters.module.css";
-import sideFilterStyles from "../components/SideFilters/SideFilters.module.css";
-import ProjectCard from "../components/ProjectCard";
-import CheckboxForms from "../components/SideFilters/CheckboxForms";
-import CheckboxAndLabel from "../components/SideFilters/CheckboxAndLabel";
-import TopFilters from "../components/TopFilters";
+import topFilterStyles from "./TopFilters.module.css";
+import sideFilterStyles from "./SideFilters/SideFilters.module.css";
+import ProjectCard from "./ProjectCard";
+import CheckboxForms from "./SideFilters/CheckboxForms";
+import CheckboxAndLabel from "./SideFilters/CheckboxAndLabel";
+import TopFilters from "./TopFilters";
 
 const projects = [
   {

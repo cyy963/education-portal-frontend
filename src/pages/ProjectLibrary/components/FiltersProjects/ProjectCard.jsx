@@ -1,4 +1,4 @@
-import styles from "../components/FiltersProjects.module.css";
+import styles from "./FiltersProjects.module.css";
 import { Link } from "react-router-dom";
 
 export default function ProjectCard(props) {
