@@ -23,9 +23,6 @@ function HelpRequests() {
               <StudentHelp/>
             </div>
           </div>
-
-          
-          
         </div>
       </div>
       
