@@ -1,19 +1,17 @@
 /* page styling */
-/* * {
-    color: #6c6c6c;
-    font-family: "nunito";
-  } */
-  
-  .body {
+.body{
     height: 90%;
     width: 95%;
+    /* outline: 2px solid red; */
     background-color: #FFFFFF80;
     margin: 4% 5% 4% 2%;
     border-radius: 20px;
-  }
+}
 
   /* content styling */
   .main {
+    background-color: #ffffff80;
+    border: #ffffff80 1px solid;
     border-radius: 30px;
     padding: 4vw;
     height: 90%;
@@ -23,21 +21,29 @@
   /* text and font styling for each text class */
   .title {
     display: flex;
+    color: #6c6c6c;
+    font-family: "nunito";
   }
 
   .dateTime {
     text-align: end;
     padding: 10px;
+    color: #6c6c6c;
+    font-family: "nunito";
   }
 
   .nameHelp {
     text-align: left;
     font-size: 15px;
     font-weight: 850;
+    color: #6c6c6c;
+    font-family: "nunito";
   }
 
   .otherText {
     text-align: end;
+    color: #6c6c6c;
+    font-family: "nunito";
   }
 
   /* display styling */
@@ -60,4 +66,3 @@
   /* Styles for the container with scrollbar */
   max-height: 450px; /* Adjust as needed */
   overflow-y: auto; /* Ensure scrollbar appears when content exceeds container height */
-}
