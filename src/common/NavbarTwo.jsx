@@ -1,5 +1,5 @@
 import styles from "./NavbarTwo.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 //Import images from assets
 import logo from "../assets/NavBar/LevelUpWorks-blue.png";
@@ -10,8 +10,20 @@ import maoriFlag from "../assets/NavBar/MaoriFlag.png";
 import NavbarTwoProject from "./NavbarTwoProject";
 import NavbarTwoButtons from "./NavbarTwoButtons";
 import ToLibrary from "./ToLibrary";
+import { useEffect, useState } from "react";
 
 export default function NavbarTwo(props) {
+  // Controls whether button is start, submit or submitted
+  const [status, setStatus] = useState("start");
+  const [isDisabled, setIsDisabled] = useState(false);
+  let location = useLocation();
+
+  useEffect(() => {
+    location.pathname === "/student-dashboard/make-project"
+      ? setStatus("submit")
+      : setStatus(status);
+  }, [location]);
+
   return (
     <div className={styles.flex}>
       <div className={`${styles.grid} ${styles.flex}`}>
@@ -19,16 +31,28 @@ export default function NavbarTwo(props) {
           <img src={logo} alt="Logo" className={styles.logo} />
         </Link>
         {/* If student display NavbarTwoProject */}
-        {props.page === "student" ? <NavbarTwoProject /> : ""}
+        {props.user === "student" ? <NavbarTwoProject /> : ""}
       </div>
 
       <div className={styles.grid}>
-        {props.page === "student" ? (
+        {props.user === "student" ? (
           <div className={`${styles.grid} ${styles.flex}`}>
             {/* Three buttons for student */}
-            <Link to="/student-dashboard/make-project">
+            <Link
+              to={
+                status === "start"
+                  ? "/student-dashboard/make-project"
+                  : "/student-dashboard/submit-project"
+              }
+            >
               {/* Make link and type variable (when button pressed they change) */}
-              <NavbarTwoButtons type="start" />
+              <NavbarTwoButtons
+                type="start"
+                status={status}
+                setStatus={setStatus}
+                isDisabled={isDisabled}
+                setIsDisabled={setIsDisabled}
+              />
             </Link>
             <NavbarTwoButtons type="ask-for-help" />
             {/* ^^ backend function */}
