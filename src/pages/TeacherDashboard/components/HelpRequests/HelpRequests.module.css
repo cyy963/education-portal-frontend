@@ -1,20 +1,19 @@
 /* page styling */
-* {
+/* * {
     color: #6c6c6c;
     font-family: "nunito";
-  }
+  } */
   
   .body {
-    background-color: #b2e4fa;
-    padding: 15px 5px 0px 5px;
-    height: 90vh;
-    width: 100%;
+    height: 90%;
+    width: 95%;
+    background-color: #FFFFFF80;
+    margin: 4% 5% 4% 2%;
+    border-radius: 20px;
   }
 
   /* content styling */
   .main {
-    background-color: #ffffff80;
-    border: #ffffff80 1px solid;
     border-radius: 30px;
     padding: 4vw;
     height: 90%;
