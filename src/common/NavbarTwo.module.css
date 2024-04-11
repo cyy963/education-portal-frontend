@@ -23,6 +23,7 @@
   justify-content: space-between;
   align-items: flex-end;
   height: 7vh;
+  padding-right: 0.5vw;
 }
 
 .flex {
@@ -49,8 +50,8 @@
 
 .flag {
   height: 8px;
-  margin-right: 1vw;
-  margin-top: 1vh;
+  margin-right: 0.5vw;
+  margin-top: 2vh;
 }
 
 .flexFlag {
@@ -91,6 +92,7 @@
 
 /* Buttons */
 .start,
+.submitted,
 .askHelp,
 .helpCentre,
 .moreProjects,
@@ -99,8 +101,9 @@
   width: 10vw;
   color: white;
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
-  margin-right: 1vw;
+  margin-right: 2.5vw;
   padding: 0.2vh 0;
+  margin-bottom: 0.5vh;
 }
 
 .start:hover,
@@ -115,6 +118,11 @@
 .backToProjects {
   background-color: #f4b52d;
   border: #f4b52d solid 1px;
+}
+
+.submitted {
+  background-color: #6c6c6c;
+  border: #6c6c6c solid 1px;
 }
 
 .start:hover,

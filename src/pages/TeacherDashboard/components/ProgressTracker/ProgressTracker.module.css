@@ -1,15 +1,18 @@
 .body{
     height: 90%;
     width: 95%;
-    /* outline: 2px solid red; */
     background-color: #FFFFFF80;
     margin: 4% 5% 4% 2%;
     border-radius: 20px;
     display: flex;
     position: relative;
     justify-content: start;
-    flex-direction: column;    
+    flex-direction: column;
+    padding-right: 6vh;
+    padding-bottom: 10vh;
+    /* outline: 2px solid red; */ 
 }
+
 .title{
     /* outline: green 2px solid; */
     display: flex;
@@ -40,16 +43,22 @@
     justify-content: flex-start;
     height: 70%;
     padding: 0 6% 0 6%;
-    overflow: hidden;
 }
+
+.forScroll {
+    overflow-y: scroll;
+    height: 90%;
+    /* outline: 2px solid red; */
+}
+
 .studentProgressBar{
     /* outline: 2px solid orange; */
     background-color: white;
-    padding: 2% 4.5% 2% 3.5%;
-    margin: 13px 0;
+    padding: 3% 4.5% 3% 3.5%;
+    margin: 26px 0;
+    margin-top: 0;
     border-radius: 10px;
     width: 100%;
-    
     display: flex;
     justify-content: space-between;
 }
@@ -84,4 +93,5 @@
     background-color: white;
     border-color: #A2A0A0;
 }
+
 

@@ -24,13 +24,7 @@
     text-align: left; /* not working - being overidden*/
   }
   
-  p {
-    text-align: left; /* not working - being overidden*/
-    font-family: 'Nunito', sans-serif; 
-    font-weight: normal; 
-    font-size: 16px; 
-    color: #707070; /* colour taken from the photoshop mock up*/
-  }
+
   
 
   .linkStyle {

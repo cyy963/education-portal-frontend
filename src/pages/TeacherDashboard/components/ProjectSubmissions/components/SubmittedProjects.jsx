@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 // import projectImg from "../../../../assets/StudentDashboard/makeProject-screenshot.png";
 import projectImg from "../../../../../assets/StudentDashboard/makeProject-screenshot.png";
 
@@ -8,50 +7,17 @@ import styles from "../ProjectSubmissions.module.css";
 // Import component
 import Checkbox from "./Checkbox";
 
-export default function SubmittedProjects() {
-  const testProject = [
-    {
-      name: "Aiden",
-      profilePic: "/images/students/AidenAndrews.png",
-      projectPic: { projectImg },
-      date: "TUE 28 April 2020",
-      time: "10:43 AM",
-    },
-    {
-      name: "Rawiri",
-      profilePic: "/images/students/RawiriFletcher.png",
-      date: "TUE 28 April 2020",
-      time: "10:27 AM",
-    },
-    {
-      name: "Neveah",
-      profilePic: "/images/students/NeveahMachenry.png",
-      date: "TUE 28 April 2020",
-      time: "9:58 AM",
-    },
-    {
-      name: "Alice",
-      profilePic: "/images/students/AliceKindellan.png",
-      date: "TUE 28 April 2020",
-      time: "9:50 AM",
-    },
-    {
-      name: "Courtney",
-      profilePic: "/images/students/CourtneyBristol.png",
-      date: "TUE 28 April 2020",
-      time: "9:46 AM",
-    },
-  ];
-
-  const [projects, setProjects] = useState([...testProject]);
-  const [checked, setChecked] = useState([false, false, false, false, false]);
-
+export default function SubmittedProjects({ projects, checked, setChecked }) {
   return (
     <div>
       {projects.map((item, index) => {
         return (
           <div className={styles.submitedProject} key={index}>
-            <Checkbox checked={checked} setChecked={setChecked} index={index} />
+            <Checkbox
+              checked={checked}
+              setChecked={setChecked}
+              studentId={projects[index].studentId}
+            />
 
             <div className={styles.checkboxDiv}>
               <div className={styles.projectFlex}>
