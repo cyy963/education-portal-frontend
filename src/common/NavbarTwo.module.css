@@ -92,6 +92,7 @@
 
 /* Buttons */
 .start,
+.submitted,
 .askHelp,
 .helpCentre,
 .moreProjects,
@@ -117,6 +118,11 @@
 .backToProjects {
   background-color: #f4b52d;
   border: #f4b52d solid 1px;
+}
+
+.submitted {
+  background-color: #6c6c6c;
+  border: #6c6c6c solid 1px;
 }
 
 .start:hover,
