@@ -66,4 +66,3 @@
   /* Styles for the container with scrollbar */
   max-height: 450px; /* Adjust as needed */
   overflow-y: auto; /* Ensure scrollbar appears when content exceeds container height */
-}
