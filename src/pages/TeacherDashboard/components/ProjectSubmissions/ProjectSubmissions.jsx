@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import styles from "./ProjectSubmissions.module.css";
-import scrollStyle from "../../../../common/Scrollbar.module.css";
 
 // Importing components
 import ProjectSubmissionsButtons from "./components/ProjectSubmissionsButtons";
