@@ -17,12 +17,12 @@
 }
 
 .content {
-  background-color: #ffffff80;
-  border: #ffffff80 1px solid;
-  border-radius: 30px;
-  padding: 4vw;
   height: 90%;
   width: 95%;
+  background-color: #FFFFFF80;
+  margin: 4% 5% 4% 2%;
+  border-radius: 20px;
+  padding: 4vw;
 }
 
 .forScroll {
@@ -39,9 +39,12 @@
 }
 
 .btn {
+  color: #6c6c6c;
   border: none;
   background-color: transparent;
   margin-left: 2vw;
+  font-size: 0.7em;
+  cursor: pointer;
 }
 
 /* Styling for project submission banners */
