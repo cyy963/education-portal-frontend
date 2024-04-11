@@ -8,24 +8,23 @@
   width: 95%;
 }
 
-h2 {
+.explore {
   font-family: 'Nunito', sans-serif; 
   font-weight: bold; 
   font-size: 24px; 
   color: #707070; /* Hex color for the text - specified in photoshop mockup supplied */
-  text-align: center; /* Centers text horizontally */
+  text-align: center; /* Centers text horizontally */ 
 }
 
 /* Why is my H3 not working????? */
-h3 {
+.blocks {
   font-family: 'Nunito', sans-serif; 
   font-weight: bold; 
   font-size: 18px; 
   color: #707070; /* Hex color for the text - specified in photoshop mockup supplied */
-
 }
 
-p {
+.body {
   text-align: center;
   font-family: 'Nunito', sans-serif; 
   font-weight: regular; 
@@ -36,8 +35,7 @@ p {
   
 .columns, .row {
   display: flex;
-  justify-content: space-between;
-  
+  justify-content: space-between;  
 }
 
 .row {
@@ -50,7 +48,7 @@ p {
   box-sizing: border-box; /* Include padding in width calculation */
 }
   
-.column img {
+.img {
   max-width: 100%; /* Make images responsive */
   height: auto; /* Maintain aspect ratio */
   max-height: 100%; 
