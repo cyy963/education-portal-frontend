@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Outlet, NavLink } from 'react-router-dom';
+import { Outlet, NavLink, useLocation } from 'react-router-dom';
 import styles from './Dashboard.module.css';
 //src assets for toggle + bottom nav
 import arrowLeft from '../../assets/arrowLeft.png';
@@ -16,8 +16,8 @@ import projectLibrary from '../../assets/TeacherDashboard/projectLibrary.png'
 import progressTrackerSelected from '../../assets/TeacherDashboard/progressTrackerSelected.png'
 import studentProfilesSelected from '../../assets/TeacherDashboard/studentProfilesSelected.png'
 import helpRequestsSelected from '../../assets/TeacherDashboard/helpRequestsSelected.png'
-import projectSubmissionshelpRequestsSelected from '../../assets/TeacherDashboard/projectSubmissionshelpRequestsSelected.png'
-import projectLibraryhelpRequestsSelected from '../../assets/TeacherDashboard/projectLibraryhelpRequestsSelected.png'
+import projectSubmissionsSelected from '../../assets/TeacherDashboard/projectSubmissionsSelected.png'
+import projectLibrarySelected from '../../assets/TeacherDashboard/projectLibrarySelected.png'
 //student dashboard pngs
 import learningObjectives from '../../assets/StudentDashboard/learningObjectives.png'
 import instructions from '../../assets/StudentDashboard/instructions.png'
@@ -25,11 +25,16 @@ import video from '../../assets/StudentDashboard/video.png'
 import makeProject from '../../assets/StudentDashboard/makeProject.png'
 import submitProject from '../../assets/StudentDashboard/submitProject.png'
 //active student dashboard pngs
-
+import learningObjectivesSelected from '../../assets/StudentDashboard/learningObjectivesSelected.png'
+import instructionsSelected from '../../assets/StudentDashboard/instructionsSelected.png'
+import videoSelected from '../../assets/StudentDashboard/videoSelected.png'
+import makeProjectSelected from '../../assets/StudentDashboard/makeProjectSelected.png'
+import submitProjectSelected from '../../assets/StudentDashboard/submitProjectSelected.png'
 
 //renders student dashboard content 
 function renderStudentDashboardContent(studentName) {
     const studentImagePath = `/images/students/${studentName}.png`;
+    const location = useLocation();
     return (
         <>  
             {/* profile pic */}
@@ -42,7 +47,7 @@ function renderStudentDashboardContent(studentName) {
               <NavLink to='/student-dashboard/learning-objectives'
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
-                  <img src={isActive? learningObjectivesSelected : learningObjectives} alt="learning-objectives"/>
+                  <img src={location.pathname === '/student-dashboard/learning-objectives' ? learningObjectivesSelected : learningObjectives} alt="learning-objectives"/>
                   <p>LEARNING OBJECTIVES</p>
                 </div>
               </NavLink>
@@ -50,7 +55,7 @@ function renderStudentDashboardContent(studentName) {
               <NavLink to='/student-dashboard/instructions'
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
-                  <img src={instructions} alt="instructions"/>
+                  <img src={location.pathname === '/student-dashboard/instructions' ? instructionsSelected : instructions} alt="instructions"/>
                   <p>INSTRUCTIONS</p>
                 </div>
               </NavLink>
@@ -58,7 +63,7 @@ function renderStudentDashboardContent(studentName) {
               <NavLink to='/student-dashboard/video-tutorial'
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
-                  <img src={video} alt="video-tutorial"/>
+                  <img src={location.pathname === '/student-dashboard/video-tutorial' ? videoSelected: video} alt="video-tutorial"/>
                   <p>VIDEO TUTORIAL</p>
                 </div>
               </NavLink>
@@ -66,7 +71,7 @@ function renderStudentDashboardContent(studentName) {
               <NavLink to='/student-dashboard/make-project'
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
-                  <img src={makeProject} alt="make-project"/>
+                  <img src={location.pathname === '/student-dashboard/make-project' ? makeProjectSelected : makeProject} alt="make-project"/>
                   <p>MAKE PROJECT</p>
                 </div>
               </NavLink>
@@ -74,7 +79,7 @@ function renderStudentDashboardContent(studentName) {
               <NavLink to='/student-dashboard/submit-project'
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
-                  <img src={submitProject} alt="submit-project"/>
+                  <img src={location.pathname === '/student-dashboard/submit-project' ? submitProjectSelected : submitProject} alt="submit-project"/>
                   <p>SUBMIT PROJECT</p>
                 </div>
               </NavLink>
@@ -86,6 +91,8 @@ function renderStudentDashboardContent(studentName) {
 //renders teacher dashboard content
 function renderTeacherDashboardContent(teacherName) {
     const teacherImagePath = `/images/teachers/${teacherName}.png`;
+    const location = useLocation();
+
     return (
         <>  
             {/* profile pic */}
@@ -95,18 +102,20 @@ function renderTeacherDashboardContent(teacherName) {
             
             {/* tabs */}
             <div className={styles.tabs}>
-              <NavLink to='/teacher-dashboard/progress-tracker'
+              <NavLink to='/teacher-dashboard/progress-tracker' 
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
-                  <img src={progressTracker} alt="progress-tracker"/>
+                  {/* Use different image src for active NavLink */}
+                  <img src={location.pathname === '/teacher-dashboard/progress-tracker' ? progressTrackerSelected : progressTracker} alt="progress-tracker"/>
                   <p>PROGRESS TRACKER</p>
                 </div>
               </NavLink>
 
+
               <NavLink to='/teacher-dashboard/student-profiles'
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
-                  <img src={studentProfiles} alt="student-profiles"/>
+                  <img src={location.pathname === '/teacher-dashboard/student-profiles' ? studentProfilesSelected : studentProfiles} alt="student-profiles"/>
                   <p>STUDENT PROFILES</p>
                 </div>
               </NavLink>
@@ -114,7 +123,7 @@ function renderTeacherDashboardContent(teacherName) {
               <NavLink to='/teacher-dashboard/help-requests'
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
-                  <img src={helpRequests} alt="help-requests"/>
+                  <img src={location.pathname === '/teacher-dashboard/help-requests' ? helpRequestsSelected : helpRequests} alt="help-requests"/>
                   <p>HELP REQUESTS</p>
                 </div>
               </NavLink>
@@ -122,7 +131,7 @@ function renderTeacherDashboardContent(teacherName) {
               <NavLink to='/teacher-dashboard/project-submissions'
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
-                  <img src={projectSubmissions} alt="project-submissions"/>
+                  <img src={location.pathname === '/teacher-dashboard/project-submissions' ? projectSubmissionsSelected : projectSubmissions} alt="project-submissions"/>
                   <p>PROJECT SUBMISSIONS</p>
                 </div>
               </NavLink>
@@ -130,7 +139,7 @@ function renderTeacherDashboardContent(teacherName) {
               <NavLink to='/project-library'
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
-                  <img src={projectLibrary} alt="project-library"/>
+                  <img src={location.pathname === '/teacher-dashboard/project-library' ? projectLibrarySelected : projectLibrary} alt="project-library"/>
                   <p>PROJECT LIBRARY</p>
                 </div>
               </NavLink>
