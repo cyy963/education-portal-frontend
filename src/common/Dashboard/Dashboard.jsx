@@ -12,12 +12,19 @@ import studentProfiles from '../../assets/TeacherDashboard/studentProfiles.png'
 import helpRequests from '../../assets/TeacherDashboard/helpRequests.png'
 import projectSubmissions from '../../assets/TeacherDashboard/projectSubmissions.png'
 import projectLibrary from '../../assets/TeacherDashboard/projectLibrary.png'
+//active teacher dashboard pngs
+import progressTrackerSelected from '../../assets/TeacherDashboard/progressTrackerSelected.png'
+import studentProfilesSelected from '../../assets/TeacherDashboard/studentProfilesSelected.png'
+import helpRequestsSelected from '../../assets/TeacherDashboard/helpRequestsSelected.png'
+import projectSubmissionshelpRequestsSelected from '../../assets/TeacherDashboard/projectSubmissionshelpRequestsSelected.png'
+import projectLibraryhelpRequestsSelected from '../../assets/TeacherDashboard/projectLibraryhelpRequestsSelected.png'
 //student dashboard pngs
 import learningObjectives from '../../assets/StudentDashboard/learningObjectives.png'
 import instructions from '../../assets/StudentDashboard/instructions.png'
 import video from '../../assets/StudentDashboard/video.png'
 import makeProject from '../../assets/StudentDashboard/makeProject.png'
 import submitProject from '../../assets/StudentDashboard/submitProject.png'
+//active student dashboard pngs
 
 
 //renders student dashboard content 
@@ -35,7 +42,7 @@ function renderStudentDashboardContent(studentName) {
               <NavLink to='/student-dashboard/learning-objectives'
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
-                  <img src={learningObjectives} alt="learning-objectives"/>
+                  <img src={isActive? learningObjectivesSelected : learningObjectives} alt="learning-objectives"/>
                   <p>LEARNING OBJECTIVES</p>
                 </div>
               </NavLink>
