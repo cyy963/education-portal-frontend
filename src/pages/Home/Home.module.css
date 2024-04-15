@@ -1,0 +1,19 @@
+.navBarSpace {
+  grid-area: 1;
+  box-shadow: 0 3px 6px rgba(100, 99, 99, 0.2);
+  height: 3.3vw;
+  background-color: transparent;
+}
+
+.main {
+  display: grid;
+  grid: 3.3vw auto 1fr;
+}
+
+.title {
+  grid-area: 2;
+}
+
+.links {
+  grid-area: 3;
+}
