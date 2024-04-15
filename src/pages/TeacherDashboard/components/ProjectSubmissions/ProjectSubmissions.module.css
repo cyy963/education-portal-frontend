@@ -129,9 +129,12 @@
 }
 
 .enlargeBtn {
+  display: flex;
+  flex-direction: column;
   border: none;
   background-color: transparent;
   color: #6c6c6c;
+  cursor: pointer;
 }
 
 .dateTime {

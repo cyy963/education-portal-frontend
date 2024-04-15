@@ -1,4 +1,5 @@
 // import projectImg from "../../../../assets/StudentDashboard/makeProject-screenshot.png";
+import { useState } from "react";
 import projectImg from "../../../../../assets/StudentDashboard/makeProject-screenshot.png";
 
 // Import css
@@ -34,13 +35,17 @@ export default function SubmittedProjects({ projects, checked, setChecked }) {
                       {item.name.toUpperCase()} submitted his project
                     </h4>
                     <div>
-                      <img
-                        src={projectImg}
-                        alt="Project Image"
-                        className={styles.projectImg}
-                      />{" "}
-                      <br />
-                      <button className={styles.enlargeBtn}>
+                      <button
+                        className={styles.enlargeBtn}
+                        onClick={handleEnlarge}
+                      >
+                        <img
+                          src={projectImg}
+                          alt="Project Image"
+                          className={`${styles.projectImg} ${
+                            focus ? styles.focus : ""
+                          }`}
+                        />
                         Enlarge image
                       </button>
                     </div>

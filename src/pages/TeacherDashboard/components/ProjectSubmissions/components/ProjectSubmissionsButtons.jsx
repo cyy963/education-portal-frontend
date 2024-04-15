@@ -32,7 +32,6 @@ export default function ProjectSubmissionsButtons({
     let updatedProjects;
 
     updatedProjects = changeIndex.map((item) => {
-      const currentDate = new Date().toDateString();
       return projects[item];
     });
 
