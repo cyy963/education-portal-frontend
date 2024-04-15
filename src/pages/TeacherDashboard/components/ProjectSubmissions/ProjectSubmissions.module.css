@@ -17,12 +17,12 @@
 }
 
 .content {
-  background-color: #ffffff80;
-  border: #ffffff80 1px solid;
-  border-radius: 30px;
-  padding: 4vw;
   height: 90%;
   width: 95%;
+  background-color: #FFFFFF80;
+  margin: 4% 5% 4% 2%;
+  border-radius: 20px;
+  padding: 4vw;
 }
 
 .forScroll {
