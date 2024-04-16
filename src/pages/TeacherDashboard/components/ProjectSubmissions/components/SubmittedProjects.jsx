@@ -1,5 +1,3 @@
-// import projectImg from "../../../../assets/StudentDashboard/makeProject-screenshot.png";
-import { useState } from "react";
 import projectImg from "../../../../../assets/StudentDashboard/makeProject-screenshot.png";
 
 // Import css
@@ -9,6 +7,9 @@ import styles from "../ProjectSubmissions.module.css";
 import Checkbox from "./Checkbox";
 
 export default function SubmittedProjects({ projects, checked, setChecked }) {
+  function handleImage(e) {
+    e.target.className = styles.enlarged;
+  }
   return (
     <div>
       {projects.map((item, index) => {
@@ -34,17 +35,12 @@ export default function SubmittedProjects({ projects, checked, setChecked }) {
                     <h4 className={styles.titleName}>
                       {item.name.toUpperCase()} submitted his project
                     </h4>
-                    <div>
-                      <button
-                        className={styles.enlargeBtn}
-                        onClick={handleEnlarge}
-                      >
+                    <div onClick={handleImage}>
+                      <button className={styles.enlargeBtn}>
                         <img
                           src={projectImg}
                           alt="Project Image"
-                          className={`${styles.projectImg} ${
-                            focus ? styles.focus : ""
-                          }`}
+                          className={styles.projectImg}
                         />
                         Enlarge image
                       </button>

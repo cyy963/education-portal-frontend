@@ -22,6 +22,7 @@ export default function ProjectSubmissions() {
       studentId: 1,
       name: "Rawiri",
       profilePic: "/images/students/RawiriFletcher.png",
+      projectPic: { projectImg },
       date: "TUE 28 April 2020",
       time: "10:27 AM",
       dateComplete: null,

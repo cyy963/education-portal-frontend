@@ -19,7 +19,7 @@
 .content {
   height: 90%;
   width: 95%;
-  background-color: #FFFFFF80;
+  background-color: #ffffff80;
   margin: 4% 5% 4% 2%;
   border-radius: 20px;
   padding: 4vw;
@@ -119,7 +119,9 @@
 }
 
 .projectImg {
+  position: relative;
   height: 15vh;
+  margin: 10px;
 }
 
 .enlargeBtn,
@@ -135,6 +137,19 @@
   background-color: transparent;
   color: #6c6c6c;
   cursor: pointer;
+}
+
+.enlarged {
+  position: absolute;
+  height: 70vh;
+  /* width: 100vw; */
+  left: 5vh;
+  top: 5vh;
+  background-color: #c7c7c79c;
+}
+
+.enlarged img {
+  border: black 10px solid;
 }
 
 .dateTime {
