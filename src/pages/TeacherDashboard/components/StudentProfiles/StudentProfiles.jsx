@@ -1,116 +1,32 @@
 import styles from './StudentProfiles.module.css';
+import { useEffect, useState } from 'react';
 
 export default function StudentProfiles(){
-  const studentImagePath = `/images/students/${'AidenAndrews'}.png`;
+  const [students, setStudents] = useState([]);
 
-    return(
-        <div className={styles.body}>
-            <div className={styles.forScroll}>
-              <div className={styles.studentsProfileContainer}>
-              
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
+  useEffect (()=>{
+    fetch('http://localhost:4000/teacher-dashboard/student-profiles')
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result)
+        setStudents(result);
+      });
+  }, []);
+
+  return(
+    <div className={styles.body}>
+        <div className={styles.forScroll}>
+          <div className={styles.studentsProfileContainer}>
+            {students.map((student, index) => {
+              return (
+                <div className={styles.studentCard} key={index}>
+                  <img src={student.profile_pic} className={styles.studentImg}/>
+                  <p className={styles.studentName}>{student.name.toUpperCase()}</p>
                 </div>
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div>
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div>
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div>
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div>
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div>
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div>
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div>
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div>
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div>
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div>
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div>
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div>
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div>
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div> 
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div> 
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div> 
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div> 
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div> 
-                <div className={styles.studentProfile}>
-                  {/* profile pic */}          
-                  <img src={studentImagePath} alt={'AidenAndrews'} className={styles.profilePic}/>
-                  <p className={styles.studentName}>AIDEN ANDREWS</p>                
-                </div> 
-              
-              </div>
-            </div>
+              );
+            })}
+          </div>
         </div>
-    )
+    </div>
+  )
 }
