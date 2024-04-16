@@ -18,27 +18,27 @@ export default function SubmittedProjects({ projects, checked, setChecked }) {
             <Checkbox
               checked={checked}
               setChecked={setChecked}
-              studentId={projects[index].studentId}
+              studentId={projects[index].student_id}
             />
 
             <div className={styles.checkboxDiv}>
               <div className={styles.projectFlex}>
-                {item.profilePic && (
+                {item.profile_pic && (
                   <img
-                    src={item.profilePic}
+                    src={item.profile_pic}
                     alt="Profile picture"
                     className={styles.profileImg}
                   />
                 )}
-                {item.projectPic ? (
+                {item.submission ? (
                   <div className={styles.imageFlex}>
                     <h4 className={styles.titleName}>
-                      {item.name.toUpperCase()} submitted his project
+                      {item.name.toUpperCase()} submitted their project
                     </h4>
                     <div onClick={handleImage}>
                       <button className={styles.enlargeBtn}>
                         <img
-                          src={projectImg}
+                          src={item.submission}
                           alt="Project Image"
                           className={styles.projectImg}
                         />
@@ -55,7 +55,7 @@ export default function SubmittedProjects({ projects, checked, setChecked }) {
                 )}
               </div>
               <div className={styles.dateTime}>
-                <p>{item.date}</p>
+                <p>{item.date_submitted}</p>
                 <p>{item.time}</p>
               </div>
             </div>
