@@ -55,8 +55,7 @@
     /* outline: 2px solid orange; */
     background-color: white;
     padding: 3% 4.5% 3% 3.5%;
-    margin: 3vh 0;
-    margin-top: 0;
+    margin-bottom: 3vh;
     border-radius: 10px;
     width: 100%;
     display: flex;
@@ -76,7 +75,7 @@
 .studentName{
     font-size: 1.1vw;
 }
-.studentProjectsCompleted{
+.studentProjectsCompletedFraction{
     font-size: 0.82vw;
 }
 .progressIconContainer{
@@ -88,7 +87,7 @@
     padding: 0.5vw;
     /* outline: 2px solid red; */
 }
-.studentId {
+.progressIcons {
     width: 2.1vw;
     height: 2.1vw;
     font-size: 1.1vw;
@@ -101,5 +100,18 @@
     border-radius: 50%;
     box-shadow: 0px 3px 6px #00000040;
 }
-
+.completeProgressIcons {
+    width: 2.1vw;
+    height: 2.1vw;
+    font-size: 1.1vw;
+    
+    text-align: center;
+    line-height: 2.1vw;
+    
+    background-color: #99EDCC;
+    color: #6C6C6C;
+    border: 1px solid #A2A0A0;
+    border-radius: 50%;
+    box-shadow: 0px 3px 6px #00000040;
+}
 

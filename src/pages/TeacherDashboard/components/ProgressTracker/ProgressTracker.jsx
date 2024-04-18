@@ -2,16 +2,32 @@ import styles from './ProgressTracker.module.css';
 import { useEffect, useState } from 'react';
 
 export default function ProgressTracker() {
-  const [students, setStudents] = useState([]);
-
+  const [projects, setProjects] = useState([]);
+  const [projectResults, setProjectResults] = useState([]);
+  
+  //fetch project_id from project table
   useEffect (()=>{
-    fetch('http://localhost:4000/teacher-dashboard/progress-tracker')
+    fetch('http://localhost:4000/projects')
       .then((response) => response.json())
       .then((result) => {
         console.log(result)
-        setStudents(result);
+        setProjects(result);
       });
   }, []);
+  //fetch project_results excel
+  useEffect (()=>{
+    fetch('http://localhost:4000/project_results')
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result)
+        setProjectResults(result);
+      });
+  }, []);
+
+  //function returns true if projectId is in completed_projects
+  function checkCompletedProjects(completedProjects, projectId) {
+    return completedProjects && completedProjects.includes(projectId);
+  };
 
   return (
     <div className={styles.body}>
@@ -21,21 +37,29 @@ export default function ProgressTracker() {
           <h5>EXPORT AS SPREADSHEET</h5>
         </div>
 
-        {/* studentBarContainer */}
+        {/* students progress tracker container */}
         <div className={styles.forScroll}>
           <div className={styles.studentBarContainer}>
-            {students.map((student, studentId) => {
+            {projectResults.map((projectResult, studentId) => {
               return (
-                <div className={styles.studentProgressBar}>
+                //student progress bar
+                <div className={styles.studentProgressBar} key={studentId}>
+                  {/* student name and projects completed fraction */}
                   <div className={styles.studentInfo}>
-                    <p className={styles.studentName}>{student.name.toUpperCase()}</p>
-                    <p className={styles.studentProjectsCompleted}>4/15 Projects Completed</p>
+                    <p className={styles.studentName}>{projectResult.name.toUpperCase()}</p>
+                    <p className={styles.studentProjectsCompletedFraction}>{projectResult.complete_projects_number}/15 Projects Completed</p>
                   </div>
+                  {/* progress icons container */}
                   <div className={styles.progressIconContainer}>
-                    {students.map((student, studentId) => {
+                    {projects.map((project, projectId) => {
                       return (
-                        <div className={styles.progressIcons} key={studentId}>
-                          <p className={styles.studentId}>{student.student_id}</p>
+                        //progress icon
+                        <div
+                        //changes icon style based on checkCompeletedProjects function
+                        className={`${styles.progressIcons} 
+                        ${checkCompletedProjects(projectResult.completed_projects, project.project_id) ? `${styles.completeProgressIcons}` : "" }`} 
+                        key={projectId}>
+                          {project.project_id}
                         </div>
                       );
                     })}
@@ -48,3 +72,5 @@ export default function ProgressTracker() {
     </div>
   )
 }
+
+// ${checkCompletedProjects(project.project_id, projectResult.completed_projects) ? `${styles.completeProgressIcons}` : "" }
