@@ -24,11 +24,20 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/project-library" element={<ProjectLibrary />} />
-        <Route path="/student-profile-viewer" element={<StudentProfileViewer />} />
-        <Route path="/teacher-profile-viewer" element={<TeacherProfileViewer />} />
+        <Route
+          path="/student-profile-viewer"
+          element={<StudentProfileViewer />}
+        />
+        <Route
+          path="/teacher-profile-viewer"
+          element={<TeacherProfileViewer />}
+        />
 
         {/* redirects to learning-objectives from student-dashboard */}
-        <Route path="/student-dashboard" element={<Navigate to="/student-dashboard/learning-objectives" />} />
+        <Route
+          path="/student-dashboard"
+          element={<Navigate to="/student-dashboard/learning-objectives" />}
+        />
         <Route path="/student-dashboard" element={<StudentDashboard />}>
           {/* Routes that are a subset of student dashboard */}
           <Route path="instructions" element={<Instructions />} />
@@ -39,7 +48,10 @@ function App() {
         </Route>
 
         {/* redirects to progress-tracker from teacher-dashboard */}
-        <Route path="/teacher-dashboard" element={<Navigate to="/teacher-dashboard/progress-tracker" />} />
+        <Route
+          path="/teacher-dashboard"
+          element={<Navigate to="/teacher-dashboard/progress-tracker" />}
+        />
         <Route path="/teacher-dashboard" element={<TeacherDashboard />}>
           {/* Routes that are a subset fo teacher-dashboard */}
           <Route path="help-requests" element={<HelpRequests />} />

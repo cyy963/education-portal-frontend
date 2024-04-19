@@ -22,9 +22,14 @@ export default function ProjectSubmissions() {
 
   useEffect(() => {
     checking = projects.map((item) => {
-      return { studentId: item.student_id, checked: false };
+      return {
+        studentId: item.student_id,
+        projectId: item.project_id,
+        checked: false,
+      };
     });
     setChecked(checking);
+    console.log(checked);
   }, [projects]);
 
   return (
