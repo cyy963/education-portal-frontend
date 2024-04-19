@@ -86,14 +86,14 @@ export default function ProgressTracker() {
                     {/* progress icons container */}
                     <div className={styles.progressIconContainer}>
                       {projects.map((project) => {
-                        //stores checkCompletedProjects as a const
+                        //stores parameterised checkCompletedProjects as a const
                         const completed = checkCompletedProjects(projectResult.completed_projects, project.project_id);
                         return (
                           //progress icon
                           <div
                             //changes icon style to green if it is complete
                             className={`${styles.progressIcons} ${completed ? styles.completeProgressIcons : styles.incompleteProgressIcons}`}
-                            //uses student_id as unique key
+                            //uses project_id as unique key
                             key={project.project_id}
                           >
                             {project.project_id}
