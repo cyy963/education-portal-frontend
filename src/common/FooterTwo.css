@@ -1,15 +1,1 @@
-.footer-two {
-  margin-top: auto;
-  width: 100%; /* This is correct for taking the full width */
-  background-color: #ffffff;
-  padding: 20px 0; /* Adjusted padding for vertical centering, modify as needed */
-  box-sizing: border-box; /* Ensures padding doesn't affect the total width */
-  text-align: center; /* Centers the text horizontally */
-  display: flex; /* Enables Flexbox */
-  justify-content: center; /* Centers content horizontally in Flexbox */
-  align-items: center; /* Centers content vertically in Flexbox */
-  font-family: 'Nunito', sans-serif; 
-  font-weight: bold; 
-  font-size: 16px; 
-  color: #707070; /* Hex color for the text - specified in photoshop mockup supplied */
-}
+
