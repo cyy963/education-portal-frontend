@@ -7,7 +7,7 @@
     margin: 4% 5% 4% 2%;
     border-radius: 20px;
 }
-
+ 
   /* content styling */
   .main {
     background-color: #ffffff80;
@@ -17,21 +17,21 @@
     height: 90%;
     width: 95%;
   }
-
+ 
   /* text and font styling for each text class */
   .title {
     display: flex;
     color: #6c6c6c;
     font-family: "nunito";
   }
-
+ 
   .dateTime {
     text-align: end;
     padding: 10px;
     color: #6c6c6c;
     font-family: "nunito";
   }
-
+ 
   .nameHelp {
     text-align: left;
     font-size: 15px;
@@ -39,13 +39,13 @@
     color: #6c6c6c;
     font-family: "nunito";
   }
-
+ 
   .otherText {
     text-align: end;
     color: #6c6c6c;
     font-family: "nunito";
   }
-
+ 
   /* display styling */
   .flex {
     display: flex;
@@ -54,7 +54,7 @@
     align-items: center;
     margin-right: 2vw;
   }
-
+ 
   .studentHelp {
     justify-content: space-between;
     background-color: white;
@@ -62,14 +62,14 @@
     margin-bottom: 2vh;
     align-items: flex-start;
   }
-
+ 
   .checkBoxDiv,
   .requestFlex,
   .studentHelp {
     display: flex;
     justify-content: space-between;
   }
-
+ 
   .checkboxDiv {
     background-color: white;
     width: 94%;
@@ -77,26 +77,26 @@
     margin-bottom: 2vh;
     margin-right: 2vw;
   }
-
+ 
   .requestFlex {
     align-items: center;
   }
-
+ 
   .profilePic {
     height: 7vh;
     margin: 0 4vw;
   }
-
+ 
   .checkbox {
     margin-top: 6vh;
   }
-
- .forScroll {
+ 
+.forScroll {
   /* Styles for the container with scrollbar */
   max-height: 450px; /* Adjust as needed */
   overflow-y: auto; /* Ensure scrollbar appears when content exceeds container height */
 }
-
+ 
 .checkbox > input[type="checkbox"] {
   /* removing default appearance */
   -webkit-appearance: none;
@@ -112,12 +112,12 @@
   outline: none;
   cursor: pointer;
 }
-
+ 
 .checkbox > input:checked {
   background-color: #43c0f6;
   position: relative;
 }
-
+ 
 .checkbox > input:checked::before {
   content: "";
   font-size: 1.5em;

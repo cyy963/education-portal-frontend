@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./ProjectLibrary.module.css";
 import popUpMenuStyles from "./../../common/NavBar1/components/PopUpMenu.module.css";
 
@@ -13,25 +13,15 @@ export default function ProjectLibrary() {
   const [popUp, setPopUp] = useState(false);
   const togglePopUp = () => setPopUp(!popUp);
   const removePopUp = () => setPopUp(false);
+  const [student, setStudent] = useState("");
 
-  const userData = [
-    {
-      id: 1,
-      firstName: "Rawiri",
-      lastName: "Fletcher",
-      userType: "Student",
-      photo: "/images/students/RawiriFletcher.png",
-    },
-    {
-      id: 2,
-      firstName: "Jasmina",
-      lastName: "Salvador",
-      userType: "Teacher",
-      photo: "/images/teachers/JasminaSalvador.png",
-    },
-  ];
-
-  const user = userData[0];
+  useEffect(() => {
+    fetch(`http://localhost:4000/student`)
+      .then((response) => response.json())
+      .then((result) => {
+        setStudent(result[0]);
+      });
+  }, []);
 
   function scrollBackToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -40,13 +30,15 @@ export default function ProjectLibrary() {
   return (
     <div onClick={removePopUp}>
       <div className={styles.navBarSpace}>
-        <NavBarOne
-          text="PROJECTS"
-          userImage={user.photo}
-          alt={`Profile photo of ${user.firstName} ${user.lastName}`}
-          userName={`${user.firstName.toUpperCase()} ${user.lastName.toUpperCase()}`}
-          onChange={togglePopUp}
-        />
+        {student && (
+          <NavBarOne
+            text="PROJECTS"
+            userImage={student.profile_pic}
+            alt={`Profile photo of ${student.student_name}`}
+            userName={`${student.student_name.toUpperCase()}`}
+            onChange={togglePopUp}
+          />
+        )}
       </div>
       <PopUpMenu
         profileLink="/student-profile-viewer"
