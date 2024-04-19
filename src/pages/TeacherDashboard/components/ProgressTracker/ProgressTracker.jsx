@@ -6,7 +6,6 @@ import fileExport from '../../../../assets/TeacherDashboard/fileExport.svg'
 export default function ProgressTracker() {
   const [projects, setProjects] = useState([]);
   const [projectResults, setProjectResults] = useState([]);
-  const [exportData, setExportData] = useState([]);
   
   //fetches and sets project_id from project table into projects
   useEffect (()=>{
@@ -37,19 +36,6 @@ export default function ProgressTracker() {
       });
   }, []);
 
-  //sets student progress data into setExportData
-  useEffect(() => {
-    const data = projectResults.map((projectResult) => {
-      return {
-        StudentID: projectResult.student_id,
-        StudentName: projectResult.student_name,
-        CompletedProjects: projectResult.completed_projects,
-        TotalCompletedProjects: projectResult.total_completed_projects,
-      };
-    });
-    setExportData(data);
-  }, [projectResults]);
-
   //function returns true if projectId is in completedProjects
   //useCallBack hook to memorize/caches the function, only recalculates it when dependencies change
   const checkCompletedProjects = useCallback((completedProjects, projectId) => {
@@ -63,7 +49,7 @@ export default function ProgressTracker() {
         <div className={styles.title}>
           <h2>BEGINNER COURSE</h2>
           <div className={styles.exportContainer}>           
-            <CSVLink data={exportData} filename="student-progress.csv" className="export-spreadsheet">               
+            <CSVLink data={projectResults} filename="student-progress.csv" className="export-spreadsheet">               
               <img className={styles.exportIcon} src={fileExport} alt='exportIcon'/>
               <h5>EXPORT AS SPREADSHEET</h5>                
             </CSVLink>           
