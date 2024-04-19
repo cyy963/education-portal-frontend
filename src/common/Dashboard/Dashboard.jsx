@@ -48,7 +48,7 @@ function renderStudentDashboardContent(studentName) {
               <NavLink to={`/student-dashboard/${params.projectId}/learning-objectives`}
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
-                  <img src={location.pathname === '/student-dashboard/learning-objectives' ? learningObjectivesSelected : learningObjectives} alt="learning-objectives"/>
+                  <img src={location.pathname === `/student-dashboard/${params.projectId}/learning-objectives` ? learningObjectivesSelected : learningObjectives} alt="learning-objectives"/>
                   <p>LEARNING OBJECTIVES</p>
                 </div>
               </NavLink>
@@ -56,7 +56,7 @@ function renderStudentDashboardContent(studentName) {
               <NavLink to={`/student-dashboard/${params.projectId}/instructions`}
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
-                  <img src={location.pathname === '/student-dashboard/instructions' ? instructionsSelected : instructions} alt="instructions"/>
+                  <img src={location.pathname === `/student-dashboard/${params.projectId}/instructions` ? instructionsSelected : instructions} alt="instructions"/>
                   <p>INSTRUCTIONS</p>
                 </div>
               </NavLink>
@@ -64,7 +64,7 @@ function renderStudentDashboardContent(studentName) {
               <NavLink to={`/student-dashboard/${params.projectId}/video-tutorial`}
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
-                  <img src={location.pathname === '/student-dashboard/video-tutorial' ? videoSelected: video} alt="video-tutorial"/>
+                  <img src={location.pathname === `/student-dashboard/${params.projectId}/video-tutorial` ? videoSelected: video} alt="video-tutorial"/>
                   <p>VIDEO TUTORIAL</p>
                 </div>
               </NavLink>
@@ -72,7 +72,7 @@ function renderStudentDashboardContent(studentName) {
               <NavLink to={`/student-dashboard/${params.projectId}/make-project`}
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
-                  <img src={location.pathname === '/student-dashboard/make-project' ? makeProjectSelected : makeProject} alt="make-project"/>
+                  <img src={location.pathname === `/student-dashboard/${params.projectId}/make-project` ? makeProjectSelected : makeProject} alt="make-project"/>
                   <p>MAKE PROJECT</p>
                 </div>
               </NavLink>
@@ -80,7 +80,7 @@ function renderStudentDashboardContent(studentName) {
               <NavLink to={`/student-dashboard/${params.projectId}/submit-project`}
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
-                  <img src={location.pathname === '/student-dashboard/submit-project' ? submitProjectSelected : submitProject} alt="submit-project"/>
+                  <img src={location.pathname === `/student-dashboard/${params.projectId}/submit-project` ? submitProjectSelected : submitProject} alt="submit-project"/>
                   <p>SUBMIT PROJECT</p>
                 </div>
               </NavLink>
