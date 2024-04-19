@@ -1,4 +1,4 @@
-import styles from "./NavbarTwo.module.css";
+import styles from "../NavbarTwo.module.css";
 
 export default function NavbarTwoButtons({
   type,

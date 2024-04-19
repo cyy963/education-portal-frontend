@@ -2,14 +2,14 @@ import styles from "./NavbarTwo.module.css";
 import { Link, useLocation } from "react-router-dom";
 
 //Import images from assets
-import logo from "../assets/NavBar/LevelUpWorks-blue.png";
-import nzFlag from "../assets/NavBar/NZFlag.png";
-import maoriFlag from "../assets/NavBar/MaoriFlag.png";
+import logo from "../../assets/NavBar/LevelUpWorks-blue.png";
+import nzFlag from "../../assets/NavBar/NZFlag.png";
+import maoriFlag from "../../assets/NavBar/MaoriFlag.png";
 
 // Import components
-import NavbarTwoProject from "./NavbarTwoProject";
-import NavbarTwoButtons from "./NavbarTwoButtons";
-import ToLibrary from "./ToLibrary";
+import NavbarTwoProject from "./components/NavbarTwoProject";
+import NavbarTwoButtons from "./components/NavbarTwoButtons";
+import ToLibrary from "../ToLibrary";
 import { useEffect, useState } from "react";
 
 export default function NavbarTwo(props) {
