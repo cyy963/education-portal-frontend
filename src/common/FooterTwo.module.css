@@ -1,0 +1,17 @@
+.footerTwo {
+    margin-top: auto; /* Auto adjusts top margin to push footer to bottom. */
+    width: 100%; /* Sets the width of the footer to occupy 100% of its parent's width. */
+    background-color: #ffffff; 
+    height: 7vh; /* Sets height of footer to 7% of viewport height. */
+    text-align: center; /* Aligns inline content like text centrally within the footer. */
+    display: flex; /* Enables Flexbox layout mode for the footer. */
+    justify-content: center; /* horizontally aligns all children (flex items) in the center of the footer. It works because 'display: flex' has been declared. */
+    align-items: center; /* This flex property vertically aligns all children (flex items) in the center of the footer. */
+}
+
+.footerTwo span {
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: #707070; /* Hex color for the text - specified in photoshop mockup supplied */
+}

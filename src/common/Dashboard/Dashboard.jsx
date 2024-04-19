@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Outlet, NavLink, useLocation } from 'react-router-dom';
+import { Outlet, NavLink, useLocation, useParams } from 'react-router-dom';
 import styles from './Dashboard.module.css';
 //src assets for toggle + bottom nav
-import arrowLeft from '../../assets/arrowLeft.png';
-import profile from '../../assets/profile.png';
-import settings from '../../assets/settings.png';
-import logout from '../../assets/logout.png';
+import arrowLeft from "../../assets/arrowLeft.png";
+import profile from "../../assets/profile.png";
+import settings from "../../assets/settings.png";
+import logout from "../../assets/logout.png";
 //teacher dashboard pngs
 import progressTracker from '../../assets/TeacherDashboard/progressTracker.png'
 import studentProfiles from '../../assets/TeacherDashboard/studentProfiles.png'
@@ -34,6 +34,7 @@ import submitProjectSelected from '../../assets/StudentDashboard/submitProjectSe
 //renders student dashboard content 
 function renderStudentDashboardContent(studentName) {
     const studentImagePath = `/images/students/${studentName}.png`;
+    const params = useParams();
     const location = useLocation();
     return (
         <>  
@@ -44,7 +45,7 @@ function renderStudentDashboardContent(studentName) {
 
             {/* tabs */}
             <div className={styles.tabs}>
-              <NavLink to='/student-dashboard/learning-objectives'
+              <NavLink to={`/student-dashboard/${params.projectId}/learning-objectives`}
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
                   <img src={location.pathname === '/student-dashboard/learning-objectives' ? learningObjectivesSelected : learningObjectives} alt="learning-objectives"/>
@@ -52,7 +53,7 @@ function renderStudentDashboardContent(studentName) {
                 </div>
               </NavLink>
 
-              <NavLink to='/student-dashboard/instructions'
+              <NavLink to={`/student-dashboard/${params.projectId}/instructions`}
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
                   <img src={location.pathname === '/student-dashboard/instructions' ? instructionsSelected : instructions} alt="instructions"/>
@@ -60,7 +61,7 @@ function renderStudentDashboardContent(studentName) {
                 </div>
               </NavLink>
 
-              <NavLink to='/student-dashboard/video-tutorial'
+              <NavLink to={`/student-dashboard/${params.projectId}/video-tutorial`}
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
                   <img src={location.pathname === '/student-dashboard/video-tutorial' ? videoSelected: video} alt="video-tutorial"/>
@@ -68,7 +69,7 @@ function renderStudentDashboardContent(studentName) {
                 </div>
               </NavLink>
 
-              <NavLink to='/student-dashboard/make-project'
+              <NavLink to={`/student-dashboard/${params.projectId}/make-project`}
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
                   <img src={location.pathname === '/student-dashboard/make-project' ? makeProjectSelected : makeProject} alt="make-project"/>
@@ -76,7 +77,7 @@ function renderStudentDashboardContent(studentName) {
                 </div>
               </NavLink>
 
-              <NavLink to='/student-dashboard/submit-project'
+              <NavLink to={`/student-dashboard/${params.projectId}/submit-project`}
               className={({isActive}) => (isActive ? styles.navLinkActive : styles.navLink)}>
                 <div className={styles.tabComponent}>
                   <img src={location.pathname === '/student-dashboard/submit-project' ? submitProjectSelected : submitProject} alt="submit-project"/>
@@ -150,52 +151,61 @@ function renderTeacherDashboardContent(teacherName) {
 
 //main dashboard function
 export default function Dashboard({ user, studentName, teacherName }) {
+  //defines usestate for dashboard activity
+  const [isActive, setIsActive] = useState(false);
+  //function for active state toggle
+  const toggleDashboard = () => {
+    setIsActive(!isActive);
+  };
 
-    //defines usestate for dashboard activity
-    const [isActive, setIsActive] = useState(false);
-    //function for active state toggle
-    const toggleDashboard = () => {
-        setIsActive(!isActive);
-    };
+  //function that renders dashboard content based on user
+  const renderDashboardContent = () => {
+    //if statement based on user
+    if (user === "teacher") {
+      return renderTeacherDashboardContent(teacherName);
+    } else {
+      return renderStudentDashboardContent(studentName);
+    }
+  };
+  return (
+    //main body of page, dashboard + page content
+    <main className={styles.mainBody}>
+      {/* dashboard */}
+      <div className={`${styles.dashboard} ${isActive ? styles.isActive : ""}`}>
+        {/* tabs */}
+        {renderDashboardContent()}
 
-    //function that renders dashboard content based on user
-    const renderDashboardContent = () => {
-        //if statement based on user
-        if (user === 'teacher') {
-            return renderTeacherDashboardContent(teacherName);
-        } else {
-            return renderStudentDashboardContent(studentName);
-        }
-    };
-    return (
-        //main body of page, dashboard + page content
-        <main className={styles.mainBody}>
+        {/* toggle button */}
+        <div className={styles.toggleBtnDiv}>
+          <button
+            className={styles.dashboardToggleButton}
+            onClick={toggleDashboard}
+          >
+            <img src={arrowLeft} alt="Arrow Left" />
+          </button>
+        </div>
 
-          {/* dashboard */}
-          <div className={`${styles.dashboard} ${isActive ? styles.isActive : ''}`}>
+        {/* bottom nav */}
+        <div className={styles.dashboardFooter}>
+          <button className={styles.footerBtns}>
+            <img src={profile} alt="profile" />
+            <p>Profile</p>
+          </button>
+          <button className={styles.footerBtns}>
+            <img src={settings} alt="settings" />
+            <p>Settings</p>
+          </button>
+          <button className={styles.footerBtns}>
+            <img src={logout} alt="logout" />
+            <p>Log Out</p>
+          </button>
+        </div>
+      </div>
 
-            {/* tabs */}
-            {renderDashboardContent()}
-
-            {/* toggle button */}
-            <div className={styles.toggleBtnDiv}>
-              <button className={styles.dashboardToggleButton} onClick={toggleDashboard}>
-                <img src={arrowLeft} alt="Arrow Left" />
-              </button>
-            </div>
-
-            {/* bottom nav */}
-            <div className={styles.dashboardFooter}>
-                <button className={styles.footerBtns}><img src={profile} alt="profile"/><p>Profile</p></button>
-                <button className={styles.footerBtns}><img src={settings} alt="settings" /><p>Settings</p></button>
-                <button className={styles.footerBtns}><img src={logout} alt="logout" /><p>Log Out</p></button>
-            </div>            
-          </div>
-
-          {/* uses Outlet to render active tab/page content */}
-          <div className={styles.outletContent}>
-            <Outlet />
-          </div>
-        </main>
-    );
+      {/* uses Outlet to render active tab/page content */}
+      <div className={styles.outletContent}>
+        <Outlet />
+      </div>
+    </main>
+  );
 }

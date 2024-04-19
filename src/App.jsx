@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useParams } from "react-router-dom";
 import "./App.css";
 
 // Importing page components
@@ -19,17 +19,34 @@ import StudentDashboard from "./pages/StudentDashboard/StudentDashboard.jsx";
 import TeacherDashboard from "./pages/TeacherDashboard/TeacherDashboard.jsx";
 
 function App() {
+  const params = useParams();
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/project-library" element={<ProjectLibrary />} />
-        <Route path="/student-profile-viewer" element={<StudentProfileViewer />} />
-        <Route path="/teacher-profile-viewer" element={<TeacherProfileViewer />} />
+        <Route
+          path="/student-profile-viewer"
+          element={<StudentProfileViewer />}
+        />
+        <Route
+          path="/teacher-profile-viewer"
+          element={<TeacherProfileViewer />}
+        />
 
         {/* redirects to learning-objectives from student-dashboard */}
-        <Route path="/student-dashboard" element={<Navigate to="/student-dashboard/learning-objectives" />} />
-        <Route path="/student-dashboard" element={<StudentDashboard />}>
+        <Route
+          path="/student-dashboard"
+          element={
+            <Navigate
+              to={`/student-dashboard/${params.projectId}/learning-objectives`}
+            />
+          }
+        />
+        <Route
+          path="/student-dashboard/:projectId"
+          element={<StudentDashboard />}
+        >
           {/* Routes that are a subset of student dashboard */}
           <Route path="instructions" element={<Instructions />} />
           <Route path="learning-objectives" element={<LearningObjectives />} />
@@ -39,7 +56,10 @@ function App() {
         </Route>
 
         {/* redirects to progress-tracker from teacher-dashboard */}
-        <Route path="/teacher-dashboard" element={<Navigate to="/teacher-dashboard/progress-tracker" />} />
+        <Route
+          path="/teacher-dashboard"
+          element={<Navigate to="/teacher-dashboard/progress-tracker" />}
+        />
         <Route path="/teacher-dashboard" element={<TeacherDashboard />}>
           {/* Routes that are a subset fo teacher-dashboard */}
           <Route path="help-requests" element={<HelpRequests />} />

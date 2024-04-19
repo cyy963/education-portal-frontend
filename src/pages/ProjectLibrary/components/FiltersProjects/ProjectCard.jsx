@@ -7,19 +7,19 @@ export default function ProjectCard(props) {
     <div className={styles.card}>
       <Link
         className={styles.link}
-        to="/student-dashboard"
+        to={props.link}
         style={{ textDecoration: "none" }}
       >
         <img
           className="project-image"
-          src={props.src}
-          alt={props.alt}
+          src={props.project_pic}
+          alt="Project Image"
           width="100%"
         />
         <h2 className={styles.projectName}>{props.name}</h2>
         <div className={styles.levelActivityDescription}>
           <p className={styles.cardDescription}>
-            {props.difficulty} | {props.activity}
+            {props.course} | {props.activity_type}
           </p>
         </div>
       </Link>

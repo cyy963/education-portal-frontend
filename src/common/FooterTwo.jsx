@@ -1,19 +1,11 @@
-
-import React from 'react';
-import '../common/FooterTwo.css'; 
+import styles from './FooterTwo.module.css';
 
 const FooterTwo = () => {
   return (
-    <footer className="footer-two">
-      {/* Add your footer content here */}
-      <div className="content">
-        {/*  add additional elements  */}
-        <p>© 2024 LevelUp Works</p>
-        {/* Add other footer elements as needed */}
-      </div>
+    <footer className={styles.footerTwo}>
+        <span>© 2024 LevelUp Works</span>
     </footer>
   );
 };
 
 export default FooterTwo;
-

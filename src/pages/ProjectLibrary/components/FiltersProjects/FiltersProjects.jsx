@@ -7,189 +7,38 @@ import CheckboxForms from "./SideFilters/CheckboxForms";
 import CheckboxAndLabel from "./SideFilters/CheckboxAndLabel";
 import TopFilters from "./TopFilters";
 
-const projects = [
-  {
-    id: 1,
-    name: "Introduction",
-    difficulty: "BEGINNER",
-    activity: "Animation",
-    src: "/images/projects/Project01.png",
-    alt: "A cartoon orange cat saying 'Hi, how are you?'",
-    subscription: "Free",
-    year: "1 - 4",
-    subject: "Computer Science",
-  },
-  {
-    id: 2,
-    name: "My Birthday",
-    difficulty: "BEGINNER",
-    activity: "Game",
-    src: "/images/projects/Project02.png",
-    alt: "Cartoon child with birthday cake at park",
-    subscription: "Premium",
-    year: "5 - 6",
-    subject: "Maths",
-  },
-  {
-    id: 3,
-    name: "10 Block Challenge",
-    difficulty: "INTERMEDIATE",
-    activity: "Animation",
-    src: "/images/projects/Project03.png",
-    alt: "An cartoon orange cat walking through a farm",
-    subscription: "Free",
-    year: "7 - 8",
-    subject: "Science",
-  },
-  {
-    id: 4,
-    name: "Build a band",
-    difficulty: "INTERMEDIATE",
-    activity: "Game",
-    src: "/images/projects/Project04.png",
-    alt: "A cartoon of a lady in a purple dress on stage with instruments",
-    subscription: "Premium",
-    year: "9 - 13",
-    subject: "Language",
-  },
-  {
-    id: 5,
-    name: "The bear and the monkey",
-    difficulty: "BEGINNER",
-    activity: "Game",
-    src: "/images/projects/Project05.png",
-    alt: "A cartoon of a brown bear and a monkey in a jungle",
-    subscription: "Free",
-    year: "1 - 4",
-    subject: "Art",
-  },
-  {
-    id: 6,
-    name: "Debugging",
-    difficulty: "ADVANCED",
-    activity: "Augmented Reality",
-    src: "/images/projects/Project06.png",
-    alt: "A cartoon of a yellow flame and an orange cat saying 'Fun!'",
-    subscription: "Premium",
-    year: "5 - 6",
-    subject: "Music",
-  },
-  {
-    id: 7,
-    name: "About me",
-    difficulty: "BEGINNER",
-    activity: "Animation",
-    src: "/images/projects/Project07.png",
-    alt: "Cartoons of an orange cat saying 'Make Scratch', a laptop, a pencil, cereal, a pie, a chicken and a girl in a green t-shirt, floating around each other",
-    subscription: "Free",
-    year: "7 - 8",
-    subject: "Computer Science",
-  },
-  {
-    id: 8,
-    name: "I am here!",
-    difficulty: "BEGINNER",
-    activity: "Animation",
-    src: "/images/projects/Project08.png",
-    alt: "A cartoon of a green forest with grass, lily pads, a mountain and a red crab",
-    subscription: "Free",
-    year: "9 - 13",
-    subject: "Maths",
-  },
-  {
-    id: 9,
-    name: "Funny faces",
-    difficulty: "BEGINNER",
-    activity: "Game",
-    src: "/images/projects/Project09.png",
-    alt: "Cartoons of a bear hat, glasses, green bow tie, a hat, a pig's nose, eyes,nose and mouths",
-    subscription: "Premium",
-    year: "1 - 4",
-    subject: "Science",
-  },
-  {
-    id: 10,
-    name: "It tickles!",
-    difficulty: "INTERMEDIATE",
-    activity: "Animation",
-    src: "/images/projects/Project10.png",
-    alt: "A cartoon of a child saying, 'It tickles! outside of a red building with a smiling flame",
-    subscription: "Premium",
-    year: "5 - 6",
-    subject: "Language",
-  },
-  {
-    id: 11,
-    name: "Penguin in a Desert",
-    difficulty: "BEGINNER",
-    activity: "Chatbot",
-    src: "/images/projects/Project11.png",
-    alt: "A carton of a penguin in a desert, a cactus nearby",
-    subscription: "Free",
-    year: "7 - 8",
-    subject: "Art",
-  },
-  {
-    id: 12,
-    name: "Time Travel",
-    difficulty: "ADVANCED",
-    activity: "Animation",
-    src: "/images/projects/Project12.png",
-    alt: "A cartoon of a child in front of a wharenui saying 'I want to see the time before Maui fished up North Island'",
-    subscription: "Premium",
-    year: "7 - 8",
-    subject: "Music",
-  },
-  {
-    id: 13,
-    name: "Birthday Card",
-    difficulty: "BEGINNER",
-    activity: "Chatbot",
-    src: "/images/projects/Project13.png",
-    alt: "A cartoon of a person in a purple dress at a party, multi-coloured balloons everywhere and HAPPY BIRTHDAY letters among the balloons",
-    subscription: "Free",
-    year: "1 - 4",
-    subject: "Computer Science",
-  },
-  {
-    id: 14,
-    name: "The Lion and the Mouse",
-    difficulty: "BEGINNER",
-    activity: "Animation",
-    src: "/images/projects/Project14.png",
-    alt: "A cartoon of a lion and a mouse in a grassy part of the jungle",
-    subscription: "Premium",
-    year: "5 - 6",
-    subject: "Computer Science",
-  },
-  {
-    id: 15,
-    name: "The Lion in the Forest",
-    difficulty: "BEGINNER",
-    activity: "Augmented Reality",
-    src: "/images/projects/Project15.png",
-    alt: "A cartoon of a lion in a forest at night",
-    subscription: "Free",
-    year: "5 - 6",
-    subject: "Maths",
-  },
-];
-
 export default function FiltersProjects() {
-  const [selectedDifficulty, setSelectedDifficulty] = useState("ALL");
+  const [allProjects, setAllProjects] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/projects`)
+      .then((response) => response.json())
+      .then((result) => {
+        setAllProjects(result);
+      });
+  }, []);
+
+  const [selectedDifficulty, setSelectedDifficulty] = useState("All");
   const [resultsLimit, setResultsLimit] = useState("ALL");
-  const [filteredSubscriptions, setFilteredSubscriptions] = useState([
-    ...projects,
-  ]);
-  const [filteredActivities, setFilteredActivities] = useState([...projects]);
-  const [filteredYearLevel, setFilteredYearLevel] = useState([...projects]);
-  const [filteredSubjectMatter, setFilteredSubjectMatter] = useState([
-    ...projects,
-  ]);
-  const [filteredResults, setFilteredResults] = useState([...projects]);
-  const [filteredResults2, setFilteredResults2] = useState([...projects]);
-  const [filteredResults3, setFilteredResults3] = useState([...projects]);
-  const [filteredResults4, setFilteredResults4] = useState([...projects]);
+  const [filteredSubscriptions, setFilteredSubscriptions] = useState([]);
+  const [filteredActivities, setFilteredActivities] = useState([]);
+  const [filteredYearLevel, setFilteredYearLevel] = useState([]);
+  const [filteredSubjectMatter, setFilteredSubjectMatter] = useState([]);
+  const [filteredResults, setFilteredResults] = useState([]);
+  const [filteredResults2, setFilteredResults2] = useState([]);
+  const [filteredResults3, setFilteredResults3] = useState([]);
+  const [filteredResults4, setFilteredResults4] = useState([]);
+
+  useEffect(() => {
+    setFilteredSubscriptions([...allProjects]);
+    setFilteredActivities([...allProjects]);
+    setFilteredYearLevel([...allProjects]);
+    setFilteredSubjectMatter([...allProjects]);
+    setFilteredResults([...allProjects]);
+    setFilteredResults2([...allProjects]);
+    setFilteredResults3([...allProjects]);
+    setFilteredResults4([...allProjects]);
+  }, [allProjects]);
 
   const handleDifficulty = (e) => setSelectedDifficulty(e.target.id);
   const handleResultsLimit = (e) => setResultsLimit(e.target.id);
@@ -201,7 +50,7 @@ export default function FiltersProjects() {
       function: function handleSubscription(e) {
         if (e.target.checked) {
           const subscriptionArray = [...filteredSubscriptions];
-          projects.map((project) => {
+          allProjects.map((project) => {
             if (project.subscription === e.target.id) {
               subscriptionArray.push(project);
             }
@@ -221,15 +70,15 @@ export default function FiltersProjects() {
       function: function handleActivities(e) {
         if (e.target.checked) {
           const activitiesArray = [...filteredActivities];
-          projects.map((project) => {
-            if (project.activity === e.target.id) {
+          allProjects.map((project) => {
+            if (project.activity_type === e.target.id) {
               activitiesArray.push(project);
             }
           });
           setFilteredActivities(activitiesArray);
         } else {
           const activitiesArray = filteredActivities.filter(
-            (project) => project.activity !== e.target.id
+            (project) => project.activity_type !== e.target.id
           );
           setFilteredActivities(activitiesArray);
         }
@@ -239,19 +88,88 @@ export default function FiltersProjects() {
       name: "YEAR LEVEL",
       options: ["1 - 4", "5 - 6", "7 - 8", "9 - 13"],
       function: function handleYearLevel(e) {
-        if (e.target.checked) {
-          const yearLevelArray = [...filteredYearLevel];
-          projects.map((project) => {
-            if (project.year === e.target.id) {
-              yearLevelArray.push(project);
+        switch (e.target.id) {
+          case "1 - 4":
+            if (e.target.checked) {
+              const yearLevelArray = [...filteredYearLevel];
+              allProjects.map((project) => {
+                switch (project.year_level) {
+                  case 1:
+                  case 2:
+                  case 3:
+                  case 4:
+                    yearLevelArray.push(project);
+                    break;
+                }
+              });
+              setFilteredYearLevel(yearLevelArray);
+            } else {
+              const yearLevelArray = filteredYearLevel.filter(
+                (project) => project.year_level > 4
+              );
+              setFilteredYearLevel(yearLevelArray);
             }
-          });
-          setFilteredYearLevel(yearLevelArray);
-        } else {
-          const yearLevelArray = filteredYearLevel.filter(
-            (project) => project.year !== e.target.id
-          );
-          setFilteredYearLevel(yearLevelArray);
+            break;
+          case "5 - 6":
+            if (e.target.checked) {
+              const yearLevelArray = [...filteredYearLevel];
+              allProjects.map((project) => {
+                switch (project.year_level) {
+                  case 5:
+                  case 6:
+                    yearLevelArray.push(project);
+                    break;
+                }
+              });
+              setFilteredYearLevel(yearLevelArray);
+            } else {
+              const yearLevelArray = filteredYearLevel.filter(
+                (project) => project.year_level < 5 || project.year_level > 6
+              );
+              setFilteredYearLevel(yearLevelArray);
+            }
+            break;
+          case "7 - 8":
+            if (e.target.checked) {
+              const yearLevelArray = [...filteredYearLevel];
+              allProjects.map((project) => {
+                switch (project.year_level) {
+                  case 7:
+                  case 8:
+                    yearLevelArray.push(project);
+                    break;
+                }
+              });
+              setFilteredYearLevel(yearLevelArray);
+            } else {
+              const yearLevelArray = filteredYearLevel.filter(
+                (project) => project.year_level < 7 || project.year_level > 8
+              );
+              setFilteredYearLevel(yearLevelArray);
+            }
+            break;
+          case "9 - 13":
+            if (e.target.checked) {
+              const yearLevelArray = [...filteredYearLevel];
+              allProjects.map((project) => {
+                switch (project.year_level) {
+                  case 9:
+                  case 10:
+                  case 11:
+                  case 12:
+                  case 13:
+                    yearLevelArray.push(project);
+                    break;
+                }
+              });
+              setFilteredYearLevel(yearLevelArray);
+            } else {
+              const yearLevelArray = filteredYearLevel.filter(
+                (project) => project.year_level < 9
+              );
+              setFilteredYearLevel(yearLevelArray);
+            }
+            break;
         }
       },
     },
@@ -268,15 +186,15 @@ export default function FiltersProjects() {
       function: function handleSubjectMatter(e) {
         if (e.target.checked) {
           const subjectArray = [...filteredSubjectMatter];
-          projects.map((project) => {
-            if (project.subject === e.target.id) {
+          allProjects.map((project) => {
+            if (project.subject_matter === e.target.id) {
               subjectArray.push(project);
             }
           });
           setFilteredSubjectMatter(subjectArray);
         } else {
           const subjectArray = filteredSubjectMatter.filter(
-            (project) => project.subject !== e.target.id
+            (project) => project.subject_matter !== e.target.id
           );
           setFilteredSubjectMatter(subjectArray);
         }
@@ -285,10 +203,10 @@ export default function FiltersProjects() {
   ];
 
   const difficultyButtons = [
-    { label: "ALL", className: topFilterStyles.leftBtn },
-    { label: "BEGINNER", className: "" },
-    { label: "INTERMEDIATE", className: "" },
-    { label: "ADVANCED", className: topFilterStyles.rightBtn },
+    { label: "All", className: topFilterStyles.leftBtn },
+    { label: "Beginner", className: "" },
+    { label: "Intermediate", className: "" },
+    { label: "Advanced", className: topFilterStyles.rightBtn },
   ];
 
   const limitResultsButtons = [
@@ -298,9 +216,9 @@ export default function FiltersProjects() {
   ];
 
   const filteredDifficulties =
-    selectedDifficulty === "ALL"
-      ? projects
-      : projects.filter((project) => selectedDifficulty === project.difficulty);
+    selectedDifficulty === "All"
+      ? allProjects
+      : allProjects.filter((project) => selectedDifficulty === project.course);
 
   useEffect(() => {
     const difficultySubscription = [];
@@ -316,6 +234,7 @@ export default function FiltersProjects() {
     } else {
       setFilteredResults(difficultySubscription);
     }
+    setFilteredResults(difficultySubscription);
   }, [selectedDifficulty, filteredSubscriptions]);
 
   useEffect(() => {
@@ -333,6 +252,7 @@ export default function FiltersProjects() {
     } else {
       setFilteredResults2(addActivityArray);
     }
+    setFilteredResults2(addActivityArray);
   }, [filteredResults, filteredActivities]);
 
   useEffect(() => {
@@ -349,6 +269,7 @@ export default function FiltersProjects() {
     } else {
       setFilteredResults3(addYearArray);
     }
+    setFilteredResults3(addYearArray);
   }, [filteredResults2, filteredYearLevel]);
 
   useEffect(() => {
@@ -365,7 +286,10 @@ export default function FiltersProjects() {
     } else {
       setFilteredResults4(addSubjectArray);
     }
+    setFilteredResults4(addSubjectArray);
   }, [filteredResults3, filteredSubjectMatter]);
+
+  console.log(filteredResults4);
 
   return (
     <div className={styles.filtersAndProjects}>
@@ -397,7 +321,7 @@ export default function FiltersProjects() {
               }`}
               key={index}
               function={handleDifficulty}
-              label={button.label}
+              label={button.label.toUpperCase()}
               id={button.label}
             />
           ))}
@@ -430,14 +354,15 @@ export default function FiltersProjects() {
               0,
               resultsLimit === "ALL" ? filteredResults4.length : resultsLimit
             )
-            .map((project, index) => (
+            .map((project) => (
               <ProjectCard
-                key={index}
+                key={project.project_id}
+                link={`/student-dashboard/${project.project_id}/learning-objectives`}
+                // link={`/student-dashboard`}
                 name={project.name}
-                difficulty={project.difficulty}
-                activity={project.activity}
-                src={project.src}
-                alt={project.alt}
+                course={project.course}
+                activity_type={project.activity_type}
+                project_pic={project.project_pic}
               />
             ))}
         </div>

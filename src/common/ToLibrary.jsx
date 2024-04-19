@@ -1,4 +1,4 @@
-import styles from "./NavbarTwo.module.css";
+import styles from "./Navbar2/NavbarTwo.module.css";
 
 export default function ToLibrary({ type }) {
   return (
