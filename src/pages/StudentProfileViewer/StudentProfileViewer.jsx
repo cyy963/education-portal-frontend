@@ -1,89 +1,91 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./StudentProfileViewer.module.css";
 import NavBarOne from "../../common/NavBar1/NavBarOne";
+import PopUpMenu from "../../common/NavBar1/components/PopUpMenu";
+import popUpMenuStyles from "../../common/NavBar1/components/PopUpMenu.module.css";
 // import StudentInfoCard from "./components/StudentInfoCard";
 // import PhotoCard from "./components/PhotoCard";
 
 export default function StudentProfileViewer() {
-  const studentInfo = [
-    {
-      id: 1,
-      name: "Rawiri Fletcher",
-      school: "Homai School",
-      teacher: "Jasmina Salvador",
-      course: "Beginner",
-      dateOfBirth: "25 June 2010",
-      contactNumber: "022 524 63 99",
-      emailAddress: "fletchy.r@gmail.com",
-      src: "/images/students/RawiriFletcher.png",
-      alt: `Headshot of student Rawiri Fletcher`,
-    },
-  ];
+  const [popUp, setPopUp] = useState(false);
+  const togglePopUp = () => setPopUp(!popUp);
+  const removePopUp = () => setPopUp(false);
+  const [student, setStudent] = useState("");
 
-  const userData = [
-    {
-      id: 1,
-      firstName: "Rawiri",
-      lastName: "Fletcher",
-      userType: "Student",
-      photo: "/images/students/RawiriFletcher.png",
-      function: function togglePopUp() {
-        console.log("User pop-up triggered");
-      },
-    },
-  ];
-
-  const user = userData[0];
+  useEffect(() => {
+    fetch(`http://localhost:4000/student`)
+      .then((response) => response.json())
+      .then((result) => {
+        setStudent(result[0]);
+      });
+  }, []);
 
   return (
-    <div>
-      <NavBarOne
-        text="PROJECTS"
-        link="/project-library"
-        userImage={user.photo}
-        alt={`Profile photo of ${user.firstName} ${user.lastName}`}
-        userName={`${user.firstName.toUpperCase()} ${user.lastName.toUpperCase()}`}
-        function={user.function}
-      />
-      <main className={styles.main}>
-        <div className={styles.left}>
-          <img
-            className={styles.studentImage}
-            src={studentInfo[0].src}
-            alt={studentInfo[0].alt}
+    <div onClick={removePopUp}>
+      {student && (
+        <div className={styles.navBarSpace}>
+          <NavBarOne
+            text="PROJECTS"
+            link="/project-library"
+            userImage={student.profile_pic}
+            alt={`${student.student_name}'s photo`}
+            userName={student.student_name.toUpperCase()}
+            onChange={togglePopUp}
           />
-          <button className={styles.btn}>EDIT PROFILE</button>
-          <button className={styles.btn}>CHANGE PHOTO</button>
         </div>
-
-        <div className={styles.studentInfoCard}>
-          <header className={styles.header}>
-            <h1 className={styles.studentName}>{studentInfo[0].name}</h1>
-          </header>
-          <div className={styles.labels}>
-            <h2 className={styles.label}>School</h2>
-            <h2 className={styles.label}>Teacher</h2>
-            <h2 className={styles.label}>Course</h2>
-            <h2 className={styles.label}>Date of Birth</h2>
-            <h2 className={styles.label}>Contact No</h2>
-            <h2 className={styles.label}>Email Address</h2>
+      )}
+      <PopUpMenu
+        profileLink="/student-profile-viewer"
+        onClick={togglePopUp}
+        arrowClassName={`${popUpMenuStyles.arrow} ${
+          popUp ? popUpMenuStyles.show : ""
+        }`}
+        menuClassName={`${popUpMenuStyles.popUpMenu} ${
+          popUp ? popUpMenuStyles.show : ""
+        }`}
+      />
+      {student && (
+        <main className={styles.main}>
+          <div className={styles.left}>
+            <img
+              className={styles.studentImage}
+              src={student.profile_pic}
+              alt={`${student.student_name}'s photo`}
+            />
+            <button className={styles.btn}>EDIT PROFILE</button>
+            <button className={styles.btn}>CHANGE PHOTO</button>
           </div>
-          <div className={styles.details}>
-            <p className={styles.detail}>{studentInfo[0].school}</p>
-            <p className={styles.detail}>{studentInfo[0].teacher}</p>
-            <p className={styles.detail}>{studentInfo[0].course}</p>
-            <p className={styles.detail}>{studentInfo[0].dateOfBirth}</p>
-            <p className={styles.detail}>{studentInfo[0].contactNumber}</p>
-            <p className={styles.detail}>{studentInfo[0].emailAddress}</p>
-          </div>
-        </div>
 
-        <footer className={styles.backButtons}>
-          <Link to="/project-library">
-            <button className={styles.backButton}>BACK TO PROJECTS</button>
-          </Link>
-        </footer>
-      </main>
+          <div className={styles.studentInfoCard}>
+            <header className={styles.header}>
+              <h1 className={styles.studentName}>{student.student_name}</h1>
+            </header>
+            <div className={styles.labels}>
+              <h2 className={styles.label}>School</h2>
+              <h2 className={styles.label}>Teacher</h2>
+              <h2 className={styles.label}>Course</h2>
+              <h2 className={styles.label}>Date of Birth</h2>
+              <h2 className={styles.label}>Contact No</h2>
+              <h2 className={styles.label}>Email Address</h2>
+            </div>
+            <div className={styles.details}>
+              <p className={styles.detail}>{student.school}</p>
+              <p className={styles.detail}>{student.teacher_name}</p>
+              <p className={styles.detail}>{student.course}</p>
+              <p className={styles.detail}>{student.date_of_birth}</p>
+              <p className={styles.detail}>{student.contact_number}</p>
+              <p className={styles.detail}>{student.email}</p>
+            </div>
+          </div>
+
+          <footer className={styles.buttonSpace}>
+            <Link to="/project-library">
+              <button className={styles.backButton}>BACK TO PROJECTS</button>
+            </Link>
+          </footer>
+        </main>
+      )}
     </div>
   );
 }

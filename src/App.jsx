@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useParams } from "react-router-dom";
 import "./App.css";
 
 // Importing page components
@@ -19,6 +19,7 @@ import StudentDashboard from "./pages/StudentDashboard/StudentDashboard.jsx";
 import TeacherDashboard from "./pages/TeacherDashboard/TeacherDashboard.jsx";
 
 function App() {
+  const params = useParams();
   return (
     <>
       <Routes>
@@ -36,9 +37,16 @@ function App() {
         {/* redirects to learning-objectives from student-dashboard */}
         <Route
           path="/student-dashboard"
-          element={<Navigate to="/student-dashboard/learning-objectives" />}
+          element={
+            <Navigate
+              to={`/student-dashboard/${params.projectId}/learning-objectives`}
+            />
+          }
         />
-        <Route path="/student-dashboard" element={<StudentDashboard />}>
+        <Route
+          path="/student-dashboard/:projectId"
+          element={<StudentDashboard />}
+        >
           {/* Routes that are a subset of student dashboard */}
           <Route path="instructions" element={<Instructions />} />
           <Route path="learning-objectives" element={<LearningObjectives />} />

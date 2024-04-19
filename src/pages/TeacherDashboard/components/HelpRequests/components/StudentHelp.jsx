@@ -1,57 +1,34 @@
 import styles from "../HelpRequests.module.css";
 import { useState } from "react";
 
-// array of students
-function StudentHelp() {
-    const testRequest = [
-        {
-            name: "Aiden",
-            profileIcon: "",
-            date: "TUE 28 April 2020",
-            time: "10:43 AM",
-        },
-        {
-            name: "Rawiri",
-            profileIcon: "",
-            date: "TUE 28 April 2020",
-            time: "9:52 AM",
-        },
-        {
-            name: "Neveah",
-            profileIcon: "",
-            date: "27 April 2020",
-            time: "4:59 PM",
-        },
-        {
-            name: "Javier",
-            profileIcon: "",
-            date: "27 April 2020",
-            time: "3:00 PM",
-        },
-        {
-            name: "Tokio",
-            profileIcon: "",
-            date: "27 April 2020",
-            time: "11:23 AM",
-        },
-    ];
+import Checkbox from "./CheckBox";
 
-    // mapping through array items to display
-    const [requests, setRequests] = useState([...testRequest]);
-
+function StudentHelp({requests, checked, setChecked}) {
     return (
         <div>
             {requests.map((item, index) => {
                 return (
                     <div className={styles.studentHelp} key={index}>
-                        <div>
-                            {item.profileIcon && (
-                                <img src={item.profileIcon} alt="student icon"
-                                className={styles.icon} />
-                            )}    
+                        <Checkbox
+                            checked={checked}
+                            setChecked={setChecked}
+                            studentId={requests[index].studentId}
+                        />
 
-                            <div>
-                                <h5 className={styles.nameHelp}>{item.name.toUpperCase()} needs help with their project</h5>
+                        <div className={styles.checkBoxDiv}>
+                            <div className={styles.requestFlex}>
+                                {item.profileIcon && (
+                                    <img
+                                        src={item.profileIcon}
+                                        alt="student icon"
+                                        className={styles.profilePic}
+                                    />
+                                )}
+                                <div>
+                                    <h4 className={styles.nameHelp}>
+                                        {item.name.toUpperCase()} needs help with their project
+                                    </h4>
+                                </div>
                             </div>
 
                             <div className={styles.dateTime}>
@@ -61,9 +38,10 @@ function StudentHelp() {
                         </div>
                     </div>
                 )
-            })}
+            }
+        )}
         </div>
-    );
+    )
 }
 
 export default StudentHelp;
