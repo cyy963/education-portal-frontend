@@ -54,16 +54,74 @@
   align-items: center;
   margin-right: 2vw;
 }
+  .studentHelp {
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 15px;
+    margin-bottom: 2vh;
+    align-items: flex-start;
+  }
 
-.studentHelp {
-  justify-content: space-between;
-  background-color: white;
-  border-radius: 15px;
-  margin-bottom: 2vh;
-}
+  .checkBoxDiv,
+  .requestFlex,
+  .studentHelp {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.forScroll {
+  .checkboxDiv {
+    background-color: white;
+    width: 94%;
+    border-radius: 15px;
+    margin-bottom: 2vh;
+    margin-right: 2vw;
+  }
+
+  .requestFlex {
+    align-items: center;
+  }
+
+  .profilePic {
+    height: 7vh;
+    margin: 0 4vw;
+  }
+
+  .checkbox {
+    margin-top: 6vh;
+  }
+
+ .forScroll {
   /* Styles for the container with scrollbar */
   max-height: 450px; /* Adjust as needed */
   overflow-y: auto; /* Ensure scrollbar appears when content exceeds container height */
+}
+
+.checkbox > input[type="checkbox"] {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 0.15em;
+  margin-right: 0.5em;
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: 0 2px #c7c7c7 inset;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox > input:checked {
+  background-color: #43c0f6;
+  position: relative;
+}
+
+.checkbox > input:checked::before {
+  content: "";
+  font-size: 1.5em;
+  color: #fff;
+  position: absolute;
+  right: 1px;
+  top: -5px;
 }

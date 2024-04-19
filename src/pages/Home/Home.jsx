@@ -29,6 +29,8 @@ export default function Home() {
           <Link to="/project-library">Go to Project Library</Link>
           <br />
           <Link to="/student-profile-viewer">Go to Student Profile Viewer</Link>
+          <br />
+          <Link to="/teacher-profile-viewer">Go to Teacher Profile Viewer</Link>
         </div>
       </div>
     </div>
