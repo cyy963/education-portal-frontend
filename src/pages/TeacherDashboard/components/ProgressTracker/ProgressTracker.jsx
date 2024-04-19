@@ -42,7 +42,7 @@ export default function ProgressTracker() {
     const data = projectResults.map((projectResult) => {
       return {
         StudentID: projectResult.student_id,
-        StudentName: projectResult.name,
+        StudentName: projectResult.student_name,
         CompletedProjects: projectResult.completed_projects,
         TotalCompletedProjects: projectResult.total_completed_projects,
       };
@@ -80,7 +80,7 @@ export default function ProgressTracker() {
                   <div className={styles.studentProgressBar} key={projectResult.student_id}>
                     {/* student name and projects completed fraction */}
                     <div className={styles.studentInfo}>
-                      <p className={styles.studentName}>{projectResult.name.toUpperCase()}</p>
+                      <p className={styles.studentName}>{projectResult.student_name.toUpperCase()}</p>
                       <p className={styles.studentProjectsCompletedFraction}>{projectResult.total_completed_projects}/15 Projects Completed</p>
                     </div>
                     {/* progress icons container */}

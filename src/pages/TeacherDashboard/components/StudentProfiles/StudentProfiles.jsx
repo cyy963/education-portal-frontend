@@ -30,7 +30,7 @@ export default function StudentProfiles(){
                   {/* student profile pic */}
                   <img src={student.profile_pic} className={styles.studentImg}/>
                   {/* student name */}
-                  <p className={styles.studentName}>{student.name.toUpperCase()}</p>
+                  <p className={styles.studentName}>{student.student_name.toUpperCase()}</p>
                 </div>
               );
             })}
