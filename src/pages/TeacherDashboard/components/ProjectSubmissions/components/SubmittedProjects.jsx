@@ -29,7 +29,8 @@ export default function SubmittedProjects({ projects, checked, setChecked }) {
                 {item.submission ? (
                   <div className={styles.imageFlex}>
                     <h4 className={styles.titleName}>
-                      {item.student_name.toUpperCase()} submitted their project
+                      {item.student_name.split(" ", 1)[0].toUpperCase()}{" "}
+                      submitted their project
                     </h4>
                     <div>
                       <MyModal projects={projects} index={index} />
@@ -38,8 +39,8 @@ export default function SubmittedProjects({ projects, checked, setChecked }) {
                 ) : (
                   <div className={styles.textSubmit}>
                     <h4 className={styles.titleName}>
-                      {item.student_name.toUpperCase()} wants to show their
-                      project
+                      {item.student_name.split(" ", 1)[0].toUpperCase()} wants
+                      to show their project
                     </h4>
                   </div>
                 )}
