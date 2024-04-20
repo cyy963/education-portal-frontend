@@ -18,6 +18,8 @@ export default function NavbarTwo(props) {
   const [isDisabled, setIsDisabled] = useState(false);
   let location = useLocation();
 
+  console.log(props.currentProjectId);
+
   useEffect(() => {
     location.pathname === "/student-dashboard/make-project"
       ? setStatus("submit")
@@ -31,7 +33,11 @@ export default function NavbarTwo(props) {
           <img src={logo} alt="Logo" className={styles.logo} />
         </Link>
         {/* If student display NavbarTwoProject */}
-        {props.user === "student" ? <NavbarTwoProject /> : ""}
+        {props.user === "student" ? (
+          <NavbarTwoProject currentProjectId={props.currentProjectId} />
+        ) : (
+          ""
+        )}
       </div>
 
       <div className={styles.grid}>
@@ -55,7 +61,6 @@ export default function NavbarTwo(props) {
               />
             </Link>
             <NavbarTwoButtons type="ask-for-help" />
-            {/* ^^ backend function */}
             <Link to="/project-library">
               <ToLibrary type="more-projects" />
             </Link>
