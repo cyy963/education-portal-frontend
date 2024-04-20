@@ -23,6 +23,7 @@ export default function SubmittedProjects({ projects, checked, setChecked }) {
               checked={checked}
               setChecked={setChecked}
               studentId={projects[index].student_id}
+              projectId={projects[index].project_id}
             />
 
             <div className={styles.checkboxDiv}>

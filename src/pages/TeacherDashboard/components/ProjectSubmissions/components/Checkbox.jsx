@@ -2,13 +2,18 @@
 import { useEffect, useState } from "react";
 import styles from "../ProjectSubmissions.module.css";
 
-export default function Checkbox({ checked, setChecked, studentId }) {
+export default function Checkbox({
+  checked,
+  setChecked,
+  studentId,
+  projectId,
+}) {
   const [isChecked, setIsChecked] = useState(false);
 
   // Use effect to handle isChecked
   useEffect(() => {
     const holdCheckList = checked.filter((item) => {
-      return item.studentId === studentId;
+      return item.studentId === studentId && item.projectId === projectId;
     });
     // Once the holdCheckList has the object then it will take checked key-value pair
     let holdCheck;
@@ -26,7 +31,9 @@ export default function Checkbox({ checked, setChecked, studentId }) {
         onChange={() => {
           const newChecked = checked.map((item) => {
             const value =
-              studentId === item.studentId ? !item.checked : item.checked;
+              studentId === item.studentId && projectId === item.projectId
+                ? !item.checked
+                : item.checked;
             return {
               studentId: item.studentId,
               projectId: item.projectId,

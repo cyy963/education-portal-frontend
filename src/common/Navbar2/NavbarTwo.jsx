@@ -18,8 +18,6 @@ export default function NavbarTwo(props) {
   const [isDisabled, setIsDisabled] = useState(false);
   let location = useLocation();
 
-  console.log(props.currentProjectId);
-
   useEffect(() => {
     location.pathname === "/student-dashboard/make-project"
       ? setStatus("submit")
