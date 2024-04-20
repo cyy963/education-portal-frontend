@@ -3,15 +3,13 @@ import styles from "../ProjectSubmissions.module.css";
 
 // Import component
 import Checkbox from "./Checkbox";
+import MyModal from "./MyModal";
 
 export default function SubmittedProjects({ projects, checked, setChecked }) {
-  function handleImage(e) {
-    e.target.className = styles.enlarged;
-  }
-
   return (
     <div>
       {projects.map((item, index) => {
+        const img = item.submission;
         return (
           <div className={styles.submitedProject} key={index}>
             <Checkbox
@@ -34,15 +32,8 @@ export default function SubmittedProjects({ projects, checked, setChecked }) {
                     <h4 className={styles.titleName}>
                       {item.student_name.toUpperCase()} submitted their project
                     </h4>
-                    <div onClick={handleImage}>
-                      <button className={styles.enlargeBtn}>
-                        <img
-                          src={item.submission}
-                          alt="Project Image"
-                          className={styles.projectImg}
-                        />
-                        Enlarge image
-                      </button>
+                    <div>
+                      <MyModal projects={projects} index={index} />
                     </div>
                   </div>
                 ) : (

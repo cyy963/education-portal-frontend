@@ -24,8 +24,6 @@ export default function SubmitProjectButtons({ type }) {
   console.log(params.projectId);
 
   useEffect(() => {
-    const date = new Date().toISOString().slice(0, 19).replace("T", " ");
-    console.log(date);
     imageUrl &&
       fetch("http://localhost:4000/api/submit-project", {
         method: "POST",

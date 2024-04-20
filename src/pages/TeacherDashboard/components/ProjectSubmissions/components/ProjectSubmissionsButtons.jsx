@@ -41,15 +41,13 @@ export default function ProjectSubmissionsButtons({
         user.project_id === checked[index].projectId &&
         checked[index].checked === true
       ) {
-        const date = new Date().toISOString().slice(0, 19).replace("T", " ");
-        console.log(date);
         fetch("http://localhost:4000/api/project-submission", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             studentId: user.student_id,
             projectId: user.project_id,
-            dateComp: date,
+            dateComp: new Date().toISOString().slice(0, 19).replace("T", " "),
           }),
         }).then((res) => {
           console.log(res);
