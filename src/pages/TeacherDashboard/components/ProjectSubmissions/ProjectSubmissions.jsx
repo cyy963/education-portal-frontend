@@ -29,7 +29,6 @@ export default function ProjectSubmissions() {
       };
     });
     setChecked(checking);
-    console.log(checked);
   }, [projects]);
 
   return (

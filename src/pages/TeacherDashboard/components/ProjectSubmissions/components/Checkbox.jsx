@@ -27,7 +27,11 @@ export default function Checkbox({ checked, setChecked, studentId }) {
           const newChecked = checked.map((item) => {
             const value =
               studentId === item.studentId ? !item.checked : item.checked;
-            return { studentId: item.studentId, checked: value };
+            return {
+              studentId: item.studentId,
+              projectId: item.projectId,
+              checked: value,
+            };
           });
           setChecked(newChecked);
         }}

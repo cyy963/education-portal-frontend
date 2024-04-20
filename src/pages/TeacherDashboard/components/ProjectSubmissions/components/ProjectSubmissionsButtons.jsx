@@ -35,7 +35,6 @@ export default function ProjectSubmissionsButtons({
   const handleMarkComplete = () => {
     //Delete objects from project
     projects.map((user, index) => {
-      console.log(checked[index], user);
       if (
         user.student_id === checked[index].studentId &&
         user.project_id === checked[index].projectId &&

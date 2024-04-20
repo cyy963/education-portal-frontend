@@ -9,7 +9,6 @@ export default function SubmittedProjects({ projects, checked, setChecked }) {
   return (
     <div>
       {projects.map((item, index) => {
-        const img = item.submission;
         return (
           <div className={styles.submitedProject} key={index}>
             <Checkbox
