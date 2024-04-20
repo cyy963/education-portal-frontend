@@ -31,9 +31,9 @@ export default function SubmitProjectButtons({ type }) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          studentId: 12,
+          studentId: 13,
           projectId: params.projectId,
-          dateComp: date,
+          dateSub: new Date().toISOString().slice(0, 19).replace("T", " "),
           img: imageUrl,
         }),
       }).then((res) => {
