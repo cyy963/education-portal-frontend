@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { DateTime } from "luxon";
 import styles from "./StudentProfileViewer.module.css";
 import NavBarOne from "../../common/NavBar1/NavBarOne";
 import PopUpMenu from "../../common/NavBar1/components/PopUpMenu";
 import popUpMenuStyles from "../../common/NavBar1/components/PopUpMenu.module.css";
-// import StudentInfoCard from "./components/StudentInfoCard";
-// import PhotoCard from "./components/PhotoCard";
+import FooterOne from "../../common/Footer1/FooterOne";
 
 export default function StudentProfileViewer() {
   const [popUp, setPopUp] = useState(false);
@@ -73,7 +73,11 @@ export default function StudentProfileViewer() {
               <p className={styles.detail}>{student.school}</p>
               <p className={styles.detail}>{student.teacher_name}</p>
               <p className={styles.detail}>{student.course}</p>
-              <p className={styles.detail}>{student.date_of_birth}</p>
+              <p className={styles.detail}>
+                {DateTime.fromISO(student.date_of_birth).toFormat(
+                  "d LLLL yyyy"
+                )}
+              </p>
               <p className={styles.detail}>{student.contact_number}</p>
               <p className={styles.detail}>{student.email}</p>
             </div>
@@ -86,6 +90,7 @@ export default function StudentProfileViewer() {
           </footer>
         </main>
       )}
+      <FooterOne />
     </div>
   );
 }
