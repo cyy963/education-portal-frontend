@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 // Import styles
 import styles from "../ProjectSubmissions.module.css";
+import DownloadPdf from "./DownloadPdf";
 
 export default function ProjectSubmissionsButtons({
   type,
@@ -11,25 +12,31 @@ export default function ProjectSubmissionsButtons({
 }) {
   const [changeIndex, setChangeIndex] = useState();
   const [changed, setChanged] = useState();
+  const [display, setDisplay] = useState(false);
+  const [downloadProjects, setDownloadProjects] = useState([]);
 
   //Functions
   useEffect(() => {
     let testChangeIndex = [];
     let testChanged = [];
+    let testDownloadProjects = [];
     for (let i = 0; i < checked.length; i++) {
       if (!checked[i].checked) {
         testChangeIndex.push(i);
       } else {
         testChanged.push(checked[i]);
+        testDownloadProjects.push(projects[i]);
       }
     }
 
     setChangeIndex(testChangeIndex);
     setChanged(testChanged);
+    setDownloadProjects(testDownloadProjects);
   }, [checked]);
 
   const handleDownload = () => {
-    console.log("Download");
+    console.log(downloadProjects);
+    setDisplay(true);
   };
 
   const handleMarkComplete = () => {
@@ -74,9 +81,14 @@ export default function ProjectSubmissionsButtons({
 
   if (type === "download") {
     return (
-      <button className={styles.btn} onClick={handleDownload}>
-        <h4 className={styles.btnText}> {"\u2B73"} DOWNLOAD FILES</h4>
-      </button>
+      <>
+        <button className={styles.btn} onClick={handleDownload}>
+          <h4 className={styles.btnText}> {"\u2B73"} DOWNLOAD FILES</h4>
+        </button>
+        {display && (
+          <DownloadPdf setDisplay={setDisplay} projects={downloadProjects} />
+        )}
+      </>
     );
   } else if (type === "complete") {
     return (

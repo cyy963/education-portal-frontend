@@ -3,7 +3,7 @@ import styles from "../ProjectSubmissions.module.css";
 
 // Import component
 import Checkbox from "./Checkbox";
-import MyModal from "./MyModal";
+import MyModalImage from "./MyModalImage";
 
 export default function SubmittedProjects({ projects, checked, setChecked }) {
   let pronoun;
@@ -42,7 +42,7 @@ export default function SubmittedProjects({ projects, checked, setChecked }) {
                       submitted {pronoun} project
                     </h4>
                     <div>
-                      <MyModal projects={projects} index={index} />
+                      <MyModalImage projects={projects} index={index} />
                     </div>
                   </div>
                 ) : (

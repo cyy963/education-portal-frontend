@@ -119,7 +119,7 @@
 }
 
 .projectImg {
-  position: relative;
+  /* position: relative; */
   height: 15vh;
   margin: 10px;
 }
@@ -136,4 +136,22 @@
 .titleName {
   font-size: 1em;
   font-family: "Open sans", sans-serif;
+}
+
+/* Download div */
+.downloadContainer {
+  background-color: #6c6c6cd0;
+  position: absolute;
+  height: 100vh;
+  width: 99.5vw;
+  top: 0;
+  left: 0;
+  z-index: 98;
+}
+
+.download {
+  position: absolute;
+  top: 10vh;
+  left: 5vw;
+  z-index: 99;
 }
