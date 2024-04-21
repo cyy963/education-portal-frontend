@@ -6,6 +6,7 @@
   box-shadow: 0 3px 6px rgba(100, 99, 99, 0.2);
   height: 3.3vw;
   background-color: transparent;
+  z-index: 1;
 }
 
 .main {
