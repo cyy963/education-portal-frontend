@@ -27,7 +27,7 @@ export default function NavbarTwo(props) {
   return (
     <div className={styles.flex}>
       <div className={`${styles.grid} ${styles.flex}`}>
-        <Link to="/">
+        <Link to="/" style={{ textDecoration: "none" }}>
           <img src={logo} alt="Logo" className={styles.logo} />
         </Link>
         {/* If student display NavbarTwoProject */}
@@ -43,6 +43,7 @@ export default function NavbarTwo(props) {
           <div className={`${styles.grid} ${styles.flex}`}>
             {/* Three buttons for student */}
             <Link
+              style={{ textDecoration: "none" }}
               to={
                 status === "start"
                   ? "/student-dashboard/make-project"
@@ -59,17 +60,20 @@ export default function NavbarTwo(props) {
               />
             </Link>
             <NavbarTwoButtons type="ask-for-help" />
-            <Link to="/project-library">
+            <Link to="/project-library" style={{ textDecoration: "none" }}>
               <ToLibrary type="more-projects" />
             </Link>
           </div>
         ) : (
           <div className={`${styles.grid} ${styles.flex}`}>
             {/* Two buttons for teacher */}
-            <Link to="/teacher-dashboard/help-requests">
+            <Link
+              to="/teacher-dashboard/help-requests"
+              style={{ textDecoration: "none" }}
+            >
               <NavbarTwoButtons type="help-centre" />
             </Link>
-            <Link to="/project-library">
+            <Link to="/project-library" style={{ textDecoration: "none" }}>
               <ToLibrary type="more-projects" />
             </Link>
           </div>

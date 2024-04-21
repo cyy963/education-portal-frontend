@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
   },
   viewer: {
     //the pdf viewer will take up all of the width and height
-    width: window.innerWidth / 2,
-    height: window.innerHeight / 2,
+    width: window.innerWidth / 1.2,
+    height: window.innerHeight / 1.2,
   },
 });
 

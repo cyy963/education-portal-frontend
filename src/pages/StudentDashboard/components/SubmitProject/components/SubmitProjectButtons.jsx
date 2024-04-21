@@ -21,15 +21,13 @@ export default function SubmitProjectButtons({ type }) {
     setIsPickerOverlayVisible(!isPickerOverlayVisible);
   };
 
-  console.log(params.projectId);
-
   useEffect(() => {
     imageUrl &&
       fetch("http://localhost:4000/api/submit-project", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          studentId: 13,
+          studentId: 14,
           projectId: params.projectId,
           dateSub: new Date().toISOString().slice(0, 19).replace("T", " "),
           img: imageUrl,

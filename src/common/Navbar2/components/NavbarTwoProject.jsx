@@ -11,14 +11,13 @@ export default function NavbarTwoProject(props) {
         <p className={styles.paragraph}>Introduction</p>
       </div>
       <div className={styles.flexCircle}>
-        {projectIds.map((id) => {
-          console.log(id, props.currentProjectId);
+        {projectIds.map((id, index) => {
           return id == props.currentProjectId ? (
-            <div className={styles.circleBig}>
+            <div className={styles.circleBig} key={index}>
               <h5 className={styles.title}>{props.currentProjectId}</h5>
             </div>
           ) : (
-            <div className={styles.circle}></div>
+            <div className={styles.circle} key={index}></div>
           );
         })}
       </div>
