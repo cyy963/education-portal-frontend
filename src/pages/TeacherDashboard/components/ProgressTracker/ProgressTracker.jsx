@@ -1,5 +1,5 @@
 import styles from './ProgressTracker.module.css';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { CSVLink } from 'react-csv';
 import fileExport from '../../../../assets/TeacherDashboard/fileExport.svg'
 
@@ -36,12 +36,10 @@ export default function ProgressTracker() {
       });
   }, []);
 
-  //function returns true if projectId is in completedProjects
-  //useCallBack hook to memorize/caches the function, only recalculates it when dependencies change
-  const checkCompletedProjects = useCallback((completedProjects, projectId) => {
+  //function that returns true if projectId is in completedProjects
+  function checkCompletedProjects (completedProjects, projectId) {
     return completedProjects && completedProjects.includes(projectId);
-    //no dependencies so only recalculated when component is mounted or unmounted
-  }, []);
+  };
 
   return (
     <div className={styles.body}>
@@ -49,15 +47,16 @@ export default function ProgressTracker() {
         <div className={styles.title}>
           <h2>BEGINNER COURSE</h2>
           <div className={styles.exportContainer}>           
-            <CSVLink data={projectResults} filename="student-progress.csv" className="export-spreadsheet">               
+            <CSVLink data={projectResults} filename="student-progress.csv" className="exportSpreadsheet">               
               <img className={styles.exportIcon} src={fileExport} alt='exportIcon'/>
               <h5>EXPORT AS SPREADSHEET</h5>                
             </CSVLink>           
           </div>
         </div>
 
-        {/* students progress tracker container */}
+        {/* scroll bar */}
         <div className={styles.forScroll}>
+          {/* students progress tracker container */}
           <div className={styles.studentBarContainer}>
             {/* only .maps projectResults once */}
             {projectResults.map((projectResult) => { 
