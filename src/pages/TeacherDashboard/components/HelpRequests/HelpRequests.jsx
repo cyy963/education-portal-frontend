@@ -6,61 +6,29 @@ import styles from "./HelpRequests.module.css";
 import StudentHelp from "./components/StudentHelp";
 
 function HelpRequests() {
-  // array of students
-    const testRequest = [
-        {
-            name: "Aiden",
-            studentId: 0,
-            profileIcon: "/images/students/AidenAndrews.png",
-            date: "TUE 28 April 2020",
-            time: "10:43 AM",
-        },
-        {
-            name: "Rawiri",
-            studentId: 1,
-            profileIcon: "/images/students/RawiriFletcher.png",
-            date: "TUE 28 April 2020",
-            time: "9:52 AM",
-        },
-        {
-            name: "Neveah",
-            studentId: 2,
-            profileIcon: "/images/students/NeveahMachenry.png",
-            date: "27 April 2020",
-            time: "4:59 PM",
-        },
-        {
-            name: "Javier",
-            studentId: 3,
-            profileIcon: "/images/students/JavierFuego.png",
-            date: "27 April 2020",
-            time: "3:00 PM",
-        },
-        {
-            name: "Tokio",
-            studentId: 4,
-            profileIcon: "/images/students/TokioHan.png",
-            date: "27 April 2020",
-            time: "11:23 AM",
-        },
-    ];
-
      // mapping through array items to display
-    const [requests, setRequests] = useState([...testRequest]);
+    const [requests, setRequests] = useState([]);
     const [checked, setChecked] = useState([]);
+
+    useEffect(() => {
+      fetch("http://localhost:4000/help-requests")
+      .then((response) => response.json())
+      .then((result) => {
+        setRequests(result);
+      });
+    }, []);
 
     let checking;
 
     useEffect(() => {
       checking = requests.map((item) => {
-        return {studentId: item.studentId, checked: false};
+        return {student_id: item.student_id, checked: false};
       })
       setChecked(checking)
     }, [requests])
 
     return (
       <div className={styles.body}>
-        <div className={styles.main}>
 
           <div className={styles.forScroll}>
             <div className={styles.flex}>
@@ -78,7 +46,6 @@ function HelpRequests() {
           </div>
 
         </div>
-      </div>
     )
 }
 
