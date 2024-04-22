@@ -9,19 +9,19 @@
     padding: 4vw;
 }
 
-  /* text and font styling for each text class */
-  .title {
-    display: flex;
-    color: #6c6c6c;
-    font-family: "nunito";
-  }
+/* text and font styling for each text class */
+.title {
+  display: flex;
+  color: #6c6c6c;
+  font-family: "nunito";
+}
 
-  .dateTime {
-    text-align: end;
-    padding: 10px;
-    color: #6c6c6c;
-    font-family: "nunito";
-  }
+.dateTime {
+  text-align: end;
+  padding: 10px;
+  color: #6c6c6c;
+  font-family: "nunito";
+}
 
   .nameHelp {
     font-size: 1em;
@@ -29,20 +29,20 @@
     color: #6c6c6c;
   }
 
-  .otherText {
-    text-align: end;
-    color: #6c6c6c;
-    font-family: "nunito";
-  }
+.otherText {
+  text-align: end;
+  color: #6c6c6c;
+  font-family: "nunito";
+}
 
-  /* display styling */
-  .flex {
-    display: flex;
-    padding-bottom: 2vh;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 2vw;
-  }
+/* display styling */
+.flex {
+  display: flex;
+  padding-bottom: 2vh;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 2vw;
+}
 
   .studentHelp {
     align-items: flex-start;
