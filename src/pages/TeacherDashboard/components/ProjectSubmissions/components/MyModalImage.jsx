@@ -28,6 +28,7 @@ export default function MyModalImage({ projects, index }) {
     <div>
       <Button onClick={handleOpen}>
         <div>
+          {/* If the user clicks the image or the text the modal will open */}
           <img
             src={projects[index].submission}
             alt="Project Image"
@@ -44,6 +45,7 @@ export default function MyModalImage({ projects, index }) {
       >
         <Box sx={style}>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            {/* Displays the image */}
             <img
               src={projects[index].submission}
               alt="Code screen shot"

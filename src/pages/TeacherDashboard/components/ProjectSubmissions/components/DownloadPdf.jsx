@@ -28,6 +28,7 @@ export default function DownloadPdf({ setDisplay, projects }) {
   let pronoun;
   const handleClick = () => {
     setDisplay(false);
+    // When the div is clicked - close the popup
   };
   return (
     <div className={styling.downloadContainer} onClick={handleClick}>
@@ -41,6 +42,7 @@ export default function DownloadPdf({ setDisplay, projects }) {
                 <Text>PROJECTS</Text>
               </View>
               {projects.map((project, index) => {
+                // Determines the pronoun used - based on backend
                 if (project.gender === 0) {
                   pronoun = "their";
                 } else if (project.gender === 1) {
@@ -54,6 +56,7 @@ export default function DownloadPdf({ setDisplay, projects }) {
                       {project.student_name} submitted {pronoun} project.
                     </Text>
                     {project.submission && (
+                      // If there is a submission show it
                       <Image style={styles.image} src={project.submission} />
                     )}
                   </View>

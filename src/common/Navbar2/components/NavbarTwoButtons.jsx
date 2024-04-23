@@ -12,6 +12,7 @@ export default function NavbarTwoButtons({
   }
 
   const handleAskForHelp = () => {
+    // POST request to submit a help request
     console.log("Ask for help");
     fetch("http://localhost:4000/api/ask-for-help", {
       method: "POST",
@@ -30,6 +31,7 @@ export default function NavbarTwoButtons({
 
   return (
     <div>
+      {/* The different buttons  */}
       {type === "start" ? (
         <button
           className={isDisabled ? styles.submitted : styles.start}

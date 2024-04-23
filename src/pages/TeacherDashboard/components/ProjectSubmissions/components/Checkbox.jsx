@@ -30,11 +30,13 @@ export default function Checkbox({
         checked={isChecked}
         onChange={() => {
           const newChecked = checked.map((item) => {
+            // Creates a new array with the new value of checked.
             const value =
               studentId === item.studentId && projectId === item.projectId
-                ? !item.checked
-                : item.checked;
+                ? !item.checked //If it's the desired checkbox switch the checked (true => false, false => true)
+                : item.checked; //Otherwise it stays the same
             return {
+              // Saves values to the new array
               studentId: item.studentId,
               projectId: item.projectId,
               checked: value,

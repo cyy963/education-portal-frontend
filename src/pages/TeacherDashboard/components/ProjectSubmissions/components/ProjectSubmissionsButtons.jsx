@@ -22,8 +22,10 @@ export default function ProjectSubmissionsButtons({
     let testDownloadProjects = [];
     for (let i = 0; i < checked.length; i++) {
       if (!checked[i].checked) {
+        // The indexes for unChecked banners.
         testChangeIndex.push(i);
       } else {
+        // The objects and projects that have been checked
         testChanged.push(checked[i]);
         testDownloadProjects.push(projects[i]);
       }
@@ -36,12 +38,15 @@ export default function ProjectSubmissionsButtons({
 
   const handleDownload = () => {
     console.log(downloadProjects);
+    // Connected to the DownloadPdf component.
+    // When this button clicked show component
     setDisplay(true);
   };
 
   const handleMarkComplete = () => {
-    //Delete objects from project
+    //Delete objects from project and add date completed to the backend
     projects.map((user, index) => {
+      // Adds date completed to the backend for all checked banners
       if (
         user.student_id === checked[index].studentId &&
         user.project_id === checked[index].projectId &&
@@ -67,12 +72,14 @@ export default function ProjectSubmissionsButtons({
     let updatedProjects;
 
     updatedProjects = changeIndex.map((item) => {
+      // Used to update the displayed projects (so the projects disapear imediately)
       return projects[item];
     });
 
     setProjects(updatedProjects);
 
     const updatedChecked = changed.map((item) => {
+      // Updates the checked to match projects array
       return { studentId: item, projectId: item.project_id, checked: false };
     });
 
@@ -86,6 +93,8 @@ export default function ProjectSubmissionsButtons({
           <h4 className={styles.btnText}> {"\u2B73"} DOWNLOAD FILES</h4>
         </button>
         {display && (
+          // When display is true show DownloadPdf
+          // downloadProjects are the selected projects
           <DownloadPdf setDisplay={setDisplay} projects={downloadProjects} />
         )}
       </>

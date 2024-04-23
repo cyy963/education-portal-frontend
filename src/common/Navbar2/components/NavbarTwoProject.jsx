@@ -12,6 +12,7 @@ export default function NavbarTwoProject(props) {
       </div>
       <div className={styles.flexCircle}>
         {projectIds.map((id, index) => {
+          // Creates the project dots and shows which project it is
           return id == props.currentProjectId ? (
             <div className={styles.circleBig} key={index}>
               <h5 className={styles.title}>{props.currentProjectId}</h5>

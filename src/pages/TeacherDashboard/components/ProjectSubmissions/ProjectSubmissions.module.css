@@ -146,10 +146,12 @@
   width: 99.5vw;
   top: 0;
   left: 0;
+  /* Above all but the download viewer */
   z-index: 98;
 }
 
 .download {
+  /* Download is on top of all other things on page */
   position: absolute;
   top: 10vh;
   left: 5vw;

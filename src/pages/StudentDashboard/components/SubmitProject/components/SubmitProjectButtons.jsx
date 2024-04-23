@@ -23,6 +23,7 @@ export default function SubmitProjectButtons({ type }) {
 
   useEffect(() => {
     imageUrl &&
+      // If the image url has been added then
       fetch("http://localhost:4000/api/submit-project", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -43,6 +44,7 @@ export default function SubmitProjectButtons({ type }) {
   if (type === "photo") {
     return (
       <div>
+        {/* Button to submit image for project */}
         <button className={styles.button} onClick={handleVisible}>
           <img src={submitIcon} alt="submit photo icon" />
           <p className={styles.btnText}>Send photo</p>
@@ -64,8 +66,9 @@ export default function SubmitProjectButtons({ type }) {
   } else if (type === "call") {
     return (
       <div>
+        {/* Call teacher button - non-functional */}
         <button className={styles.button}>
-          <img src={callIcon} alt="submit photo icon" />
+          <img src={callIcon} alt="call teacher icon" />
           <p className={styles.btnText}>Call teacher</p>
         </button>
       </div>
@@ -73,6 +76,7 @@ export default function SubmitProjectButtons({ type }) {
   } else {
     return (
       <div>
+        {/* If the props aren't working correctly */}
         <h3>Something went wrong</h3>
       </div>
     );

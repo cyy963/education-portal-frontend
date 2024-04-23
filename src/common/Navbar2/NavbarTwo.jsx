@@ -1,5 +1,5 @@
 import styles from "./NavbarTwo.module.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 //Import images from assets
 import logo from "../../assets/NavBar/LevelUpWorks-blue.png";
@@ -10,6 +10,8 @@ import maoriFlag from "../../assets/NavBar/MaoriFlag.png";
 import NavbarTwoProject from "./components/NavbarTwoProject";
 import NavbarTwoButtons from "./components/NavbarTwoButtons";
 import ToLibrary from "../ToLibrary";
+
+// Other imports
 import { useEffect, useState } from "react";
 
 export default function NavbarTwo(props) {
@@ -17,12 +19,20 @@ export default function NavbarTwo(props) {
   const [status, setStatus] = useState("start");
   const [isDisabled, setIsDisabled] = useState(false);
   let location = useLocation();
+  const params = useParams();
 
   useEffect(() => {
-    location.pathname === "/student-dashboard/make-project"
+    // If the user is on the start page then the change status to "submit"
+    location.pathname === `/student-dashboard/${params.projectId}/make-project`
       ? setStatus("submit")
       : setStatus(status);
+
+    location.pathname ===
+      `/student-dashboard/${params.projectId}/submit-project` &&
+      status === "submit" &&
+      setIsDisabled(true);
   }, [location]);
+  console.log(status);
 
   return (
     <div className={styles.flex}>
@@ -46,8 +56,8 @@ export default function NavbarTwo(props) {
               style={{ textDecoration: "none" }}
               to={
                 status === "start"
-                  ? "/student-dashboard/make-project"
-                  : "/student-dashboard/submit-project"
+                  ? `/student-dashboard/${params.projectId}/make-project`
+                  : `/student-dashboard/${params.projectId}/submit-project`
               }
             >
               {/* Make link and type variable (when button pressed they change) */}
