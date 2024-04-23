@@ -11,8 +11,27 @@ export default function NavbarTwoButtons({
     status === "start" ? setStatus("submit") : setIsDisabled(true);
   }
 
+  const handleAskForHelp = () => {
+    // POST request to submit a help request
+    console.log("Ask for help");
+    fetch("http://localhost:4000/api/ask-for-help", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        studentId: 7,
+        date: new Date().toISOString().slice(0, 19).replace("T", " "),
+      }),
+    }).then((res) => {
+      console.log(res);
+      if (res.status === 200) {
+        console.log("submit successful");
+      }
+    });
+  };
+
   return (
     <div>
+      {/* The different buttons  */}
       {type === "start" ? (
         <button
           className={isDisabled ? styles.submitted : styles.start}
@@ -30,7 +49,9 @@ export default function NavbarTwoButtons({
         ""
       )}
       {type === "ask-for-help" ? (
-        <button className={styles.askHelp}>Ask for help</button>
+        <button className={styles.askHelp} onClick={handleAskForHelp}>
+          Ask for help
+        </button>
       ) : (
         ""
       )}

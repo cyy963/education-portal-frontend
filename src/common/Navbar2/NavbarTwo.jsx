@@ -1,5 +1,5 @@
 import styles from "./NavbarTwo.module.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 //Import images from assets
 import logo from "../../assets/NavBar/LevelUpWorks-blue.png";
@@ -10,6 +10,8 @@ import maoriFlag from "../../assets/NavBar/MaoriFlag.png";
 import NavbarTwoProject from "./components/NavbarTwoProject";
 import NavbarTwoButtons from "./components/NavbarTwoButtons";
 import ToLibrary from "../ToLibrary";
+
+// Other imports
 import { useEffect, useState } from "react";
 
 export default function NavbarTwo(props) {
@@ -17,21 +19,33 @@ export default function NavbarTwo(props) {
   const [status, setStatus] = useState("start");
   const [isDisabled, setIsDisabled] = useState(false);
   let location = useLocation();
+  const params = useParams();
 
   useEffect(() => {
-    location.pathname === "/student-dashboard/make-project"
+    // If the user is on the start page then the change status to "submit"
+    location.pathname === `/student-dashboard/${params.projectId}/make-project`
       ? setStatus("submit")
       : setStatus(status);
+
+    location.pathname ===
+      `/student-dashboard/${params.projectId}/submit-project` &&
+      status === "submit" &&
+      setIsDisabled(true);
   }, [location]);
+  console.log(status);
 
   return (
     <div className={styles.flex}>
       <div className={`${styles.grid} ${styles.flex}`}>
-        <Link to="/">
+        <Link to="/" style={{ textDecoration: "none" }}>
           <img src={logo} alt="Logo" className={styles.logo} />
         </Link>
         {/* If student display NavbarTwoProject */}
-        {props.user === "student" ? <NavbarTwoProject /> : ""}
+        {props.user === "student" ? (
+          <NavbarTwoProject currentProjectId={props.currentProjectId} />
+        ) : (
+          ""
+        )}
       </div>
 
       <div className={styles.grid}>
@@ -39,10 +53,11 @@ export default function NavbarTwo(props) {
           <div className={`${styles.grid} ${styles.flex}`}>
             {/* Three buttons for student */}
             <Link
+              style={{ textDecoration: "none" }}
               to={
                 status === "start"
-                  ? "/student-dashboard/make-project"
-                  : "/student-dashboard/submit-project"
+                  ? `/student-dashboard/${params.projectId}/make-project`
+                  : `/student-dashboard/${params.projectId}/submit-project`
               }
             >
               {/* Make link and type variable (when button pressed they change) */}
@@ -55,18 +70,20 @@ export default function NavbarTwo(props) {
               />
             </Link>
             <NavbarTwoButtons type="ask-for-help" />
-            {/* ^^ backend function */}
-            <Link to="/project-library">
+            <Link to="/project-library" style={{ textDecoration: "none" }}>
               <ToLibrary type="more-projects" />
             </Link>
           </div>
         ) : (
           <div className={`${styles.grid} ${styles.flex}`}>
             {/* Two buttons for teacher */}
-            <Link to="/teacher-dashboard/help-requests">
+            <Link
+              to="/teacher-dashboard/help-requests"
+              style={{ textDecoration: "none" }}
+            >
               <NavbarTwoButtons type="help-centre" />
             </Link>
-            <Link to="/project-library">
+            <Link to="/project-library" style={{ textDecoration: "none" }}>
               <ToLibrary type="more-projects" />
             </Link>
           </div>

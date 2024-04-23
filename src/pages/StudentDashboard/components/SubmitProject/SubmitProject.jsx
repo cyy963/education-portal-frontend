@@ -11,6 +11,7 @@ export default function SubmitProject() {
   return (
     <div className={styles.content}>
       <div className={styles.flex} id={styles.left}>
+        {/* Image and text on page */}
         <img src={projectImg} alt="Project image" className={styles.img} />
         <h3 className={styles.title}>Submit project photo</h3>
         <p className={styles.text}>

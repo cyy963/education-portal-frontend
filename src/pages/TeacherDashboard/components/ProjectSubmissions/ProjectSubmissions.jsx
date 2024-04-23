@@ -10,6 +10,7 @@ export default function ProjectSubmissions() {
   const [checked, setChecked] = useState([]);
 
   useEffect(() => {
+    // Fetches all projects according to specifications in the api
     fetch("http://localhost:4000/api/project-submission")
       .then((response) => response.json())
       .then((result) => {
@@ -22,6 +23,7 @@ export default function ProjectSubmissions() {
 
   useEffect(() => {
     checking = projects.map((item) => {
+      // Creates an array to track if checkbox is checked
       return {
         studentId: item.student_id,
         projectId: item.project_id,
@@ -29,7 +31,6 @@ export default function ProjectSubmissions() {
       };
     });
     setChecked(checking);
-    console.log(checked);
   }, [projects]);
 
   return (
