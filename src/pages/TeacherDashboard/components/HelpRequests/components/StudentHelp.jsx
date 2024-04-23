@@ -33,7 +33,7 @@ function StudentHelp({ requests, checked, setChecked }) {
                                 )}
                                 <div className={styles.imageFlex}>
                                     <h4 className={styles.nameHelp}>
-                                        {item.student_name.toUpperCase()} wants to show their project
+                                        {item.student_name.toUpperCase()} needs help with their project
                                     </h4>
                                 </div>
                             </div>

@@ -4,6 +4,7 @@ import scrollStyle from "../../../../common/Scrollbar.module.css"
 
 import styles from "./HelpRequests.module.css";
 import StudentHelp from "./components/StudentHelp";
+import HelpRequestButtons from "./components/HelpRequestButtons";
 
 function HelpRequests() {
      // mapping through array items to display
@@ -34,7 +35,15 @@ function HelpRequests() {
             <div className={styles.flex}>
               <h2 className={styles.title}>HELP REQUESTS</h2>
               <h4 className={styles.otherText}>REPLY</h4>
-              <h4 className={styles.otherText}>MARK AS DONE</h4>
+              <div>
+                <HelpRequestButtons
+                type="done"
+                requests={requests}
+                setRequests={setRequests}
+                checked={checked}
+                setChecked={setChecked}
+                />
+              </div>
             </div>
             <div>
               <StudentHelp

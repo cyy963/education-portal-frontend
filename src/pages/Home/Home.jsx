@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import NavBarOne from "../../common/NavBar1/NavBarOne";
+import FooterOne from "../../common/Footer1/FooterOne";
 import styles from "./Home.module.css";
 
 export default function Home() {
@@ -33,6 +34,8 @@ export default function Home() {
           <Link to="/teacher-profile-viewer">Go to Teacher Profile Viewer</Link>
         </div>
       </div>
+      <FooterOne/>
     </div>
+    
   );
 }

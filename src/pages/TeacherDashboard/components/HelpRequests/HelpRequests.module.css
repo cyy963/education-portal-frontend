@@ -116,3 +116,18 @@
   right: 1px;
   top: -5px;
 }
+
+.button {
+  color: #6c6c6c;
+  border: none;
+  background-color: transparent;
+  margin-left: 2vw;
+  font-size: 0.7em;
+  cursor: pointer;
+}
+
+.buttonLabel {
+  font-size: 1.3em;
+  color: #6c6c6c;
+  font-family: "nunito";
+}
