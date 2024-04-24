@@ -10,7 +10,7 @@ export default function TeacherDashboard() {
   return (
     <>
       {/* top nav */}
-      <NavbarTwo user="student" currentProjectId={params.projectId} />
+      <NavbarTwo user="student" />
 
       {/* dashboard + content */}
       <Dashboard user="student" studentName="AidenAndrews" />

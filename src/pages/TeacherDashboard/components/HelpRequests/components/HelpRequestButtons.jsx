@@ -17,10 +17,33 @@ function HelpRequestButtons({ requests, checked, type, setRequests, setChecked }
             testChanged.push(checked[i]);
           }
         }
-     
         setChangeIndex(testChangeIndex);
         setChanged(testChanged);
       }, [checked]);
+
+    const markAsDone = () => {
+        requests.map((user, index) => {
+            if (
+                user.student_id === checked[index].studentId &&
+                user.request_id === checked[index].requestId &&
+                checked[index].checked === true
+            ) {
+                fetch("http://localhost:4000/help-requests", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        studentId: user.student_id,
+                        requestId: user.request_id,
+                        done: 1,
+                      })
+                }).then((res) => {
+                    console.log(res);
+                    if (res.status === 200) {
+                        console.log("marked done")
+                    }
+                })
+            }
+        })
 
       const markAsDone = () => {
         requests.map((user, index) => {
