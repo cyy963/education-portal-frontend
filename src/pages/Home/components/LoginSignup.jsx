@@ -21,17 +21,20 @@ export default function LoginSignup(props) {
   };
 
   function handleChange(e) {
-    if (e.target.name === "email") {
-      setEmailLogin(e.target.value);
-    } else if (e.target.name === "password") {
-      setPasswordLogin(e.target.value);
-    }
+    e.target.name === "email"
+      ? setEmailLogin(e.target.value)
+      : setPasswordLogin(e.target.value);
   }
 
   // Login function
   async function handleLogin(e) {
     e.preventDefault(); // prevent the form refreshing the page
     console.log("Login function triggered");
+
+    e.target.id === "student-login"
+      ? setUserType("student")
+      : setUserType("teacher");
+
     // code to handle the login process
     fetch(`http://localhost:4000/${e.target.id}`, {
       method: "POST",
@@ -67,11 +70,6 @@ export default function LoginSignup(props) {
           res
             .json()
             .then((result) => setUserId(result[0]["id"]))
-            .then(
-              e.target.id === "student-login"
-                ? setUserType("student")
-                : setUserType("teacher")
-            )
             .then(setSuccessfulLogin(true));
         }
       })
