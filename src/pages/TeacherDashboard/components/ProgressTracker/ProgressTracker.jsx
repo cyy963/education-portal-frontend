@@ -21,7 +21,7 @@ export default function ProgressTracker() {
       });
   }, []);
 
-  //fetches and sets students and their corresponding 
+  //fetches and sets student_id and student_name and their corresponding 
   //number of and string of compeleted projects into projectResults
   useEffect (()=>{
     fetch('http://localhost:4000/project_results')
@@ -77,7 +77,7 @@ export default function ProgressTracker() {
                           //progress icon
                           <div
                             //changes icon style to green if it is complete
-                            className={`${styles.progressIcons} ${completed ? styles.completeProgressIcons : styles.incompleteProgressIcons}`}
+                            className={`${styles.progressIcons} ${completed ? styles.completeProgressIcons : ''}`}
                             //uses project_id as unique key
                             key={project.project_id}
                           >
