@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { DateTime } from "luxon";
 import styles from "./TeacherProfileViewer.module.css";
 import NavBarOne from "../../common/NavBar1/NavBarOne";
 import FooterOne from "../../common/Footer1/FooterOne";
@@ -73,7 +74,10 @@ function TeacherProfileViewer() {
             {/* right section input */}
             <div className={styles.input}>
                 <p className={styles.deets}>{teacher.school}</p>
-                <p className={styles.deets}>{teacher.date_of_birth}</p>
+                <p className={styles.deets}>
+                    {DateTime.fromISO(teacher.date_of_birth).toFormat(
+                        "d LLLL yyyy"
+                    )}</p>
                 <p className={styles.deets}>{teacher.contact_number}</p>
                 <p className={styles.deets}>{teacher.email}</p>
             </div>
