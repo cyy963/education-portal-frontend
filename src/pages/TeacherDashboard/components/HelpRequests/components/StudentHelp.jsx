@@ -1,8 +1,8 @@
 import styles from "../HelpRequests.module.css";
 import { useState } from "react";
- 
+
 import Checkbox from "./CheckBox";
- 
+
 function StudentHelp({ requests, checked, setChecked }) {
     return (
         <div>
@@ -12,10 +12,9 @@ function StudentHelp({ requests, checked, setChecked }) {
                         <Checkbox
                             checked={checked}
                             setChecked={setChecked}
-                            studentId={item.student_id}
-                            requestId={item.request_id}
+                            studentId={requests[index].student_id}
                         />
- 
+
                         <div className={styles.checkBoxDiv}>
                             <div className={styles.requestFlex}>
                                 {item.profile_pic && (
@@ -38,10 +37,10 @@ function StudentHelp({ requests, checked, setChecked }) {
                                     </h4>
                                 </div>
                             </div>
- 
+
                             <div className={styles.dateTime}>
                                 <p>{item.date_created.slice(0, 10)}</p>
-                                <p>{item.date_created.slice(11, 19)}</p>
+                                <p>{item.date_created.slice(11, 16)}</p>
                             </div>
                         </div>
                     </div>
@@ -50,5 +49,5 @@ function StudentHelp({ requests, checked, setChecked }) {
         </div>
     );
 }
- 
+
 export default StudentHelp;
