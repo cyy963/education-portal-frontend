@@ -1,14 +1,14 @@
 // Import styles
 import { useEffect, useState } from "react";
 import styles from "../HelpRequests.module.css";
- 
-export default function Checkbox({ checked, setChecked, index, studentId, requestId }) {
+
+export default function Checkbox({ checked, setChecked, studentId, requestId }) {
   const [isChecked, setIsChecked] = useState(false);
- 
+
   // Use effect to handle isChecked
   useEffect(() => {
     const holdCheckList = checked.filter((item) => {
-      return item.student_id === studentId && item.requestId === requestId;
+      return item.studentId === studentId && item.requestId === requestId;
     });
     // Once the holdCheckList has the object then it will take checked key-value pair
     let holdCheck;
@@ -17,8 +17,7 @@ export default function Checkbox({ checked, setChecked, index, studentId, reques
       : (holdCheck = false);
     setIsChecked(holdCheck);
   }, [checked]);
- 
- 
+  
   return (
     <div className={styles.checkbox}>
       <input

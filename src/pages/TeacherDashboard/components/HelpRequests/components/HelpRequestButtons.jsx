@@ -20,7 +20,7 @@ function HelpRequestButtons({ requests, checked, type, setRequests, setChecked }
         setChangeIndex(testChangeIndex);
         setChanged(testChanged);
       }, [checked]);
- 
+
     const markAsDone = () => {
         requests.map((user, index) => {
             if (
@@ -44,7 +44,7 @@ function HelpRequestButtons({ requests, checked, type, setRequests, setChecked }
                 })
             }
         })
- 
+
       const markAsDone = () => {
         requests.map((user, index) => {
           if (
@@ -86,15 +86,16 @@ function HelpRequestButtons({ requests, checked, type, setRequests, setChecked }
         setChecked(updatedChecked);
       };
        
-    if (type === "done") {
-        return (
-            <button className={styles.button} onClick={markAsDone}>
-                <h4 className={styles.buttonLabel}>MARK AS DONE</h4>
-            </button>
-        );
-    } else {
-        return <p>Something went wrong</p>;
-    }
+    
+}
+if (type === "done") {
+    return (
+        <button className={styles.button} onClick={markAsDone}>
+            <h4 className={styles.buttonLabel}>MARK AS DONE</h4>
+        </button>
+    );
+} else {
+    return <p>Something went wrong</p>;
 }
 }
    
