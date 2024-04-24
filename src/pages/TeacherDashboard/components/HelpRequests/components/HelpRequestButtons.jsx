@@ -35,8 +35,8 @@ function HelpRequestButtons({ requests, checked, type, setRequests, setChecked }
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
-                studentId,
-                requestId,
+                studentId: user.studentId,
+                requestId: user.requestId,
                 done: 1,
               }),
             }).then((res) => {

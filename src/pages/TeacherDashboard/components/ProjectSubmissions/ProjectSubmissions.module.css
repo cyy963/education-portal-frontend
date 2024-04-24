@@ -119,37 +119,14 @@
 }
 
 .projectImg {
-  position: relative;
+  /* position: relative; */
   height: 15vh;
   margin: 10px;
 }
 
-.enlargeBtn,
 .date,
 .time {
   color: #6c6c6c;
-}
-
-.enlargeBtn {
-  display: flex;
-  flex-direction: column;
-  border: none;
-  background-color: transparent;
-  color: #6c6c6c;
-  cursor: pointer;
-}
-
-.enlarged {
-  position: absolute;
-  height: 70vh;
-  /* width: 100vw; */
-  left: 5vh;
-  top: 5vh;
-  background-color: #c7c7c79c;
-}
-
-.enlarged img {
-  border: black 10px solid;
 }
 
 .dateTime {
@@ -159,4 +136,24 @@
 .titleName {
   font-size: 1em;
   font-family: "Open sans", sans-serif;
+}
+
+/* Download div */
+.downloadContainer {
+  background-color: #6c6c6cd0;
+  position: absolute;
+  height: 100vh;
+  width: 99.5vw;
+  top: 0;
+  left: 0;
+  /* Above all but the download viewer */
+  z-index: 98;
+}
+
+.download {
+  /* Download is on top of all other things on page */
+  position: absolute;
+  top: 10vh;
+  left: 5vw;
+  z-index: 99;
 }
