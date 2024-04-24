@@ -96,5 +96,6 @@ function HelpRequestButtons({ requests, checked, type, setRequests, setChecked }
         return <p>Something went wrong</p>;
     }
 }
+}
     
 export default HelpRequestButtons
