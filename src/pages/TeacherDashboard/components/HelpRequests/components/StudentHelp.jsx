@@ -40,7 +40,7 @@ function StudentHelp({ requests, checked, setChecked }) {
 
                             <div className={styles.dateTime}>
                                 <p>{item.date_created.slice(0, 10)}</p>
-                                <p>{item.date_created.slice(11, 19)}</p>
+                                <p>{item.date_created.slice(11, 16)}</p>
                             </div>
                         </div>
                     </div>
