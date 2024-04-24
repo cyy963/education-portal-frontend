@@ -289,8 +289,6 @@ export default function FiltersProjects() {
     setFilteredResults4(addSubjectArray);
   }, [filteredResults3, filteredSubjectMatter]);
 
-  console.log(filteredResults4);
-
   return (
     <div className={styles.filtersAndProjects}>
       <div className={sideFilterStyles.sideFilters}>

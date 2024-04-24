@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { DateTime } from "luxon";
+import { useParams } from "react-router-dom";
 import styles from "./StudentProfileViewer.module.css";
 import NavBarOne from "../../common/NavBar1/NavBarOne";
 import PopUpMenu from "../../common/NavBar1/components/PopUpMenu";
@@ -12,14 +13,18 @@ export default function StudentProfileViewer() {
   const togglePopUp = () => setPopUp(!popUp);
   const removePopUp = () => setPopUp(false);
   const [student, setStudent] = useState("");
+  const params = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:4000/student`)
+    fetch(`http://localhost:4000/student-profile-viewer/${params.studentId}`)
       .then((response) => response.json())
       .then((result) => {
+        console.log(result);
         setStudent(result[0]);
       });
   }, []);
+
+  console.log(student);
 
   return (
     <div onClick={removePopUp}>
@@ -27,7 +32,7 @@ export default function StudentProfileViewer() {
         <div className={styles.navBarSpace}>
           <NavBarOne
             text="PROJECTS"
-            link="/project-library"
+            link={`${params.userType}/${params.userId}/project-library`}
             userImage={student.profile_pic}
             alt={`${student.student_name}'s photo`}
             userName={student.student_name.toUpperCase()}
@@ -84,7 +89,7 @@ export default function StudentProfileViewer() {
           </div>
 
           <footer className={styles.buttonSpace}>
-            <Link to="/project-library">
+            <Link to={`/${params.userType}/${params.id}/project-library`}>
               <button className={styles.backButton}>BACK TO PROJECTS</button>
             </Link>
           </footer>

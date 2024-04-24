@@ -29,7 +29,7 @@ function App() {
           element={<ProjectLibrary />}
         />
         <Route
-          path="/student-profile-viewer"
+          path="/:userType/:id/student-profile-viewer/:studentId"
           element={<StudentProfileViewer />}
         />
         <Route

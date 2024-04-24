@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { useParams } from "react-router-dom";
 // Styling imports:
 import styles from "./ProjectLibrary.module.css";
 import popUpMenuStyles from "./../../common/NavBar1/components/PopUpMenu.module.css";
@@ -13,20 +13,30 @@ import BackToDashboardButton from "../../common/BackToDashboardButton/BackToDash
 import FooterOne from "../../common/Footer1/FooterOne";
 
 export default function ProjectLibrary() {
-  const [student, setStudent] = useState("");
+  const [user, setUser] = useState("");
 
   // Pop up states and functions
   const [popUp, setPopUp] = useState(false);
   const togglePopUp = () => setPopUp(!popUp);
   const removePopUp = () => setPopUp(false);
+  const params = useParams();
 
   // Fetch user information
   useEffect(() => {
-    fetch(`http://localhost:4000/student`)
-      .then((response) => response.json())
-      .then((result) => {
-        setStudent(result[0]);
-      });
+    if (params.userType === "teacher") {
+      console.log(params.userType);
+      fetch(`http://localhost:4000/teacher/${params.id}`)
+        .then((response) => response.json())
+        .then((result) => {
+          setUser(result[0]);
+        });
+    } else {
+      fetch(`http://localhost:4000/student/${params.id}`)
+        .then((response) => response.json())
+        .then((result) => {
+          setUser(result[0]);
+        });
+    }
   }, []);
 
   // Scroll back to top function
@@ -39,19 +49,23 @@ export default function ProjectLibrary() {
       {/* Nav bar space for shadow */}
       <div className={styles.navBarSpace}>
         {/* Nav bar, only rendered when user has been fetched */}
-        {student && (
+        {user && (
           <NavBarOne
             text="PROJECTS"
-            userImage={student.profile_pic}
-            alt={`Profile photo of ${student.student_name}`}
-            userName={`${student.student_name.toUpperCase()}`}
+            userImage={user.profile_pic}
+            alt={`Profile photo of ${user.name}`}
+            userName={`${user.name.toUpperCase()}`}
             onChange={togglePopUp}
           />
         )}
       </div>
       {/* Pop up menu when user name is clicked */}
       <PopUpMenu
-        profileLink="/student-profile-viewer"
+        profileLink={`${
+          params.userType === "student"
+            ? `/${params.userType}/${params.id}/student-profile-viewer/${params.id}`
+            : "/teacher-profile-viewer"
+        }`}
         onClick={togglePopUp}
         arrowClassName={`${popUpMenuStyles.arrow} ${
           popUp ? popUpMenuStyles.show : ""
@@ -73,7 +87,7 @@ export default function ProjectLibrary() {
           <button onClick={scrollBackToTop} className={styles.backToTopButton}>
             BACK TO TOP
           </button>
-          <BackToDashboardButton />
+          {params.userType === "teacher" && <BackToDashboardButton />}
         </footer>
       </main>
       <FooterOne />

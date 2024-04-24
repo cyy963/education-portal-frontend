@@ -4,6 +4,7 @@ import NavBarOne from "../../common/NavBar1/NavBarOne";
 import FooterOne from "../../common/Footer1/FooterOne";
 import styles from "./Home.module.css";
 import LoginSignup from "./components/LoginSignup";
+import x from "../../assets/Home/x.svg";
 
 export default function Home() {
   const [visibleLogin, setVisibleLogin] = useState(false);

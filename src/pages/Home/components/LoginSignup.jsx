@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./LoginSignup.module.css";
 import studentImage from "../../../assets/LoginSignup/students.png";
 import teacherImage from "../../../assets/LoginSignup/teachers.png";
@@ -12,6 +12,7 @@ export default function LoginSignup(props) {
   const [userId, setUserId] = useState();
   const [userType, setUserType] = useState();
   const [messageToRender, setMessageToRender] = useState();
+  const [successfulLogin, setSuccessfulLogin] = useState(false);
 
   const setForm = (e) => {
     e.target.textContent === "LOG IN"
@@ -37,11 +38,6 @@ export default function LoginSignup(props) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: emailLogin, password: passwordLogin }),
     })
-      .then(
-        e.target.id === "student-login"
-          ? setUserType("student")
-          : setUserType("teacher")
-      )
       .then((res) => {
         // Unsuccessful login
         if (res.status === 401) {
@@ -70,15 +66,13 @@ export default function LoginSignup(props) {
           setMessageToRender(message);
           res
             .json()
-            .then((result) => setUserId(result[0].id))
+            .then((result) => setUserId(result[0]["id"]))
             .then(
               e.target.id === "student-login"
                 ? setUserType("student")
                 : setUserType("teacher")
             )
-            .then
-            // window.location.assign(`${userType}/${userId}/project-library`)
-            ();
+            .then(setSuccessfulLogin(true));
         }
       })
       .catch((error) => {
@@ -86,7 +80,11 @@ export default function LoginSignup(props) {
       });
   }
 
-  console.log(userType, userId);
+  useEffect(() => {
+    successfulLogin
+      ? window.location.assign(`${userType}/${userId}/project-library`)
+      : "";
+  }, [userId]);
 
   return (
     <div className={styles.blurredBackground}>

@@ -52,6 +52,7 @@
   height: 85%;
   pointer-events: none;
   background-image: url("src/assets/ProjectLibrary/check.svg");
+  /* background-image: url("/2402-L4FT13-missionx-frontend-t3/src/assets/ProjectLibrary/check.png"); */
   background-size: contain;
   background-repeat: no-repeat;
   display: none;
