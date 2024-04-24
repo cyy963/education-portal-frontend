@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import scrollStyle from "../../../../common/Scrollbar.module.css"
-
+ 
 import styles from "./HelpRequests.module.css";
 import StudentHelp from "./components/StudentHelp";
 import HelpRequestButtons from "./components/HelpRequestButtons";
-
+ 
 function HelpRequests() {
      // mapping through array items to display
     const [requests, setRequests] = useState([]);
     const [checked, setChecked] = useState([]);
-
+ 
     useEffect(() => {
       fetch("http://localhost:4000/help-requests")
       .then((response) => response.json())
@@ -18,19 +18,19 @@ function HelpRequests() {
         setRequests(result);
       });
     }, []);
-
+ 
     let checking;
-
+ 
     useEffect(() => {
       checking = requests.map((item) => {
         return {studentId: item.student_id, requestId: item.request_id, checked: false};
       })
       setChecked(checking)
     }, [requests])
-
+ 
     return (
       <div className={styles.body}>
-
+ 
           <div className={styles.forScroll}>
             <div className={styles.flex}>
               <h2 className={styles.title}>HELP REQUESTS</h2>
@@ -53,9 +53,9 @@ function HelpRequests() {
               />
             </div>
           </div>
-
+ 
         </div>
     )
 }
-
+ 
 export default HelpRequests

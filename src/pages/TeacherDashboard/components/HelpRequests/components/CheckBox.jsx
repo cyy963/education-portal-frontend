@@ -17,8 +17,7 @@ export default function Checkbox({ checked, setChecked, studentId, requestId }) 
       : (holdCheck = false);
     setIsChecked(holdCheck);
   }, [checked]);
-
-
+  
   return (
     <div className={styles.checkbox}>
       <input
