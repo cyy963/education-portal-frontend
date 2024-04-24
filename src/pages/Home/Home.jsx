@@ -1,14 +1,19 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import NavBarOne from "../../common/NavBar1/NavBarOne";
 import FooterOne from "../../common/Footer1/FooterOne";
 import styles from "./Home.module.css";
+import LoginSignup from "./components/LoginSignup";
 
 export default function Home() {
-  const togglePopUp = (e) => {
-    console.log("Register/login clicked");
-  };
+  const [visibleLogin, setVisibleLogin] = useState(false);
+  const showLogin = (e) => setVisibleLogin(true);
+  const hideLogin = () => setVisibleLogin(false);
+  // console.log("visibleLogin: ", visibleLogin);
   return (
-    <div>
+    <div
+    // onClick={hideLogin}
+    >
       <div className={styles.main}>
         <div className={styles.navBarSpace}>
           <NavBarOne
@@ -16,9 +21,15 @@ export default function Home() {
             userImage="src/assets/NavBar/Avatar-white.png"
             alt="White silhouette of a person"
             userName="REGISTER | LOGIN"
-            function={togglePopUp}
+            onChange={showLogin}
           />
         </div>
+        {visibleLogin && (
+          <LoginSignup
+            // containerOnClick={showLogin}
+            xOnClick={hideLogin}
+          />
+        )}
         <h1 className={styles.title}>home</h1>
         <div className={styles.links}>
           <Link to="/teacher-dashboard">Go to Teacher Dashboard</Link>
@@ -34,8 +45,7 @@ export default function Home() {
           <Link to="/teacher-profile-viewer">Go to Teacher Profile Viewer</Link>
         </div>
       </div>
-      <FooterOne/>
+      <FooterOne />
     </div>
-    
   );
 }
