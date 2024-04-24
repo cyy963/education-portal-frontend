@@ -23,7 +23,7 @@ function HelpRequests() {
 
     useEffect(() => {
       checking = requests.map((item) => {
-        return {student_id: item.student_id, checked: false};
+        return {studentId: item.student_id, requestId: item.request_id, checked: false};
       })
       setChecked(checking)
     }, [requests])

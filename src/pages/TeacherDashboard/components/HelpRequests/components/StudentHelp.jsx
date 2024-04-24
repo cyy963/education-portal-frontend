@@ -12,7 +12,8 @@ function StudentHelp({ requests, checked, setChecked }) {
                         <Checkbox
                             checked={checked}
                             setChecked={setChecked}
-                            studentId={requests[index].student_id}
+                            studentId={item.student_id}
+                            requestId={item.request_id}
                         />
 
                         <div className={styles.checkBoxDiv}>
