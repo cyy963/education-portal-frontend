@@ -21,6 +21,24 @@ export default function SubmitProjectButtons({ type }) {
     setIsPickerOverlayVisible(!isPickerOverlayVisible);
   };
 
+  function handleCallTeacher() {
+    console.log("Call teacher");
+    fetch("http://localhost:4000/api/submit-project", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        studentId: 11,
+        projectId: params.projectId,
+        dateSub: new Date().toISOString().slice(0, 19).replace("T", " "),
+      }),
+    }).then((res) => {
+      console.log(res);
+      if (res.status === 200) {
+        console.log("submit successful");
+      }
+    });
+  }
+
   useEffect(() => {
     imageUrl &&
       // If the image url has been added then
@@ -67,7 +85,7 @@ export default function SubmitProjectButtons({ type }) {
     return (
       <div>
         {/* Call teacher button - non-functional */}
-        <button className={styles.button}>
+        <button className={styles.button} onClick={handleCallTeacher}>
           <img src={callIcon} alt="call teacher icon" />
           <p className={styles.btnText}>Call teacher</p>
         </button>
