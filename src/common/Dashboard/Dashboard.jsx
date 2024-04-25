@@ -31,7 +31,7 @@ import videoSelected from '../../assets/StudentDashboard/videoSelected.png'
 import makeProjectSelected from '../../assets/StudentDashboard/makeProjectSelected.png'
 import submitProjectSelected from '../../assets/StudentDashboard/submitProjectSelected.png'
 
-//renders student dashboard content 
+//function that renders student dashboard content 
 function renderStudentDashboardContent(studentName) {
     const studentImagePath = `/images/students/${studentName}.png`;
     const params = useParams();
@@ -89,7 +89,7 @@ function renderStudentDashboardContent(studentName) {
     );
 }
 
-//renders teacher dashboard content
+//function that renders teacher dashboard content
 function renderTeacherDashboardContent(teacherName) {
     const teacherImagePath = `/images/teachers/${teacherName}.png`;
     const location = useLocation();
@@ -151,14 +151,14 @@ function renderTeacherDashboardContent(teacherName) {
 
 //main dashboard function
 export default function Dashboard({ user, studentName, teacherName }) {
-  //defines usestate for dashboard activity
+  //use state and function for toggle button
   const [isActive, setIsActive] = useState(false);
-  //function for active state toggle
+  
   const toggleDashboard = () => {
     setIsActive(!isActive);
   };
 
-  //function that renders dashboard content based on user
+  //function that decides which dashboard to render based on user
   const renderDashboardContent = () => {
     //if statement based on user
     if (user === "teacher") {
@@ -167,12 +167,13 @@ export default function Dashboard({ user, studentName, teacherName }) {
       return renderStudentDashboardContent(studentName);
     }
   };
+  //main return for the dashboard and its pages
   return (
-    //main body of page, dashboard + page content
+    //main body of page
     <main className={styles.mainBody}>
       {/* dashboard */}
       <div className={`${styles.dashboard} ${isActive ? styles.isActive : ""}`}>
-        {/* tabs */}
+        {/* pages tabs */}
         {renderDashboardContent()}
 
         {/* toggle button */}
@@ -202,7 +203,7 @@ export default function Dashboard({ user, studentName, teacherName }) {
         </div>
       </div>
 
-      {/* uses Outlet to render active tab/page content */}
+      {/* finally uses Outlet to render the active pages content */}
       <div className={styles.outletContent}>
         <Outlet />
       </div>

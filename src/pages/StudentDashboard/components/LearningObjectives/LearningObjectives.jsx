@@ -18,9 +18,12 @@ export default function LearningObjectives() {
 
   return (
     <div className={styles.overlayBox}>
-      {results && (
-        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(results) }} />
-      )}
+      <div className={styles.content}>
+        {results && (
+          <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(results) }} />
+        )}
+      </div>
+      
     </div>
   );
 }

@@ -27,7 +27,7 @@ export default function VideoTutorial() {
   return (
     <div className={styles.overlayBox}>
       {videoId && (
-        <div id="player" className={styles.videoWrapper}>
+        
           <iframe
           src="https://www.youtube.com/embed/YpTPKiPN9G4"
           title="YouTube video player"
@@ -35,7 +35,7 @@ export default function VideoTutorial() {
           allowFullScreen
           className={styles.videoStyle}
         ></iframe>
-        </div>
+        
       )}
     </div>
   );

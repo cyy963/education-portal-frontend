@@ -13,5 +13,5 @@
 
 .imageStyle {
     width: 90%; 
-    height: auto; /* Maintains aspect ratio */
+    height: 80%; /* Maintains aspect ratio */
   }
