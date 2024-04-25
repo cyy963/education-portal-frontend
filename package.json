@@ -15,6 +15,7 @@
     "@mui/material": "^5.15.15",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "@react-pdf/renderer": "^3.4.2",
+    "dompurify": "^3.1.0",
     "filestack-react-18": "^4.0.3",
     "i": "^0.3.7",
     "luxon": "^3.4.4",

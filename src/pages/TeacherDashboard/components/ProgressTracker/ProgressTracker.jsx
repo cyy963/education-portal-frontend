@@ -7,7 +7,7 @@ export default function ProgressTracker() {
   const [projects, setProjects] = useState([]);
   const [projectResults, setProjectResults] = useState([]);
   
-  //fetches and sets project_id from project table into projects
+  //fetches and sets project_ids from project table into projects
   useEffect (()=>{
     fetch('http://localhost:4000/projects')
       .then((response) => response.json())
@@ -22,7 +22,7 @@ export default function ProgressTracker() {
   }, []);
 
   //fetches and sets student_id and student_name and their corresponding 
-  //number of and string of compeleted projects into projectResults
+  //string of and number of compeleted projects into projectResults
   useEffect (()=>{
     fetch('http://localhost:4000/project_results')
       .then((response) => response.json())
@@ -77,7 +77,7 @@ export default function ProgressTracker() {
                           //progress icon
                           <div
                             //changes icon style to green if it is complete
-                            className={`${styles.progressIcons} ${completed ? styles.completeProgressIcons : ''}`}
+                            className={`${styles.progressIcons} ${completed ? styles.completedProgressIcons : ''}`}
                             //uses project_id as unique key
                             key={project.project_id}
                           >

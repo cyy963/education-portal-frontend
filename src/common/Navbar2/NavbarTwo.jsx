@@ -41,11 +41,7 @@ export default function NavbarTwo(props) {
           <img src={logo} alt="Logo" className={styles.logo} />
         </Link>
         {/* If student display NavbarTwoProject */}
-        {props.user === "student" ? (
-          <NavbarTwoProject currentProjectId={props.currentProjectId} />
-        ) : (
-          ""
-        )}
+        {props.user === "student" ? <NavbarTwoProject /> : ""}
       </div>
 
       <div className={styles.grid}>
