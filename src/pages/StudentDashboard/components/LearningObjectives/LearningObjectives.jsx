@@ -1,59 +1,26 @@
-import React from "react";
-import styles from './LearningObjectives.module.css'; // Updated import to use css modules
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import DOMPurify from 'dompurify';
+import styles from './LearningObjectives.module.css'; 
 
 export default function LearningObjectives() {
+  const [results, setResults] = useState('');
+  let { projectId } = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/projects/${projectId}/learning-objectives`)
+      .then((response) => response.text()) // Ensure that the backend is sending HTML content if using .text()
+      .then((res) => setResults(res))
+      .catch((err) => {
+        console.error(err);
+      });
+  }, [projectId]);
+
   return (
-   
-<div className={styles.overlayBox}> {/* This name not matching the .css caused not to show up*/}
-
-<div className={styles.row}> {/* Updated class name - to use modules*/}
-  <div className={styles.column}> {/* Updated class name - to use modules*/}
-  <h2 className={styles.explore}>Explore Scratch blocks</h2>
-
-</div>
-</div>
-
-<div className={styles.row}> {/* Updated class name - to use modules*/}
-  <div className={styles.column}> {/* Updated class name - to use modules*/}
-  <p className={styles.body}>Learn the basic function of some basic scratch blocks such as "say," "wait," "go to" and "hide."</p>
-</div>
-</div>
-
-<div className={styles.row}> {/* Updated class name - to use modules*/}
-  <div className={styles.column}> {/* Updated class name - to use modules*/}
-    <h3 className={styles.blocks}>Look Blocks</h3>
-  </div>
-  <div className={styles.column}> {/* Updated class name - to use modules*/}
-    <h3 className={styles.blocks}>Control Blocks</h3>
-  </div>
-  <div className={styles.column}> {/* Updated class name - to use modules*/}
-    <h3 className={styles.blocks}>Motion Blocks</h3>
-  </div>
-</div>
-
-<div className={styles.row}> {/* Updated class name - to use modules*/}
-  <div className={styles.column}> {/* Updated class name - to use modules*/}
-  < img src='/images/projects/Project01-obj1.png' alt="Look Blocks" className={styles.img} />
-  </div>
-  <div className={styles.column}> {/* Updated class name - to use modules*/}
-    <img src='/images/projects/Project01-obj2.png' alt="Look Blocks" className={styles.img} />
-  </div>
-  <div className={styles.column}> {/* Updated class name - to use modules*/}
-    <img src="/images/projects/Project01-obj3.png" alt="Control Blocks" className={styles.img} />
-  </div>
-  <div className={styles.column}> {/* Updated class name - to use modules*/}
-    <img src='/images/projects/Project01-obj4.png' alt="Control Blocks" className={styles.img} />
-  </div>
-  <div className={styles.column}> {/* Updated class name - to use modules*/}
-    <img src="/images/projects/Project01-obj5.png" alt="Motion Blocks" className={styles.img} />
-  </div>     
-  <div className={styles.column}> {/* Updated class name - to use modules*/}
-    <img src='/images/projects/Project01-obj6.png' alt="Motion Blocks" className={styles.img} />
-  </div>
-</div>
-
-</div>
-  
+    <div className={styles.overlayBox}>
+      {results && (
+        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(results) }} />
+      )}
+    </div>
   );
 }
-
