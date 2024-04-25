@@ -124,6 +124,7 @@
 .activityImg {
   width: 8.5vw;
   margin-left: -0.3vw;
+  cursor: pointer;
 }
 
 .laptopSlider {
@@ -149,6 +150,7 @@
   border-radius: 50%;
   background-color: transparent;
   border: solid 0.16vw #707070;
+  cursor: pointer;
 }
 
 .sliderBtnActive {
