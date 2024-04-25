@@ -16,19 +16,6 @@
     text-align: left; /* not working - being overidden*/
   }
   
-<<<<<<< HEAD
-  h3 {
-    font-family: 'Nunito', sans-serif; 
-    font-weight: bold; 
-    font-size: 18px; 
-    color: #707070; /* colour taken from the photoshop mock up*/
-    text-align: left; /* not working - being overidden*/
-  }
-  
-
-  
-=======
-
   .body {
     text-align: left; /* not working - being overidden*/
     font-family: 'Nunito', sans-serif; 
@@ -36,7 +23,6 @@
     font-size: 16px; 
     color: #707070; /* colour taken from the photoshop mock up*/
   }
->>>>>>> main
 
   .linkStyle {
     color: #F91C85; /* Sets the text color of the link */
