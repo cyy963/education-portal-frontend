@@ -2,7 +2,7 @@ import styles from "./SubmitProject.module.css";
 
 // Import images
 import projectImg from "../../../../assets/StudentDashboard/makeProject-screenshot.png";
-import submitPojectImg from "../../../../assets/StudentDashboard/submitProject-Photo.png";
+import submitProjectImg from "../../../../assets/StudentDashboard/submitProject-Photo.png";
 
 // Import components
 import SubmitProjectButtons from "./components/SubmitProjectButtons";
@@ -23,7 +23,7 @@ export default function SubmitProject() {
 
       <div className={styles.flex}>
         <img
-          src={submitPojectImg}
+          src={submitProjectImg}
           alt="submit project image"
           className={styles.img}
         />
