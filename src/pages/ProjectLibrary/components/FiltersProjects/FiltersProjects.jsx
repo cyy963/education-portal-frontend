@@ -291,6 +291,7 @@ export default function FiltersProjects(props) {
     }
     setFilteredResults4(addSubjectArray);
   }, [filteredResults3, filteredSubjectMatter]);
+
   return (
     <>
       {permissionMessage ? (
