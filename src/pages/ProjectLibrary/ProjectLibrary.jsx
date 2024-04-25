@@ -14,6 +14,7 @@ import FooterOne from "../../common/Footer1/FooterOne";
 
 export default function ProjectLibrary() {
   const [user, setUser] = useState("");
+  const [permissionMessage, setPermissionMessage] = useState(false);
 
   // Pop up states and functions
   const [popUp, setPopUp] = useState(false);
@@ -24,7 +25,6 @@ export default function ProjectLibrary() {
   // Fetch user information
   useEffect(() => {
     if (params.userType === "teacher") {
-      console.log(params.userType);
       fetch(`http://localhost:4000/teacher/${params.id}`)
         .then((response) => response.json())
         .then((result) => {

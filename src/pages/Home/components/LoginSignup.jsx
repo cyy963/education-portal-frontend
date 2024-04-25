@@ -79,9 +79,13 @@ export default function LoginSignup(props) {
   }
 
   useEffect(() => {
-    successfulLogin
-      ? window.location.assign(`${userType}/${userId}/project-library`)
-      : "";
+    if (successfulLogin) {
+      if (userType === "student") {
+        window.location.assign(`${userType}/${userId}/project-library`);
+      } else {
+        window.location.assign("/teacher-dashboard");
+      }
+    }
   }, [userId]);
 
   return (

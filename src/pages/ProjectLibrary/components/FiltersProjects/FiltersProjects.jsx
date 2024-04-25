@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import styles from "./FiltersProjects.module.css";
 import topFilterStyles from "./TopFilters.module.css";
 import sideFilterStyles from "./SideFilters/SideFilters.module.css";
@@ -7,7 +8,9 @@ import CheckboxForms from "./SideFilters/CheckboxForms";
 import CheckboxAndLabel from "./SideFilters/CheckboxAndLabel";
 import TopFilters from "./TopFilters";
 
-export default function FiltersProjects() {
+export default function FiltersProjects(props) {
+  const params = useParams();
+  const [permissionMessage, setPermissionMessage] = useState(false);
   const [allProjects, setAllProjects] = useState([]);
 
   useEffect(() => {
@@ -288,83 +291,95 @@ export default function FiltersProjects() {
     }
     setFilteredResults4(addSubjectArray);
   }, [filteredResults3, filteredSubjectMatter]);
-
   return (
-    <div className={styles.filtersAndProjects}>
-      <div className={sideFilterStyles.sideFilters}>
-        {checkboxes.map((form, index) => (
-          <CheckboxForms CheckboxForms key={index} filterTitle={form.name}>
-            {form.options.map((option, index) => (
-              <CheckboxAndLabel
-                id={option}
-                key={index}
-                function={form.function}
-                label={option}
-              />
+    <>
+      {permissionMessage ? (
+        <h3 className={styles.permissionMessage}>
+          Oops! You don't have permission to view this page.
+        </h3>
+      ) : (
+        <div className={styles.filtersAndProjects}>
+          <div className={sideFilterStyles.sideFilters}>
+            {checkboxes.map((form, index) => (
+              <CheckboxForms CheckboxForms key={index} filterTitle={form.name}>
+                {form.options.map((option, index) => (
+                  <CheckboxAndLabel
+                    id={option}
+                    key={index}
+                    function={form.function}
+                    label={option}
+                  />
+                ))}
+              </CheckboxForms>
             ))}
-          </CheckboxForms>
-        ))}
-      </div>
+          </div>
+          {/* Top filter section */}
+          <div className={topFilterStyles.topFilters}>
+            {/* Difficulty buttons */}
+            <div className={topFilterStyles.btnDiv}>
+              {difficultyButtons.map((button, index) => (
+                <TopFilters
+                  className={`${topFilterStyles.btn} ${button.className} ${
+                    selectedDifficulty === button.label
+                      ? topFilterStyles.activeBtn
+                      : ""
+                  }`}
+                  key={index}
+                  function={handleDifficulty}
+                  label={button.label.toUpperCase()}
+                  id={button.label}
+                />
+              ))}
+            </div>
 
-      {/* Top filter section */}
-      <div className={topFilterStyles.topFilters}>
-        {/* Difficulty buttons */}
-        <div className={topFilterStyles.btnDiv}>
-          {difficultyButtons.map((button, index) => (
-            <TopFilters
-              className={`${topFilterStyles.btn} ${button.className} ${
-                selectedDifficulty === button.label
-                  ? topFilterStyles.activeBtn
-                  : ""
-              }`}
-              key={index}
-              function={handleDifficulty}
-              label={button.label.toUpperCase()}
-              id={button.label}
-            />
-          ))}
+            {/* Buttons to limit number of results */}
+            <div className={topFilterStyles.btnDiv}>
+              <p className={topFilterStyles.show}>SHOW</p>
+              {limitResultsButtons.map((button, index) => (
+                <TopFilters
+                  className={`${topFilterStyles.btn} ${button.className} ${
+                    resultsLimit === String(button.label)
+                      ? topFilterStyles.activeBtn
+                      : ""
+                  }`}
+                  key={index}
+                  function={handleResultsLimit}
+                  label={button.label}
+                  id={button.label}
+                />
+              ))}
+            </div>
+          </div>
+          {/* Rendering the projects */}
+          <div className={styles.projects}>
+            <div className={styles.projectsContainer}>
+              {filteredResults4
+                .slice(
+                  0,
+                  resultsLimit === "ALL"
+                    ? filteredResults4.length
+                    : resultsLimit
+                )
+                .map((project) => (
+                  <ProjectCard
+                    key={project.project_id}
+                    // link={`/student-dashboard`}
+                    link={`${
+                      params.userType === "student"
+                        ? `/student-dashboard/${project.project_id}/learning-objectives`
+                        : // ? `/student-dashboard/${params.id}/${project.project_id}/learning-objectives`
+                          ""
+                    }`}
+                    name={project.name}
+                    course={project.course}
+                    activity_type={project.activity_type}
+                    project_pic={project.project_pic}
+                  />
+                ))}
+            </div>
+          </div>
         </div>
-
-        {/* Buttons to limit number of results */}
-        <div className={topFilterStyles.btnDiv}>
-          <p className={topFilterStyles.show}>SHOW</p>
-          {limitResultsButtons.map((button, index) => (
-            <TopFilters
-              className={`${topFilterStyles.btn} ${button.className} ${
-                resultsLimit === String(button.label)
-                  ? topFilterStyles.activeBtn
-                  : ""
-              }`}
-              key={index}
-              function={handleResultsLimit}
-              label={button.label}
-              id={button.label}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Rendering the projects */}
-      <div className={styles.projects}>
-        <div className={styles.projectsContainer}>
-          {filteredResults4
-            .slice(
-              0,
-              resultsLimit === "ALL" ? filteredResults4.length : resultsLimit
-            )
-            .map((project) => (
-              <ProjectCard
-                key={project.project_id}
-                link={`/student-dashboard/${project.project_id}/learning-objectives`}
-                // link={`/student-dashboard`}
-                name={project.name}
-                course={project.course}
-                activity_type={project.activity_type}
-                project_pic={project.project_pic}
-              />
-            ))}
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
