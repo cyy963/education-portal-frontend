@@ -49,7 +49,7 @@ export default function MyModalImage({ projects, index }) {
             <img
               src={projects[index].submission}
               alt="Code screen shot"
-              style={{ width: "600px" }}
+              style={{ maxHeight: "300px", maxWidth: "600px" }}
             />
           </Typography>
         </Box>
