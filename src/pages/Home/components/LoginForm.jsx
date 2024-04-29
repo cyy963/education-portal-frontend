@@ -3,6 +3,7 @@ import styles from "./Form.module.css";
 export default function LoginForm(props) {
   return (
     <form className={styles.form} onSubmit={props.onSubmit} id={props.id}>
+      {/* Email section */}
       <input
         type="email"
         className={styles.textbox}

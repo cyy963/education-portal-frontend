@@ -2,7 +2,6 @@
   display: flex;
   flex-flow: column wrap;
   gap: 1.7vw;
-  margin-top: 2vw;
   align-items: center;
 }
 

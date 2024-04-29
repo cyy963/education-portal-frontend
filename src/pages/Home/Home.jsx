@@ -4,6 +4,8 @@ import NavBarOne from "../../common/NavBar1/NavBarOne";
 import FooterOne from "../../common/Footer1/FooterOne";
 import styles from "./Home.module.css";
 import LoginSignup from "./components/LoginSignup";
+
+// Image imports
 import banner from "../../assets/Home/hero.png";
 import animationImg from "../../assets/Home/animation.png";
 import gamesImg from "../../assets/Home/games.png";
@@ -15,11 +17,15 @@ import laptop3Img from "../../assets/Home/laptop3.png";
 import laptop4Img from "../../assets/Home/laptop4.png";
 
 export default function Home() {
+  // States and function to show or hide login component
   const [visibleLogin, setVisibleLogin] = useState(false);
-  const showLogin = (e) => setVisibleLogin(true);
+  const showLogin = () => setVisibleLogin(true);
   const hideLogin = () => setVisibleLogin(false);
+
+  // State to switch laptop image
   const [laptopImage, setLaptopImage] = useState(laptop1Img);
 
+  // Switch laptop image using student creation buttons
   const switchImg = (e) => {
     switch (e.target.id) {
       case "games":
@@ -36,6 +42,7 @@ export default function Home() {
     }
   };
 
+  // Switch laptop image using circular buttons
   const setImage = (e) => {
     switch (e.target.id) {
       case "btn2":
@@ -53,27 +60,24 @@ export default function Home() {
   };
 
   return (
-    <div
-    // onClick={hideLogin}
-    >
+    <div>
       <div className={styles.main}>
+        {/* Navbar div, component and props  */}
         <div className={styles.navBarSpace}>
           <NavBarOne
+            // Center button text
             text="FEATURES"
+            // login/signup props
             userImage="src/assets/NavBar/Avatar-white.png"
             alt="White silhouette of a person"
             userName="REGISTER | LOGIN"
             onChange={showLogin}
           />
         </div>
-        {visibleLogin && (
-          <LoginSignup
-            // containerOnClick={showLogin}
-            xOnClick={hideLogin}
-          />
-        )}
+        {/* If visibleLogin is true, show login */}
+        {visibleLogin && <LoginSignup xOnClick={hideLogin} />}
 
-        {/* Banner */}
+        {/* Homepage Banner */}
         <div className={styles.banner}>
           <img src={banner} className={styles.bannerImg} />
           <div className={styles.bannerChildren}>
@@ -114,6 +118,7 @@ export default function Home() {
           <h4 className={styles.studentsCreateTitle}>
             What will students create?
           </h4>
+          {/* Student creation buttons */}
           <div className={styles.activityImgs}>
             <img
               src={animationImg}
@@ -153,6 +158,7 @@ export default function Home() {
             alt="Laptop showing possible student creations"
             className={styles.laptopImg}
           />
+          {/* Grey, circular buttons below to switch laptop images */}
           <div className={styles.sliderBtns}>
             <button
               className={`${styles.sliderBtn} ${
@@ -185,6 +191,7 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Dummy navbar links */}
         <div className={styles.links}>
           <Link to="/teacher-dashboard">Go to Teacher Dashboard</Link>
           <br />

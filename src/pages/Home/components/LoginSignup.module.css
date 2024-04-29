@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .loginSignupContainer {
   width: 52.1vw;
   height: auto;
@@ -31,7 +32,7 @@
 .x {
   width: 1.6vw;
   position: relative;
-  right: -10.5vw;
+  right: -10.7vw;
   top: 1.5vw;
   cursor: pointer;
 }
@@ -74,7 +75,7 @@
   background-color: #43c0f6;
   height: 0.2vw;
   width: 4.9vw;
-  margin: 0.05vw -0.13vw 0.5vw;
+  margin: 0.05vw -0.13vw 2.5vw;
   border-radius: 1vw;
 }
 

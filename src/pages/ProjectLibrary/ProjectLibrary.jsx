@@ -22,7 +22,7 @@ export default function ProjectLibrary() {
   const removePopUp = () => setPopUp(false);
   const params = useParams();
 
-  // Fetch user information
+  // Fetch user information depending on userType and id
   useEffect(() => {
     if (params.userType === "teacher") {
       fetch(`http://localhost:4000/teacher/${params.id}`)
@@ -62,10 +62,12 @@ export default function ProjectLibrary() {
       {/* Pop up menu when user name is clicked */}
       <PopUpMenu
         profileLink={`${
+          // profile link goes to student or teacher pages depending on userType
           params.userType === "student"
             ? `/${params.userType}/${params.id}/student-profile-viewer/${params.id}`
             : "/teacher-profile-viewer"
-        }`}
+          }`}
+        // Shows popup when user clicks on their name or profile pic in nav bar
         onClick={togglePopUp}
         arrowClassName={`${popUpMenuStyles.arrow} ${
           popUp ? popUpMenuStyles.show : ""
@@ -87,6 +89,7 @@ export default function ProjectLibrary() {
           <button onClick={scrollBackToTop} className={styles.backToTopButton}>
             BACK TO TOP
           </button>
+          {/* Shows back to dashboard button only if user is a teacher */}
           {params.userType === "teacher" && <BackToDashboardButton />}
         </footer>
       </main>
