@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 export default function ProjectCard(props) {
   return (
-    // hard-coded at first, followed by dynamic coding once I have the layout down or I know what to do with them
     <div className={styles.card}>
+      {/* The whole card is a link to the project. Props will be received using projects array in parent component */}
       <Link
         className={styles.link}
         to={props.link}

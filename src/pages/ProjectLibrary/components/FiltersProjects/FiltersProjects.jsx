@@ -1,15 +1,26 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
+// css Module imports
 import styles from "./FiltersProjects.module.css";
 import topFilterStyles from "./TopFilters.module.css";
 import sideFilterStyles from "./SideFilters/SideFilters.module.css";
+
+// Component imports
 import ProjectCard from "./ProjectCard";
 import CheckboxForms from "./SideFilters/CheckboxForms";
 import CheckboxAndLabel from "./SideFilters/CheckboxAndLabel";
 import TopFilters from "./TopFilters";
 
-export default function FiltersProjects() {
+export default function FiltersProjects(props) {
+  const params = useParams();
+  // Permission message to be shown when teacher tries to click on a project
+  const [permissionMessage, setPermissionMessage] = useState(false);
+
+  // Array of all objects
   const [allProjects, setAllProjects] = useState([]);
 
+  // Fetch the project array from the database
   useEffect(() => {
     fetch(`http://localhost:4000/projects`)
       .then((response) => response.json())
@@ -18,6 +29,7 @@ export default function FiltersProjects() {
       });
   }, []);
 
+  // States for filtering the results
   const [selectedDifficulty, setSelectedDifficulty] = useState("All");
   const [resultsLimit, setResultsLimit] = useState("ALL");
   const [filteredSubscriptions, setFilteredSubscriptions] = useState([]);
@@ -29,6 +41,7 @@ export default function FiltersProjects() {
   const [filteredResults3, setFilteredResults3] = useState([]);
   const [filteredResults4, setFilteredResults4] = useState([]);
 
+  // Set all arrays to have all projects at the beginning, once allProjects is set from initial fetch
   useEffect(() => {
     setFilteredSubscriptions([...allProjects]);
     setFilteredActivities([...allProjects]);
@@ -40,9 +53,11 @@ export default function FiltersProjects() {
     setFilteredResults4([...allProjects]);
   }, [allProjects]);
 
+  // Set difficulty and result limits from button id's in their respective filters
   const handleDifficulty = (e) => setSelectedDifficulty(e.target.id);
   const handleResultsLimit = (e) => setResultsLimit(e.target.id);
 
+  // Checkbox arrays to create side filters using components
   const checkboxes = [
     {
       name: "SUBSCRIPTION",
@@ -87,6 +102,7 @@ export default function FiltersProjects() {
     {
       name: "YEAR LEVEL",
       options: ["1 - 4", "5 - 6", "7 - 8", "9 - 13"],
+      // Year levels in projects are just one year, so switch has to match the year with the checkbox before pushing the projects to the year level array, or leaving them out.
       function: function handleYearLevel(e) {
         switch (e.target.id) {
           case "1 - 4":
@@ -202,6 +218,7 @@ export default function FiltersProjects() {
     },
   ];
 
+  // Array to be mapped through for course buttons
   const difficultyButtons = [
     { label: "All", className: topFilterStyles.leftBtn },
     { label: "Beginner", className: "" },
@@ -209,17 +226,20 @@ export default function FiltersProjects() {
     { label: "Advanced", className: topFilterStyles.rightBtn },
   ];
 
+  // Array to be mapped through for results limit buttons
   const limitResultsButtons = [
     { label: 5, className: topFilterStyles.leftBtn },
     { label: 10, className: "" },
     { label: "ALL", className: topFilterStyles.rightBtn },
   ];
 
+  // Filter through courses depending on button pressed
   const filteredDifficulties =
     selectedDifficulty === "All"
       ? allProjects
       : allProjects.filter((project) => selectedDifficulty === project.course);
 
+  // Each useEffect maps through the last two arrays (in this case, courses and subscription types), and checks which projects they have in common, before adding this to a new array
   useEffect(() => {
     const difficultySubscription = [];
     if (filteredDifficulties.length > 0 && filteredSubscriptions.length > 0) {
@@ -237,6 +257,7 @@ export default function FiltersProjects() {
     setFilteredResults(difficultySubscription);
   }, [selectedDifficulty, filteredSubscriptions]);
 
+  // UseEffect to map through last filtered result and check it against projects in the activity type array
   useEffect(() => {
     const addActivityArray = [];
 
@@ -255,6 +276,7 @@ export default function FiltersProjects() {
     setFilteredResults2(addActivityArray);
   }, [filteredResults, filteredActivities]);
 
+  // UseEffect to map through last filtered result and check it against projects in the year level array
   useEffect(() => {
     const addYearArray = [];
     if (filteredResults2.length > 0 && filteredYearLevel.length > 0) {
@@ -272,6 +294,7 @@ export default function FiltersProjects() {
     setFilteredResults3(addYearArray);
   }, [filteredResults2, filteredYearLevel]);
 
+  //// UseEffect to map through last filtered result and check it against projects in the subject matter array
   useEffect(() => {
     const addSubjectArray = [];
     if (filteredResults3.length > 0 && filteredSubjectMatter.length > 0) {
@@ -289,84 +312,103 @@ export default function FiltersProjects() {
     setFilteredResults4(addSubjectArray);
   }, [filteredResults3, filteredSubjectMatter]);
 
-  console.log(filteredResults4);
-
   return (
-    <div className={styles.filtersAndProjects}>
-      <div className={sideFilterStyles.sideFilters}>
-        {checkboxes.map((form, index) => (
-          <CheckboxForms CheckboxForms key={index} filterTitle={form.name}>
-            {form.options.map((option, index) => (
-              <CheckboxAndLabel
-                id={option}
-                key={index}
-                function={form.function}
-                label={option}
-              />
+    <>
+      {/* Renders the permission message if a teacher clicks on a project, otherwise, shows filtered projects */}
+      {permissionMessage ? (
+        <h3 className={styles.permissionMessage}>
+          Oops! You don't have permission to view this page.
+        </h3>
+      ) : (
+        <div className={styles.filtersAndProjects}>
+          <div className={sideFilterStyles.sideFilters}>
+            {/* For every checkbox type (i.e. subscription, activity type, year 
+            level, subject matter), a title and horizontal line is rendered,
+            followed by a child for every checkbox and label*/}
+            {checkboxes.map((form, index) => (
+              <CheckboxForms CheckboxForms key={index} filterTitle={form.name}>
+                {form.options.map((option, index) => (
+                  <CheckboxAndLabel
+                    id={option}
+                    key={index}
+                    function={form.function}
+                    label={option}
+                  />
+                ))}
+              </CheckboxForms>
             ))}
-          </CheckboxForms>
-        ))}
-      </div>
+            </div>
+            
+          {/* Top filter section */}
+            <div className={topFilterStyles.topFilters}>
+              
+            {/* Difficulty/course buttons */}
+            <div className={topFilterStyles.btnDiv}>
+              {difficultyButtons.map((button, index) => (
+                <TopFilters
+                  className={`${topFilterStyles.btn} ${button.className} ${
+                    selectedDifficulty === button.label
+                      ? topFilterStyles.activeBtn
+                      : ""
+                  }`}
+                  key={index}
+                  function={handleDifficulty}
+                  label={button.label.toUpperCase()}
+                  id={button.label}
+                />
+              ))}
+            </div>
 
-      {/* Top filter section */}
-      <div className={topFilterStyles.topFilters}>
-        {/* Difficulty buttons */}
-        <div className={topFilterStyles.btnDiv}>
-          {difficultyButtons.map((button, index) => (
-            <TopFilters
-              className={`${topFilterStyles.btn} ${button.className} ${
-                selectedDifficulty === button.label
-                  ? topFilterStyles.activeBtn
-                  : ""
-              }`}
-              key={index}
-              function={handleDifficulty}
-              label={button.label.toUpperCase()}
-              id={button.label}
-            />
-          ))}
+            {/* Buttons to limit number of results */}
+            <div className={topFilterStyles.btnDiv}>
+              <p className={topFilterStyles.show}>SHOW</p>
+              {limitResultsButtons.map((button, index) => (
+                <TopFilters
+                  className={`${topFilterStyles.btn} ${button.className} ${
+                    resultsLimit === String(button.label)
+                      ? topFilterStyles.activeBtn
+                      : ""
+                  }`}
+                  key={index}
+                  function={handleResultsLimit}
+                  label={button.label}
+                  id={button.label}
+                />
+              ))}
+            </div>
+            </div>
+            
+          {/* Rendering the projects */}
+          <div className={styles.projects}>
+              <div className={styles.projectsContainer}>
+                {/* Maps through the final array of filtered projects */}
+                {filteredResults4
+                  // Only shows number of projects requested
+                .slice(
+                  0,
+                  resultsLimit === "ALL"
+                    ? filteredResults4.length
+                    : resultsLimit
+                )
+                  .map((project) => (
+                  // Renders a project card for each project in filteredResults4, using the information in the array
+                  <ProjectCard
+                    key={project.project_id}
+                    link={`${
+                      params.userType === "student"
+                        ? `/student-dashboard/${project.project_id}/learning-objectives`
+                        : ""
+                    }`}
+                    name={project.name}
+                    course={project.course}
+                    activity_type={project.activity_type}
+                    project_pic={project.project_pic}
+                  />
+                ))}
+            </div>
+          </div>
         </div>
-
-        {/* Buttons to limit number of results */}
-        <div className={topFilterStyles.btnDiv}>
-          <p className={topFilterStyles.show}>SHOW</p>
-          {limitResultsButtons.map((button, index) => (
-            <TopFilters
-              className={`${topFilterStyles.btn} ${button.className} ${
-                resultsLimit === String(button.label)
-                  ? topFilterStyles.activeBtn
-                  : ""
-              }`}
-              key={index}
-              function={handleResultsLimit}
-              label={button.label}
-              id={button.label}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Rendering the projects */}
-      <div className={styles.projects}>
-        <div className={styles.projectsContainer}>
-          {filteredResults4
-            .slice(
-              0,
-              resultsLimit === "ALL" ? filteredResults4.length : resultsLimit
-            )
-            .map((project) => (
-              <ProjectCard
-                key={project.project_id}
-                link={`/student-dashboard/${project.project_id}/learning-objectives`}
-                // link={`/student-dashboard`}
-                name={project.name}
-                course={project.course}
-                activity_type={project.activity_type}
-                project_pic={project.project_pic}
-              />
-            ))}
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }

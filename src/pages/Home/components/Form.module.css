@@ -1,0 +1,45 @@
+.form {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1.7vw;
+  align-items: center;
+}
+
+.textbox {
+  border-radius: 0.5vw;
+  height: 1.7vw;
+  width: 12.5vw;
+  border: 0.1vw solid #bdbcbc;
+  font-family: "Open Sans", sans-serif;
+  padding: 0.9vw;
+  font-size: 1vw;
+  color: #474747;
+}
+
+.message {
+  font-family: "Open Sans", sans-serif;
+  color: #707070;
+  font-size: 1.6vw;
+  font-weight: 600;
+  text-align: center;
+  width: 20vw;
+}
+
+.logInBtn {
+  background-color: #f91c85;
+  border: none;
+  font-family: "Nunito", sans-serif;
+  border-radius: 0.35vw;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9vw;
+  padding: 0.4vw;
+  width: 9vw;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  margin: 1vw 0 4.7vw;
+}
+
+.link {
+  text-decoration: none;
+}
