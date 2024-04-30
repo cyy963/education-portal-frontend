@@ -83,6 +83,7 @@
   overflow-y: auto; /* Ensure scrollbar appears when content exceeds container height */
 }
 
+/* checkbox styling */
 .checkbox {
   margin-top: 3vh;
 }

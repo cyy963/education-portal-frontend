@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import styles from "../HelpRequests.module.css"
-
+ 
 function HelpRequestButtons({ requests, checked, type, setRequests, setChecked }) {
     const [changeIndex, setChangeIndex] = useState([]);
     const [changed, setChanged] = useState([]);
-
+ 
     useEffect(() => {
         let testChangeIndex = [];
         let testChanged = [];
         for (let i = 0; i < checked.length; i++) {
           if (!checked[i].checked) {
-            // The indexes for unChecked banners.
+            // The indexes for unChecked banners
             testChangeIndex.push(i);
           } else {
             // The objects and projects that have been checked
