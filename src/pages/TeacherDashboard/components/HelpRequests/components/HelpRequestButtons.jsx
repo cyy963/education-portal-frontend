@@ -10,7 +10,7 @@ function HelpRequestButtons({ requests, checked, type, setRequests, setChecked }
         let testChanged = [];
         for (let i = 0; i < checked.length; i++) {
           if (!checked[i].checked) {
-            // The indexes for unChecked banners.
+            // The indexes for unChecked banners
             testChangeIndex.push(i);
           } else {
             // The objects and projects that have been checked
