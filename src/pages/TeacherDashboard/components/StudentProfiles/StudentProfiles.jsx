@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 export default function StudentProfiles(){
   const [students, setStudents] = useState([]);
 
-  //fetches and sets student name and id to students
+  //fetches and sets student name, id, profile pic to students
   useEffect (()=>{
     fetch('http://localhost:4000/students')
       .then((response) => response.json())

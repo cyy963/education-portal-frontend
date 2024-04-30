@@ -44,37 +44,37 @@
   margin-right: 2vw;
 }
 
-.studentHelp {
-  align-items: flex-start;
-}
+  .studentHelp {
+    align-items: flex-start;
+  }
 
-.checkBoxDiv,
-.requestFlex,
-.imageFlex,
-.studentHelp {
-  display: flex;
-  justify-content: space-between;
-}
+  .checkBoxDiv,
+  .requestFlex,
+  .imageFlex,
+  .studentHelp {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.checkBoxDiv {
-  background-color: white;
-  width: 94%;
-  border-radius: 15px;
-  margin-bottom: 2vh;
-  margin-right: 2vw;
-}
+  .checkBoxDiv {
+    background-color: white;
+    width: 94%;
+    border-radius: 15px;
+    margin-bottom: 2vh;
+    margin-right: 2vw;
+  }
 
-.profilePic {
-  height: 7vh;
-  margin: 1vw 4vw;
-}
+  .profilePic {
+    height: 7vh;
+    margin: 1vw 4vw;
+  }
   
-.imageFlex {
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  height: 10vh;
-}
+  .imageFlex {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 10vh;
+  }
   
 
 .forScroll {
@@ -84,7 +84,7 @@
 }
 
 .checkbox {
-  margin-top: 6vh;
+  margin-top: 3vh;
 }
 
 .checkbox > input[type="checkbox"] {
