@@ -1,67 +1,125 @@
-# Welcome to your Mission X Repo for the frontend
+# Education Website - Frontend
 
-# First Git Actions
+![React](https://img.shields.io/badge/React-18.2.0-blue)
+![Axios](https://img.shields.io/badge/Axios-1.2.0-orange)
 
-- After cloning and pulling the base project please create on your local machines your own development branch and push to remote
-- Commit often
-- Please put concise and precise commit messages
-- Push often
-- For more information, refer to the Git workflow
+This is the frontend of the Education Website project, built with React and Vite. The frontend communicates with the backend API to display and manage data.
 
-# Below are some guidelines so that we all code in sync
+## Demo Website
 
-## Sample React project structure
+The Level Up Works Website is deployed on GitHub Pages. You can access it [here](https://nicolegunn.github.io/education-website-frontend/).
 
-There is no particular official project structure for React. I've followed some of the commonly used practices for code organization in react projects in this sample code.
+## Table of Contents
 
-Typically within the src folder anything component related such as a component file and its corresponding CSS files should start with a capital letter (and if applicable a folder that houses a specific component) - all other files and folders should be lowercase. So for example, if you have a page/component called "StudentDashboard.js" it should indeed be named "StudentDashboard.js". Or if your page/component is made of multiple components, then your folder name could also reflect the exact component name and format for example "StudentDashboard" folder which houses "StudentDashboard.js" and its related components. Ultimately though, so long as you and your team all follow an agreed upon format, that is the main thing, otherwise you will run into conflicts upon merging. Again, there is no ideal structure for all projects, but you could start with the below structure:
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Authentication](#authentication)
+- [Project Library](#project-library)
+- [User Profile Pages](#user-profile-pages)
+- [Student Dashboard](#student-dashboard)
+- [Teacher Dashboard](#teacher-dashboard)
+- [License](#license)
 
-```
-|--public
-|  |-images (get from public/images folder in the portal)
-|--src
-|  |-assets (get from src/assets folder in the portal)
-|  |-pages
-|  |  |-Home
-|  |  |  |-components (all reusable components that make up the page)
-|  |  |  |  |-component1
-|  |  |  |-Home.jsx
-|  |  |-StudentDashboard
-|  |  |  |-components (all reusable components that make up the page)
-|  |  |  |  |-component1
-|  |  |  |-StudentDashboard.jsx
-|  |-common (all reusable components that might be used on multiple pages)
-|  |  |-Navbar.jsx
-```
+## Introduction
 
-Ideally no new major folders are to be created unless discussed with your team first to avoid conflicts/confusion.
+The Level Up Works Website is a Learning Management System that enables school students to get their lesson instructions, request help, and submit work. School teachers can track student progress and manage help requests.
 
-## Naming Conventions:
+## Features
 
-- All components/pages should be written in camelCase but with the first letter capitalised: - ie: HomePageNavBar.js - HomePageFooter.js - StudentProfileNavBar.js
+- User Authentication and Authorization
+- Project Library with Filtering Options
+- Profile Viewing for Students and Teachers
+- Learning Objectives and Progress Tracking
+- Interactive Tutorials and Instructions
+- Real-time Data Fetching with Axios
 
-- If your team decides to use CSS modules, make sure you name your CSS classes with camelCase
+## Technologies Used
 
-## Images
+- **Frontend:**
+  - ![React](https://img.shields.io/badge/React-v17.0.2-blue.svg)
+  - ![Vite](https://img.shields.io/badge/Vite-v2.6.4-yellow.svg)
+  - ![Axios](https://img.shields.io/badge/Axios-v0.21.1-lightblue.svg)
+- **Backend:**
+  - ![Node.js](https://img.shields.io/badge/Node.js-v20.12.2-green.svg)
+  - ![Express](https://img.shields.io/badge/Express-v4.19.2-lightgrey.svg)
+- **Database:**
+  - ![MySQL](https://img.shields.io/badge/MySQL-v3.9.4-orange.svg)
+- **Other:**
+  - Context API for state management
+  - React Router for routing
+  - CSS Modules for styling
 
-Keep in mind that as a team, you should have an images folder inside of the public folder, and an images (commonly named "assets") folder inside of your src folder. To access images in the public folder, you don't need to "import" them at the top of your component files, you can specify a path to them, React will always search in the public folder if a path is specified. So your paths (in the src attribute) for images in the public folder will likely be something like: /images/students/AliceKindellan.png
+## Authentication
 
+### Login Process
 
-# How to Start:
+The login process includes field validation, making an API call to the `/login` endpoint, and handling the server response.
 
-1. After cloning this repo to your local directory, change to the project directory first:
+**Note:** For demo purposes, the student is automatically logged in with the following credentials:
 
-### `cd current-repo-name`
+- Email: a_andrews@missionx.school.nz
+- Password: AA1234
 
-2. And then install packages:
+### Registering a New User
 
-### `npm install` or `npm i`
+The signup process includes field validation, preparing user data, making an API call to the `/signup` endpoint, and handling the server response.
 
-3. Runs the app in the development mode:
+**Note:** This functionality has been disabled for demo purposes.
 
-### `npm run dev`
+### Protected Routes
 
-Ctrl + Click the link in your terminal [http://localhost:5173](http://localhost:5173) to view it in your browser.
+Protected routes ensure that only authenticated users can access certain routes. If an unauthenticated user tries to access a protected route, they are redirected to the home page.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Note:** This functionality has been disabled for demo purposes.
+
+## Project Library
+
+The Project Library allows students to select a project which takes them to the relevant Student Dashboard page.
+
+**For demo purposes, only the Introduction project has this functionality.**
+
+Teachers can also access the Project Library.  
+Available projects are stored in a MySQL database.
+
+### Navigation
+
+Students are directed to the Project Library page upon login. Teachers can navigate to the Project Library from the sidebar within the Teacher Dashboard page or the navigation bar at the top of their Profile Viewer Page or the Home Page.
+
+### Filter Logic
+
+Users can filter projects by various criteria such as subscription type, activity type, year level, subject matter, and course level.
+
+## User Profile Pages
+
+The Profile Pages display information about the logged-in user sourced from the student or teacher table in the MySQL database.
+
+## Student Dashboard
+
+### Learning Objectives
+
+Students can navigate to the Learning Objectives page for a selected project from the Project Library. The main content of this page is stored as HTML in the project table of the MySQL database.
+
+### Instructions
+
+This page shows instructions for the selected project from the database.
+
+### Video Tutorial
+
+This page shows a video corresponding to the selected project. The URL of the YouTube video link is stored in the project table of the MySQL database.
+
+### Make Project
+
+This static page shows a screenshot stored in the image folder.
+
+### Submit Project
+
+Students can submit a screenshot of their project using the 'Send Photo' button. The submission uses FileStack to store the image URLs, which then get updated in the database.frontend.
+
+## Teacher Dashboard
+
+**Note:** The Teacher Dashboard has been disabled for demo purposes.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
