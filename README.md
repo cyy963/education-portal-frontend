@@ -5,10 +5,6 @@
 
 This is the frontend of the Education Website project, built with React and Vite. The frontend communicates with the backend API to display and manage data.
 
-## Demo Website
-
-The Level Up Works Website is deployed on GitHub Pages. You can access it [here](https://nicolegunn.github.io/education-website-frontend/).
-
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -56,28 +52,15 @@ The Level Up Works Website is a Learning Management System that enables school s
 
 The login process includes field validation, making an API call to the `/login` endpoint, and handling the server response.
 
-**Note:** For demo purposes, the student is automatically logged in with the following credentials:
-
-- Email: a_andrews@missionx.school.nz
-- Password: AA1234
-
 ### Registering a New User
 
 The signup process includes field validation, preparing user data, making an API call to the `/signup` endpoint, and handling the server response.
 
 **Note:** This functionality has been disabled for demo purposes.
 
-### Protected Routes
-
-Protected routes ensure that only authenticated users can access certain routes. If an unauthenticated user tries to access a protected route, they are redirected to the home page.
-
-**Note:** This functionality has been disabled for demo purposes.
-
 ## Project Library
 
 The Project Library allows students to select a project which takes them to the relevant Student Dashboard page.
-
-**For demo purposes, only the Introduction project has this functionality.**
 
 Teachers can also access the Project Library.  
 Available projects are stored in a MySQL database.
@@ -117,8 +100,6 @@ This static page shows a screenshot stored in the image folder.
 Students can submit a screenshot of their project using the 'Send Photo' button. The submission uses FileStack to store the image URLs, which then get updated in the database.frontend.
 
 ## Teacher Dashboard
-
-**Note:** The Teacher Dashboard has been disabled for demo purposes.
 
 ## License
 
