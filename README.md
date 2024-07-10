@@ -101,6 +101,10 @@ Students can submit a screenshot of their project using the 'Send Photo' button.
 
 ## Teacher Dashboard
 
+### Help Requests
+### Progress Tracker
+### Project Submissions
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
